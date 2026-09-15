@@ -193,7 +193,7 @@ table.t td.n{text-align:right;font-variant-numeric:tabular-nums;font-weight:600;
 
 <style id="merged">
 /* MERGED · Ledger structure × Painted color · accessibility pass */
-:root{--warm:#f6f2ea;--tile:#fffdf9;--line:#2b2b2b;--soft:#d9d1c2;--ink:#1d1c1a;--ink2:#4a4642;--ink3:#6e675e;--grey:#1d1c1a;--r:0;--shadow:none;--c-primary:#2a439b;--c-strong:#1d1c1a;--c-track:#e6dfd0;--orange-ink:#8a4b00}
+:root{--noise:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='4' seed='7' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/><feComponentTransfer><feFuncA type='linear' slope='0.9'/></feComponentTransfer></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");--warm:#f6f2ea;--tile:#fffdf9;--line:#2b2b2b;--soft:#d9d1c2;--ink:#1d1c1a;--ink2:#4a4642;--ink3:#6e675e;--grey:#1d1c1a;--r:0;--shadow:none;--c-primary:#2a439b;--c-strong:#1d1c1a;--c-track:#e6dfd0;--orange-ink:#8a4b00}
 :root[data-theme="dark"]{--warm:#15171f;--tile:#1e2130;--line:#e8e1d2;--soft:#3a3f55;--ink:#f1eee6;--ink2:#cfc9bc;--ink3:#a39d90;--grey:#f1eee6;--c-primary:#8fa7dd;--c-strong:#f1eee6;--c-track:#2c3148;--orange-ink:#ffc46b}
 html{scroll-behavior:smooth}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
@@ -215,11 +215,13 @@ nav a{font-family:Menlo,monospace;text-transform:uppercase;letter-spacing:.12em;
 :root[data-theme="dark"] #dl:hover{background:#fff}
 /* hero */
 .hero{padding:64px 0 36px;border-bottom:3px double var(--line);border-radius:0;overflow:visible}
-.hero::before{background:
+.hero::before{background-blend-mode:soft-light,normal,normal,normal;background-size:160px 160px,auto,auto,auto;background:
+  var(--noise),
   radial-gradient(640px 400px at 0% 0%, rgba(94,125,189,.22), transparent 62%),
   radial-gradient(560px 360px at 100% 10%, rgba(255,162,37,.26), transparent 62%),
   radial-gradient(420px 280px at 65% 100%, rgba(129,203,178,.24), transparent 65%)}
-:root[data-theme="dark"] .hero::before{background:
+:root[data-theme="dark"] .hero::before{background-blend-mode:overlay,normal,normal,normal;background-size:160px 160px,auto,auto,auto;background:
+  var(--noise),
   radial-gradient(640px 400px at 0% 0%, rgba(125,155,224,.20), transparent 62%),
   radial-gradient(560px 360px at 100% 10%, rgba(255,162,37,.16), transparent 62%),
   radial-gradient(420px 280px at 65% 100%, rgba(129,203,178,.12), transparent 65%)}
@@ -263,6 +265,7 @@ section{padding:64px 0 8px;scroll-margin-top:84px}
 .sec-h .tag{font-family:Menlo,monospace;background:var(--orange);color:#1d1c1a;border:2px solid var(--ink);padding:3px 9px;font-size:13px;letter-spacing:.14em;font-weight:700}
 .sec-h p{font-family:Menlo,monospace;text-transform:uppercase;letter-spacing:.08em;font-size:12px;margin-left:auto;text-align:right;color:var(--ink2);max-width:46%}
 .strip{max-width:none;height:8px;margin:0;border-radius:0;opacity:.95}
+.strip::after{content:"";position:absolute;inset:0;background:var(--noise);background-size:160px 160px;mix-blend-mode:soft-light;opacity:.9}
 .grid,.proj{border-top:0}
 .grid{gap:0;border-left:2px solid var(--line);border-top:2px solid var(--line)}
 .card{border:0;border-right:2px solid var(--line);border-bottom:2px solid var(--line);border-radius:0;box-shadow:none;background:var(--tile);padding:26px}
@@ -387,7 +390,7 @@ section{padding:64px 0 8px;scroll-margin-top:84px}
       <li>Seat history from Anthropic billing notices. Rollout waves and milestones from staff email and Zoom AI summaries. Spend figures are intentionally excluded.</li>
       <li>Chart colors follow the H4KI brand palette. Every chart carries direct labels and a table in the downloadable pack so no value depends on color alone.</li>
     </ul>
-    Prepared by Travis Clark, Creative &amp; Technology Manager. Data pack generated in the browser: a full-bleed PDF report plus one PNG per chart.
+    Prepared by Travis Clark, Creative &amp; Technology Manager. Data pack generated in the browser: a full-bleed PDF report plus one PNG per infographic.
   </div>
 </main>
 
@@ -532,8 +535,8 @@ CH.coders=c=>{const s=svgRoot(360,230);vbars(s,DATA.loc.map(d=>({l:d.l,v:d.u})),
   txt(s,340,14,'9 distinct teammates since June',{anchor:'end',size:11.5,fill:C.ink3});return s;};
 CH.files=c=>{const s=svgRoot(360,260);hbars(s,DATA.files,{x0:150,w:160,h:230,unit:'%',fmtv:v=>v,hi:0});return s;};
 CH.features=c=>{const s=svgRoot(380,260);hbars(s,DATA.features,{x0:180,w:150,h:230,unit:'%',fmtv:v=>v,max:100,color:(d,i)=>d.v>=80?C.dark:d.v>0?C.blue:C.line});return s;};
-CH.value=c=>{const s=svgRoot(1100,220);const d=DATA.value.outputs;const defs=el('defs',{},s);[[C.dark,'#3d5bb8'],[C.blue,'#7f9ad0'],[C.green,'#a3dccb'],[C.orange,'#ffbd5c']].forEach((g,i)=>{const lg=el('linearGradient',{id:'vg'+i,x1:0,y1:0,x2:1,y2:1},defs);el('stop',{offset:0,'stop-color':g[0]},lg);el('stop',{offset:1,'stop-color':g[1]},lg);});
-  d.forEach((r,i)=>{const x=20+i*200;el('rect',{x,y:30,width:180,height:150,rx:20,fill:`url(#vg${i})`},s);
+CH.value=c=>{const s=svgRoot(1100,220);const d=DATA.value.outputs;const defs=el('defs',{},s);const nf=el('filter',{id:'vnoise',x:0,y:0,width:1,height:1},defs);el('feTurbulence',{type:'fractalNoise',baseFrequency:'1.1',numOctaves:4,seed:7,result:'n'},nf);el('feColorMatrix',{in:'n',type:'saturate',values:0,result:'g'},nf);el('feComponentTransfer',{in:'g',result:'ga'},nf).appendChild(el('feFuncA',{type:'linear',slope:.55}));el('feBlend',{in:'ga',in2:'SourceGraphic',mode:'soft-light',result:'b'},nf);el('feComposite',{in:'b',in2:'SourceGraphic',operator:'in'},nf);[[C.dark,'#3d5bb8'],[C.blue,'#7f9ad0'],[C.green,'#a3dccb'],[C.orange,'#ffbd5c']].forEach((g,i)=>{const lg=el('linearGradient',{id:'vg'+i,x1:0,y1:0,x2:1,y2:1},defs);el('stop',{offset:0,'stop-color':g[0]},lg);el('stop',{offset:1,'stop-color':g[1]},lg);});
+  d.forEach((r,i)=>{const x=20+i*200;el('rect',{x,y:30,width:180,height:150,rx:20,fill:`url(#vg${i})`,filter:'url(#vnoise)'},s);
     const tf=i<2?'#fff':'#1d1c1a',ts=i<2?'rgba(255,255,255,.75)':'rgba(29,28,26,.7)';txt(s,x+20,90,fmtc(r.v),{fill:tf,weight:700,size:40});txt(s,x+20,120,r.l,{fill:tf,size:13});txt(s,x+20,150,'verified · 90 days',{fill:ts,size:11});});
   el('path',{d:'M830 105 h60',stroke:C.ink3,'stroke-width':2},s);el('path',{d:'M880 97 l10 8 -10 8',stroke:C.ink3,'stroke-width':2,fill:'none'},s);
   el('rect',{x:900,y:30,width:180,height:150,rx:20,fill:C.bg,stroke:C.orange,'stroke-width':3},s);
@@ -647,17 +650,15 @@ document.getElementById('dl').addEventListener('click',async()=>{
   const btn=document.getElementById('dl'),lbl=btn.querySelector('span');btn.disabled=true;
   try{
     if(!window.JSZip||!window.jspdf)throw new Error('Libraries not loaded (needs internet for JSZip and jsPDF from CDN).');
-    const zip=new JSZip();const root=zip.folder('H4KI-Claude-2026-YTD');const png=root.folder('charts');
+    const zip=new JSZip();const root=zip.folder('H4KI-Claude-2026-YTD');const png=root.folder('infographics');
     const charts=[...document.querySelectorAll('.chart')];let i=0;
     for(const c of charts){i++;lbl.textContent=`Rendering ${i}/${charts.length}…`;const svg=c.querySelector('svg');if(!svg)continue;const b=await svgToPng(svg);png.file(`${String(i).padStart(2,'0')}-${slug(c.dataset.title)}.png`,b);}
     lbl.textContent='Laying out PDF…';
     const blob=await buildPdf(t=>lbl.textContent=t);root.file('H4KI-Claude-2026-YTD.pdf',blob);
-    root.file('data.json',JSON.stringify(DATA,null,2));
-    root.file('README.txt',`H4KI x Claude, 2026 year to date (Jan 1 to Sep 15, 2026)\nGenerated ${new Date().toISOString()}\n\nH4KI-Claude-2026-YTD.pdf   full-bleed Letter report, every chart, table, project and milestone\ncharts/                     one PNG per infographic, 2x resolution\ndata.json                   raw data behind the dashboard\n\nSources: Claude admin analytics dashboard (organization-wide), Anthropic billing notices, staff email and Zoom summaries. No supporter personal or financial data. Spend excluded.`);
     lbl.textContent='Compressing…';
     const out=await zip.generateAsync({type:'blob',compression:'DEFLATE'});
     const a=document.createElement('a');a.href=URL.createObjectURL(out);a.download='H4KI-Claude-2026-YTD.zip';document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},2000);
-    toast(`Downloaded: PDF report + ${charts.length} PNG charts, zipped.`);
+    toast(`Downloaded: PDF report + ${charts.length} PNG infographics, zipped.`);
   }catch(e){console.error(e);toast('Download failed: '+e.message);}
   finally{btn.disabled=false;lbl.textContent='Download data pack';}
 });
