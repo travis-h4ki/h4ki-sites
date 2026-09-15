@@ -1,0 +1,4 @@
+<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>H4KI sites</title>
+<style>body{font-family:"Helvetica Neue",Arial,sans-serif;background:#fafafa;color:#353535;max-width:640px;margin:80px auto;padding:0 24px}h1{color:#2a439b;font-size:22px}ul{padding:0;list-style:none}li{padding:12px 0;border-bottom:1px solid #e8e8e8}a{color:#2a439b;text-decoration:none;font-weight:600;font-size:17px}small{color:#9a9a9a;display:block;margin-top:2px}</style>
+<h1>H4KI internal sites</h1><ul id="l"></ul>
+<script>fetch('sites.json').then(r=>r.json()).then(s=>{document.getElementById('l').innerHTML=s.map(x=>`<li><a href="${x.slug}/">${x.title}</a><small>${x.slug} · updated ${x.updated}</small></li>`).join('')})</script>
