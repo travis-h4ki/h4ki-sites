@@ -80,13 +80,13 @@ h1,h2{font-weight:800;letter-spacing:-.03em}
 h3{font-weight:700}
 .nav{background:var(--bg);border-bottom:var(--line)}
 .layer{position:relative;padding:80px 0 110px;isolation:isolate;overflow:clip}
-.layer+.layer{padding-top:170px}
+.layer+.layer{padding-top:360px}
 @supports (mask-image:url("x")){
-.layer+.layer::before{content:"";position:absolute;left:-600px;right:0;top:-1px;height:160px;background:var(--prev);z-index:1;
-mask-image:url("dissolve.png");mask-size:600px 160px;mask-repeat:repeat-x;animation:drift 40s linear infinite;will-change:transform}
+.layer+.layer::before{content:"";position:absolute;left:0;right:0;top:-1px;height:320px;background:var(--prev);z-index:1;
+mask-image:url("dissolve.png");mask-size:600px 320px;mask-repeat:repeat-x}
 }
-@keyframes drift{to{transform:translateX(600px)}}
-html.motion-off .layer+.layer::before{animation:none}
+html.js .layer+.layer::before{display:none}
+.dissolve{position:absolute;left:0;top:-1px;width:100%;height:320px;z-index:1;pointer-events:none;display:block}
 .layer>.wrap{position:relative;z-index:3;display:grid;grid-template-columns:repeat(12,1fr);gap:28px;align-items:center}
 .shape{position:absolute;z-index:2;pointer-events:none}
 .shape svg{display:block;width:100%;height:100%}
@@ -157,7 +157,40 @@ try{const s=localStorage.getItem(k);if(s)h.dataset.theme=s;}catch(e){}
 b.addEventListener('click',()=>{const d=!dark();h.dataset.theme=d?'dark':'light';try{localStorage.setItem(k,h.dataset.theme)}catch(e){}paint();});
 matchMedia('(prefers-color-scheme:dark)').addEventListener('change',paint);paint();})();
 </script><script>
-(()=>{const b=document.getElementById('motion'),h=document.documentElement;
+(()=>{const H=320,CELL=3,R=110,doc=document.documentElement;doc.classList.add('js');
+const reduced=matchMedia('(prefers-reduced-motion:reduce)');
+const layers=[...document.querySelectorAll('.layer+.layer')];
+const fields=layers.map(sec=>{const c=document.createElement('canvas');c.className='dissolve';c.setAttribute('aria-hidden','true');sec.prepend(c);
+  return {sec,c,ctx:c.getContext('2d'),cols:0,rows:0,t:null,dx:null,dy:null,vx:null,vy:null,color:'',drift:0,visible:false,active:0};});
+const smooth=t=>1-t*t*(3-2*t);
+function size(f){const w=f.sec.clientWidth;if(f.c.width===w&&f.t)return;f.c.width=w;f.c.height=H;f.cols=Math.ceil(w/CELL)+2;f.rows=Math.ceil(H/CELL);const n=f.cols*f.rows;
+  f.t=new Float32Array(n);f.dx=new Float32Array(n);f.dy=new Float32Array(n);f.vx=new Float32Array(n);f.vy=new Float32Array(n);
+  let s=7;for(let i=0;i<n;i++){s=(s*1664525+1013904223)>>>0;f.t[i]=s/4294967296;}}
+function paint(f){const cs=getComputedStyle(f.sec);f.color=cs.getPropertyValue('--prev').trim()||f.color;}
+function draw(f,dt){const {ctx,cols,rows}=f;ctx.clearRect(0,0,f.c.width,H);ctx.fillStyle=f.color;const shift=Math.floor(f.drift/CELL),frac=f.drift-shift*CELL;
+  for(let j=0;j<rows;j++){const p=smooth(j/rows);for(let i=0;i<cols;i++){const k=((i+shift)%cols+cols)%cols+j*cols;if(f.t[k]>=p)continue;const q=i+j*cols;
+    if(f.dx[q]||f.dy[q]||f.vx[q]||f.vy[q]){f.vx[q]+=-0.08*f.dx[q];f.vy[q]+=-0.08*f.dy[q];f.vx[q]*=0.9;f.vy[q]*=0.9;f.dx[q]+=f.vx[q]*dt;f.dy[q]+=f.vy[q]*dt;
+      if(Math.abs(f.dx[q])<.05&&Math.abs(f.vx[q])<.05){f.dx[q]=f.vx[q]=0}if(Math.abs(f.dy[q])<.05&&Math.abs(f.vy[q])<.05){f.dy[q]=f.vy[q]=0}f.active=1;}
+    ctx.fillRect(i*CELL-frac+f.dx[q],j*CELL+f.dy[q],CELL,CELL);}}}
+const motionOff=()=>reduced.matches||doc.classList.contains('motion-off');
+let mouse=null,last=performance.now(),raf=0;
+function frame(now){raf=0;const dt=Math.min(2,(now-last)/16.7);last=now;let more=false;
+  for(const f of fields){if(!f.visible)continue;size(f);f.active=0;
+    if(!motionOff()){f.drift+=0.25*dt;if(mouse){const r=f.c.getBoundingClientRect();const mx=mouse.x-r.left,my=mouse.y-r.top;
+      if(mx>-R&&mx<r.width+R&&my>-R&&my<H+R){for(let j=0;j<f.rows;j++){const cy=j*CELL;if(Math.abs(cy-my)>R)continue;for(let i=0;i<f.cols;i++){const cx=i*CELL,ddx=cx-mx,ddy=cy-my,d=Math.hypot(ddx,ddy);
+        if(d<R&&d>0){const s=(1-d/R)*2.2,q=i+j*f.cols;f.vx[q]+=ddx/d*s;f.vy[q]+=ddy/d*s;}}}}}}
+    draw(f,dt);if(!motionOff()||f.active)more=true;}
+  if(more)schedule();}
+function schedule(){if(!raf)raf=requestAnimationFrame(frame);}
+const io=new IntersectionObserver(es=>{for(const e of es){const f=fields.find(x=>x.c===e.target);f.visible=e.isIntersecting;if(f.visible){size(f);paint(f);}}schedule();},{rootMargin:'120px'});
+fields.forEach(f=>io.observe(f.c));
+addEventListener('pointermove',e=>{mouse={x:e.clientX,y:e.clientY};schedule();},{passive:true});
+addEventListener('pointerleave',()=>{mouse=null});
+addEventListener('resize',()=>{fields.forEach(f=>{f.t=null;size(f);});schedule();});
+new MutationObserver(()=>{fields.forEach(paint);schedule();}).observe(doc,{attributes:true,attributeFilter:['data-theme','class']});
+matchMedia('(prefers-color-scheme:dark)').addEventListener('change',()=>{fields.forEach(paint);schedule();});
+reduced.addEventListener('change',schedule);
+const b=document.getElementById('motion'),h=doc;
 const set=off=>{h.classList.toggle('motion-off',off);b.setAttribute('aria-pressed',String(off));b.textContent=off?'Play motion':'Pause motion';};
 b.addEventListener('click',()=>set(!h.classList.contains('motion-off')));})();
 </script>
