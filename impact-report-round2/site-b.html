@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>B · Ribbon · H4KI 2025 Impact Report</title><meta name="description" content="A dissolving gradient ribbon runs through offset-border pillar boxes on warm white"><meta name="theme-color" content="#fbf7ef">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+:root{
+ --blue:#6f8bc6;--navy:#2a439b;--orange:#ffa225;--coral:#f16163;--mint:#81cbb2;--kraft:#c9a26b;
+ --blue-lt:#92a7d4;--coral-lt:#f58789;--mint-lt:#81cbb2;--orange-lt:#ffa225;
+ --r:16px;--sp:64px;--sp-lg:96px;
+}
+/* Light and dark token sets. A page's own default sits on bare :root, the other set follows the
+   system preference when nothing is chosen, and an explicit data-theme wins in both directions. */
+
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+body{margin:0;-webkit-font-smoothing:antialiased;line-height:1.6;font-size:1.0625rem;overflow-x:hidden;overflow-x:clip}
+img{max-width:100%;display:block}
+figure{margin:0}
+.ph img{width:100%;height:auto;aspect-ratio:var(--ar,4/3);object-fit:cover;border-radius:var(--r)}
+.ph figcaption{font-size:.82rem;font-weight:600;margin-top:8px;color:var(--ink-2)}
+h1,h2,h3{margin:0;line-height:1.1;text-wrap:balance}
+h3{font-size:1.25rem}
+p{margin:0}
+ul,ol{margin:0;padding:0;list-style:none}
+a{color:inherit}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip{position:absolute;left:16px;top:-60px;z-index:100;padding:10px 14px;background:#1b1917;color:#fff;font-weight:700;border-radius:var(--r);text-decoration:none}
+.skip:focus{top:12px}
+:focus-visible{outline:3px solid var(--ring,#fff);outline-offset:2px;box-shadow:0 0 0 6px var(--focus,#2a439b);border-radius:var(--r)}
+.nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:18px;padding:10px 20px;min-height:56px}
+.nav .brand{font-weight:800;margin-right:auto;text-decoration:none;display:flex;flex-direction:column;line-height:1.1}
+.nav .brand small{font-weight:600;opacity:.8;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase}
+.nav ul{display:flex;gap:4px 14px;flex-wrap:wrap;align-items:center;padding:4px 8px}
+.nav a.link{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:700;font-size:.92rem;padding:8px 6px;min-height:32px;border-bottom:1.5px solid transparent}
+.nav a.link:hover{border-bottom-color:currentColor}
+.nav .dot{width:11px;height:11px;border-radius:50%;display:inline-block;flex:none;border:1.5px solid rgba(0,0,0,.55)}
+.dot.blue{background:var(--blue)}.dot.mint{background:var(--mint)}.dot.orange{background:var(--orange)}.dot.coral{background:var(--coral)}.dot.navy{background:var(--navy)}.dot.kraft{background:var(--kraft)}
+.nav .tools{display:flex;gap:8px;flex:none}
+.nav button{font:inherit;font-weight:700;font-size:.85rem;padding:6px 12px;border-radius:999px;border:1.5px solid currentColor;background:transparent;color:inherit;cursor:pointer}
+.wrap{width:min(1200px,100% - 40px);margin-inline:auto}
+.eyebrow{text-transform:uppercase;letter-spacing:.12em;font-size:.78rem;font-weight:800}
+.tnum{font-variant-numeric:tabular-nums}
+.lead{max-width:66ch;font-size:1.12rem;margin-top:12px}
+.fine{font-size:.85rem;color:var(--ink-2);margin-top:1.5em;max-width:70ch}
+section{scroll-margin-top:72px}
+.ledger{width:100%;border-collapse:separate;border-spacing:0;border:var(--line);border-radius:var(--r);overflow:hidden}
+.ledger caption{text-align:left;font-weight:800;padding:0 0 10px}
+.ledger th,.ledger td{padding:13px 16px;text-align:left;border-bottom:var(--line);vertical-align:top}
+.ledger tbody tr:last-child th,.ledger tbody tr:last-child td{border-bottom:0}
+.ledger thead th{font-size:.75rem;text-transform:uppercase;letter-spacing:.1em}
+.ledger td{text-align:right;font-weight:800}
+.board p+ol,.board ol+p{margin-top:1.5em}
+.board ol{display:grid;gap:10px}
+.board li{padding-left:22px;position:relative}
+.board li::before{content:"";position:absolute;left:0;top:.55em;width:10px;height:10px;border-radius:50%;background:currentColor;opacity:.6}
+.pstats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:22px 0}
+.pstat strong{display:block;line-height:1}
+.pstat span{display:block;margin-top:6px;font-size:.86rem;font-weight:700}
+.ahead-list{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:24px}
+.ahead-list h3{margin-bottom:8px}
+.ahead-mini h3{font-size:1.05rem;margin-bottom:6px}
+.ahead-mini li{padding:4px 0}
+.quote blockquote{margin:0}
+.quote figcaption{font-style:normal;font-weight:700;font-size:.92rem;margin-top:12px}
+footer.foot{padding:var(--sp) 0}
+footer.foot h2{margin-bottom:10px}
+footer.foot p{max-width:70ch}
+@media (max-width:700px){.nav{padding:8px 14px;flex-wrap:wrap;gap:4px 12px}.nav nav{width:100%}.nav .tools{order:-1;margin-left:auto}.nav ul{flex-wrap:nowrap;overflow-x:auto;padding:6px 8px;scrollbar-width:thin;mask-image:linear-gradient(90deg,#000 88%,transparent)}.nav a.link{white-space:nowrap}section{scroll-margin-top:104px}}
+@media (max-width:900px){.ahead-list{grid-template-columns:1fr}}
+@media (max-width:560px){.pstats{grid-template-columns:1fr}}
+:root{--bg:#f6f1e8;--bg-2:#fff;--surface:#fff;--ink:#1b1917;--ink-2:#3f3a34;--num:#2a439b;--line:1px solid rgba(27,25,23,.18);--edge:1px solid rgba(27,25,23,.22);--blue-tint:#dfe6f5;--mint-tint:#dbf1ea;--orange-tint:#ffe8c4;--coral-tint:#fde0e0;--kraft-tint:#f1e6d2;--blue-ink:#2a439b;--mint-ink:#1f4d3e;--orange-ink:#734107;--coral-ink:#8c2528;--kraft-ink:#5d4725;--on-navy:#e6ebf7;--focus:#2a439b;--ring:#1b1917}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141210;--bg-2:#1e1b18;--surface:#1e1b18;--ink:#f4efe6;--ink-2:#d3cbbd;--num:#d3dcf0;--line:1px solid rgba(244,239,230,.18);--edge:1px solid #2c2925;--blue-tint:#2a3652;--mint-tint:#1f3d35;--orange-tint:#4a3410;--coral-tint:#4a2224;--kraft-tint:#3d3223;--blue-ink:#d3dcf0;--mint-ink:#cfeee2;--orange-ink:#ffdca3;--coral-ink:#fcc7c8;--kraft-ink:#eadbc2;--on-navy:#e6ebf7;--focus:#ffa225;--ring:#fff}}
+:root[data-theme="dark"]{--bg:#141210;--bg-2:#1e1b18;--surface:#1e1b18;--ink:#f4efe6;--ink-2:#d3cbbd;--num:#d3dcf0;--line:1px solid rgba(244,239,230,.18);--edge:1px solid #2c2925;--blue-tint:#2a3652;--mint-tint:#1f3d35;--orange-tint:#4a3410;--coral-tint:#4a2224;--kraft-tint:#3d3223;--blue-ink:#d3dcf0;--mint-ink:#cfeee2;--orange-ink:#ffdca3;--coral-ink:#fcc7c8;--kraft-ink:#eadbc2;--on-navy:#e6ebf7;--focus:#ffa225;--ring:#fff}
+
+:root{--edge:1.5px solid var(--ink)}
+body{background:var(--bg);color:var(--ink);font-family:Lora,Georgia,serif}
+h1,h2,h3,.stat strong,.pstat strong,.ledger caption,.ledger thead th,.ledger td,.quote figcaption,.hero .aud{font-family:"Bricolage Grotesque",system-ui,sans-serif}
+h1,h2{font-weight:800;letter-spacing:-.03em}
+h3{font-weight:700}
+.nav{background:var(--bg);border-bottom:var(--line)}
+.nav .brand{font-family:"Bricolage Grotesque",sans-serif}
+.box{background:var(--surface);border:var(--edge);border-radius:var(--r);box-shadow:8px 8px 0 var(--p,var(--kraft));padding:32px}
+.hero{padding:var(--sp) 0 0;text-align:center}
+.hero h1{font-size:clamp(2.8rem,7vw,6.2rem);line-height:.95}
+.hero h1 span{display:block;color:var(--num)}
+.hero .tag{max-width:52ch;margin:20px auto 0;font-size:1.2rem;color:var(--ink-2)}
+.hero .aud{font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-top:20px}
+.heroband{margin-top:44px}
+.heroband ul{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.heroband .ph img{--ar:3/4;border:var(--edge)}
+.glance{padding:48px 0 24px}
+.glance ul{display:grid;grid-template-columns:repeat(6,1fr);border:var(--edge);border-radius:var(--r);overflow:hidden;background:var(--surface)}
+.stat{padding:22px 16px;border-left:var(--edge)}
+.stat:first-child{border-left:0}
+.stat strong{display:block;font-size:2.2rem;font-weight:800;letter-spacing:-.02em}
+.stat span{display:block;font-size:.86rem;color:var(--ink-2)}
+.glance .lead{margin:24px auto 0;text-align:center;font-size:1.15rem}
+.flow{position:relative}
+.ribbon{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.pillar{position:relative;z-index:1;padding:88px 0}
+.pillar .wrap{display:grid;grid-template-columns:repeat(12,1fr);gap:28px;align-items:center}
+.pillar .box{grid-column:2/8}
+.pillar .pics{grid-column:8/13;display:grid;gap:18px}
+.pillar.alt .box{grid-column:6/12}
+.pillar.alt .pics{grid-column:1/6;order:-1}
+.pics .ph img{border:var(--edge)}
+.pillar .eyebrow{color:var(--p-ink)}
+.pillar h2{font-size:clamp(1.9rem,3.6vw,3rem);margin:10px 0 14px}
+.pillar .intro{font-size:1.1rem;color:var(--ink-2)}
+.pstat{background:var(--p-tint);border-radius:var(--r);padding:14px 16px;border:var(--edge)}
+.pstat strong{font-size:1.6rem;font-weight:800;color:var(--p-ink)}
+.pstat span{color:var(--ink-2)}
+.points li{padding:9px 0 9px 22px;position:relative;font-size:.98rem}
+.points li::before{content:"";position:absolute;left:0;top:17px;width:10px;height:10px;border-radius:50%;background:var(--p);border:var(--edge)}
+.ahead-mini{margin-top:18px;border-top:var(--edge);padding-top:12px}
+.ahead-mini li{font-size:.94rem}
+.poster{position:relative;z-index:1;padding:40px 0 0}
+.poster .wrap{display:grid;grid-template-columns:1fr 1fr;border:var(--edge);border-radius:var(--r);overflow:hidden;box-shadow:8px 8px 0 var(--mint)}
+.poster .l{padding:40px;background:var(--mint-tint)}
+.poster .l h2{font-size:clamp(2.2rem,5vw,4rem);line-height:.95}
+.poster .l p{margin-top:16px;font-size:1.1rem;max-width:40ch}
+.poster .r{position:relative;min-height:380px}
+.poster .r img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.countries{position:relative;z-index:1;padding:var(--sp) 0}
+.countries ul{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:24px}
+.countries li{background:var(--surface);border:var(--edge);border-radius:var(--r);padding:20px}
+.countries li:nth-child(4n+1){box-shadow:8px 8px 0 var(--blue)}.countries li:nth-child(4n+2){box-shadow:8px 8px 0 var(--mint)}.countries li:nth-child(4n+3){box-shadow:8px 8px 0 var(--orange)}.countries li:nth-child(4n){box-shadow:8px 8px 0 var(--coral)}
+.countries h3{margin-bottom:4px}.countries p{font-size:.94rem}
+.stew{padding:var(--sp) 0}
+.stew h2,.ahead h2{font-size:clamp(2rem,4vw,3rem)}
+.stew-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;margin-top:24px}
+.stew .ledger{background:var(--surface);border:var(--edge);box-shadow:8px 8px 0 var(--mint)}
+.stew .ledger thead th{background:var(--mint-tint)}
+.stew .ledger td{color:var(--num)}
+.stew .board{background:var(--surface);border:var(--edge);border-radius:var(--r);padding:24px;box-shadow:8px 8px 0 var(--orange)}
+.ahead{padding:20px 0 var(--sp-lg)}
+.ahead-list li{padding:24px;border-radius:var(--r);background:var(--surface);border:var(--edge)}
+.ahead-list li:nth-child(1){box-shadow:8px 8px 0 var(--blue)}.ahead-list li:nth-child(2){box-shadow:8px 8px 0 var(--orange)}.ahead-list li:nth-child(3){box-shadow:8px 8px 0 var(--coral)}
+.quote{margin:48px auto 0;max-width:36ch;text-align:center;font-size:1.7rem;font-style:italic;line-height:1.3}
+.quote figcaption{color:var(--ink-2)}
+.foot{border-top:var(--edge)}.foot h2{font-size:1.8rem}
+@media (min-width:901px){.pics .ph:nth-child(2){margin-left:18%}.pillar.alt .pics .ph:nth-child(2){margin-left:0;margin-right:18%}.heroband li:nth-child(odd){margin-top:28px}}
+@media (max-width:900px){.pillar .wrap,.stew-grid,.poster .wrap{grid-template-columns:1fr}.pillar .box,.pillar .pics{grid-column:1/-1;order:0}.pillar .pics{grid-template-columns:1fr 1fr}.glance ul{grid-template-columns:repeat(3,1fr)}.stat:nth-child(4){border-left:0}.stat:nth-child(n+4){border-top:var(--edge)}.countries ul{grid-template-columns:1fr 1fr}.ribbon{display:none}.heroband ul{grid-template-columns:repeat(4,1fr)}.heroband li:nth-child(n+5){display:none}}
+@media (max-width:560px){.glance ul,.countries ul,.pillar .pics{grid-template-columns:1fr}.stat{border-left:0;border-top:var(--edge)}.stat:first-child{border-top:0}.heroband ul{grid-template-columns:repeat(3,1fr)}.heroband li:nth-child(n+4){display:none}}
+</style></head><body id="top">
+<a class="skip" href="#main">Skip to content</a><header class="nav"><a class="brand" href="#top">Hope 4 Kids International<small>2025 Impact Report</small></a><nav aria-label="Report chapters"><ul role="list"><li><a class="link" href="#dignity"><span class="dot blue" aria-hidden="true"></span>Dignity</a></li><li><a class="link" href="#health"><span class="dot mint" aria-hidden="true"></span>Health</a></li><li><a class="link" href="#joy"><span class="dot orange" aria-hidden="true"></span>Joy</a></li><li><a class="link" href="#love"><span class="dot coral" aria-hidden="true"></span>Love</a></li><li><a class="link" href="#stewardship"><span class="dot navy" aria-hidden="true"></span>Stewardship</a></li><li><a class="link" href="#ahead"><span class="dot kraft" aria-hidden="true"></span>2026 priorities</a></li></ul></nav><div class="tools"><button type="button" id="theme" aria-pressed="false">Dark mode</button></div></header><main id="main">
+<section class="hero" aria-labelledby="h1"><div class="wrap"><p class="eyebrow">2025 Impact Report</p><h1 id="h1">One thread of hope <span>through eight countries</span></h1><p class="tag">Restoring hope to kids and families around the world since 1973.</p><p class="aud">Prepared for the H4KI Board of Directors and Staff</p>
+<div class="heroband"><ul role="list"><li><figure class="ph"><img src="photos/gcuro_Ys26zI7Q-960.jpg" srcset="photos/gcuro_Ys26zI7Q-480.jpg 480w,photos/gcuro_Ys26zI7Q-960.jpg 960w,photos/gcuro_Ys26zI7Q.jpg 1600w" sizes="(max-width:560px) 33vw, (max-width:900px) 25vw, 200px" alt="A girl in a flower crown laughs beside a team member in Romania" width="1200" height="1600" loading="eager" fetchpriority="high" decoding="async" style="--ar:3/4"></figure></li><li><figure class="ph"><img src="photos/kh_000316-960.jpg" srcset="photos/kh_000316-480.jpg 480w,photos/kh_000316-960.jpg 960w,photos/kh_000316.jpg 1600w" sizes="(max-width:560px) 33vw, (max-width:900px) 25vw, 200px" alt="A young girl in Cambodia grins and flashes a peace sign" width="1200" height="1600" loading="eager" fetchpriority="high" decoding="async" style="--ar:3/4"></figure></li><li><figure class="ph"><img src="photos/gcuug_wn3nvMTs-960.jpg" srcset="photos/gcuug_wn3nvMTs-480.jpg 480w,photos/gcuug_wn3nvMTs-960.jpg 960w,photos/gcuug_wn3nvMTs.jpg 1600w" sizes="(max-width:560px) 33vw, (max-width:900px) 25vw, 200px" alt="A team member and a young girl smile cheek to cheek" width="1200" height="1600" loading="eager" fetchpriority="high" decoding="async" style="--ar:3/4"></figure></li><li><figure class="ph"><img src="photos/ph_000393-960.jpg" srcset="photos/ph_000393-480.jpg 480w,photos/ph_000393-960.jpg 960w,photos/ph_000393.jpg 1600w" sizes="(max-width:560px) 33vw, (max-width:900px) 25vw, 200px" alt="A team member laughs with three preschoolers wearing bucket hats in the Philippines" width="1600" height="1200" loading="lazy" decoding="async" style="--ar:3/4"></figure></li><li><figure class="ph"><img src="photos/gcugt_000078-960.jpg" srcset="photos/gcugt_000078-480.jpg 480w,photos/gcugt_000078-960.jpg 960w,photos/gcugt_000078.jpg 1600w" sizes="(max-width:560px) 33vw, (max-width:900px) 25vw, 200px" alt="Two friends grin for a selfie in a school courtyard in Guatemala" width="1600" height="1200" loading="lazy" decoding="async" style="--ar:3/4"></figure></li><li><figure class="ph"><img src="photos/na_000037-960.jpg" srcset="photos/na_000037-480.jpg 480w,photos/na_000037-960.jpg 960w,photos/na_000037.jpg 1600w" sizes="(max-width:560px) 33vw, (max-width:900px) 25vw, 200px" alt="A team member is surrounded by hugging children in Namibia" width="1200" height="1600" loading="lazy" decoding="async" style="--ar:3/4"></figure></li></ul></div></div></section>
+<section class="glance" aria-labelledby="g-h"><div class="wrap"><h2 id="g-h" class="sr-only">2025 at a glance</h2><ul role="list"><li class="stat"><strong class="tnum">2,704</strong><span>children in the sponsorship program</span></li><li class="stat"><strong class="tnum">200</strong><span>children added in 2025</span></li><li class="stat"><strong class="tnum">1,287</strong><span>wells drilled through Water 4 Kids International, cumulative</span></li><li class="stat"><strong class="tnum">208</strong><span>mission team members served</span></li><li class="stat"><strong class="tnum">13</strong><span>team trips to 8 countries</span></li><li class="stat"><strong class="tnum">9.17M</strong><span>Mannapack meals provided since 2015</span></li></ul><p class="lead">By nearly every measure, Executive Director Ken Howell and staff leadership describe 2025 as “perhaps our best year yet,” marked by strong giving, continued global reach, and record program impact.</p></div></section>
+<div class="flow"><svg class="ribbon" viewBox="0 0 1200 4200" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+<defs>
+<filter id="rib-grain" x="0" y="0" width="1200" height="4200" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+ <feTurbulence type="turbulence" baseFrequency=".9" numOctaves="1" seed="7" result="n"/>
+ <feColorMatrix in="n" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0" result="nl"/>
+ <feComposite in="SourceGraphic" in2="nl" operator="arithmetic" k1="0" k2="1.6" k3="1" k4="-.8" result="mix"/>
+ <feComponentTransfer><feFuncA type="discrete" tableValues="0 1"/></feComponentTransfer>
+</filter>
+<linearGradient id="rib-g" x1="0" y1="0" x2="0" y2="1">
+ <stop offset="0" stop-color="#000"/><stop offset=".1" stop-color="#fff"/><stop offset=".68" stop-color="#fff"/><stop offset=".84" stop-color="#000"/>
+</linearGradient>
+<mask id="rib" maskUnits="userSpaceOnUse" x="0" y="0" width="1200" height="4200">
+ <rect width="1200" height="4200" fill="url(#rib-g)" filter="url(#rib-grain)"/>
+</mask></defs>
+<linearGradient id="rg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6f8bc6"/><stop offset=".33" stop-color="#81cbb2"/><stop offset=".66" stop-color="#ffa225"/><stop offset="1" stop-color="#f16163"/></linearGradient>
+<g mask="url(#rib)"><path d="M900,60 C1050,400 300,600 250,1000 C200,1400 1000,1600 950,2050 C900,2450 150,2650 200,3100 C250,3500 1000,3750 950,4140" fill="none" stroke="url(#rg)" stroke-width="150" stroke-linecap="round"/></g></svg><section id="dignity" class="pillar" style="--p:var(--blue);--p-lt:var(--blue-lt);--p-tint:var(--blue-tint);--p-ink:var(--blue-ink)" aria-labelledby="dignity-h"><div class="wrap"><div class="box"><p class="eyebrow">Dignity · Education and child sponsorship</p><h2 id="dignity-h">Restoring dignity through education</h2><p class="intro">H4KI&#x27;s Child Sponsorship and Education programs continued to equip children and young adults across our five Uganda schools and partner sites with the tools to build self-sufficient futures.</p><ul class="pstats" role="list"><li class="pstat"><strong class="tnum">2,704</strong><span>children sponsored</span></li><li class="pstat"><strong class="tnum">131</strong><span>trade and vocational graduates</span></li><li class="pstat"><strong class="tnum">17</strong><span>university graduates</span></li><li class="pstat"><strong class="tnum">4 of 5</strong><span>Uganda schools now cash-flow positive</span></li></ul><ul class="points" role="list"><li>85 students completed their courses at the Brandom Vocational Skills Center.</li><li>Two additional university scholarships were awarded through H4KI&#x27;s named scholarship funds, in education and biomedical engineering.</li><li>The first cohort from Fairmont Christian Secondary School sat for the national Secondary 4 exam.</li><li>A new Education Committee is assessing schools, facilitating teacher training, and reviewing instructional methods.</li><li>In the Philippines, a solar power project was funded for the preschool to help it reach greater sustainability.</li></ul><div class="ahead-mini"><h3>Looking to 2026</h3><ul role="list"><li>Develop corporate sponsorships to strengthen the long-term sustainability of H4KI schools.</li><li>Launch the 2026 sponsorship campaign, This Is Your Year to Change a Life.</li><li>Complete the transition to a new sponsorship database with flexible boarding, vocational, and university levels.</li></ul></div></div><div class="pics"><figure class="ph"><img src="photos/gcuug_DrT6iYNU-960.jpg" srcset="photos/gcuug_DrT6iYNU-480.jpg 480w,photos/gcuug_DrT6iYNU-960.jpg 960w,photos/gcuug_DrT6iYNU.jpg 1600w" sizes="(max-width:900px) 50vw, 33vw" alt="Two team members kneel beside a smiling sponsored student in a blue school uniform in Uganda" width="1200" height="1600" loading="lazy" decoding="async"><figcaption>Uganda</figcaption></figure><figure class="ph"><img src="photos/kh_000175-960.jpg" srcset="photos/kh_000175-480.jpg 480w,photos/kh_000175-960.jpg 960w,photos/kh_000175.jpg 1600w" sizes="(max-width:900px) 50vw, 33vw" alt="Students in uniforms line up smiling in front of their school in Cambodia" width="1600" height="1200" loading="lazy" decoding="async"><figcaption>Cambodia</figcaption></figure></div></div></section><section id="health" class="pillar alt" style="--p:var(--mint);--p-lt:var(--mint-lt);--p-tint:var(--mint-tint);--p-ink:var(--mint-ink)" aria-labelledby="health-h"><div class="wrap"><div class="box"><p class="eyebrow">Health · Water, medical care, and feeding</p><h2 id="health-h">Building health through water, medicine, and nutrition</h2><p class="intro">Water 4 Kids International (W4KI), H4KI&#x27;s clean water initiative, had another year of significant reach and generosity from supporters, while the Eggum Family Medical Clinic in Uganda reached a pivotal year.</p><ul class="pstats" role="list"><li class="pstat"><strong class="tnum">1,287</strong><span>wells drilled to date</span></li><li class="pstat"><strong class="tnum">19</strong><span>well dedications in 2025</span></li><li class="pstat"><strong class="tnum">10</strong><span>Walk 4 Water events</span></li><li class="pstat"><strong class="tnum">$387,023</strong><span>raised by walkers, funding 37 wells</span></li></ul><ul class="points" role="list"><li>Two large-scale school water projects were completed, one serving 730 students and another providing water and sanitation to 2,235 students.</li><li>The Benicia, California walk was the year&#x27;s highest-grossing event at $92,000 and drew 250 participants.</li><li>The Eggum Family Medical Clinic is now fully staffed and installed an x-ray machine and ultrasound unit, diagnostic equipment not otherwise available in the district.</li><li>Medical outreach teams saw 508 patients in the Philippines and 273 patients in Guatemala.</li><li>Since 2015, 9,169,280 Mannapack meals have been provided in partnership with FMSC, with roughly $215,000 in in-kind value each year.</li></ul><div class="ahead-mini"><h3>Looking to 2026</h3><ul role="list"><li>Complete licensing and registration of the clinic and its equipment.</li><li>Finish baseline health exams for all sponsored children and open the clinic to the surrounding community.</li><li>Ship a new meal container in 2026, expanding to Namibia or the Philippines.</li></ul></div></div><div class="pics"><figure class="ph"><img src="photos/kh_000257-960.jpg" srcset="photos/kh_000257-480.jpg 480w,photos/kh_000257-960.jpg 960w,photos/kh_000257.jpg 1600w" sizes="(max-width:900px) 50vw, 33vw" alt="Students in white uniforms gather around a new well as water sprays in Cambodia" width="1600" height="1200" loading="lazy" decoding="async"><figcaption>Cambodia</figcaption></figure><figure class="ph"><img src="photos/gcuug_Uvd-BuIg-960.jpg" srcset="photos/gcuug_Uvd-BuIg-480.jpg 480w,photos/gcuug_Uvd-BuIg-960.jpg 960w,photos/gcuug_Uvd-BuIg.jpg 1600w" sizes="(max-width:900px) 50vw, 33vw" alt="A well drilling crew in orange vests guides a drill pipe in Uganda" width="1200" height="1600" loading="lazy" decoding="async"><figcaption>Uganda</figcaption></figure></div></div></section><section id="joy" class="pillar" style="--p:var(--orange);--p-lt:var(--orange-lt);--p-tint:var(--orange-tint);--p-ink:var(--orange-ink)" aria-labelledby="joy-h"><div class="wrap"><div class="box"><p class="eyebrow">Joy · Mission teams and trips</p><h2 id="joy-h">Creating joy through connection</h2><p class="intro">H4KI&#x27;s Teams Department creates space for supporters to experience the work firsthand, building relationships that turn into lifelong partnerships.</p><ul class="pstats" role="list"><li class="pstat"><strong class="tnum">208</strong><span>team members traveled</span></li><li class="pstat"><strong class="tnum">13</strong><span>trips to 8 countries</span></li><li class="pstat"><strong class="tnum">22</strong><span>youth travelers under 18</span></li><li class="pstat"><strong class="tnum">24</strong><span>young adults under 30</span></li></ul><ul class="points" role="list"><li>49% of travelers were brand new team members and 51% were returning.</li><li>Two new custom group trips were planned for 2026, including a Christian secondary school&#x27;s first trip to Uganda and a partner church&#x27;s first trip to Guatemala.</li><li>The team achieved $11,600 in flight savings through H4KI&#x27;s business mileage program.</li><li>Staff completed Mental Health First Aid training and added new mental health resources to the Team Leader Handbook.</li><li>Teams represented H4KI at the GCU Mission Conference and the MissionConnexion Conference.</li></ul><div class="ahead-mini"><h3>Looking to 2026</h3><ul role="list"><li>Roll out a new Crisis Plan for team safety at the annual Team Leader Meeting.</li><li>Build pre-trip preparation resources under the 2026 theme, Find Your Mission Moment.</li></ul></div></div><div class="pics"><figure class="ph"><img src="photos/gcuro_08ndTOUw-960.jpg" srcset="photos/gcuro_08ndTOUw-480.jpg 480w,photos/gcuro_08ndTOUw-960.jpg 960w,photos/gcuro_08ndTOUw.jpg 1600w" sizes="(max-width:900px) 50vw, 33vw" alt="A team member is wrapped in a group hug by five girls at the ASA Community Center in Romania" width="1600" height="1200" loading="lazy" decoding="async"><figcaption>Romania</figcaption></figure><figure class="ph"><img src="photos/ph_000393-960.jpg" srcset="photos/ph_000393-480.jpg 480w,photos/ph_000393-960.jpg 960w,photos/ph_000393.jpg 1600w" sizes="(max-width:900px) 50vw, 33vw" alt="A team member laughs with three preschoolers wearing bucket hats in the Philippines" width="1600" height="1200" loading="lazy" decoding="async"><figcaption>Philippines</figcaption></figure></div></div></section><section id="love" class="pillar alt" style="--p:var(--coral);--p-lt:var(--coral-lt);--p-tint:var(--coral-tint);--p-ink:var(--coral-ink)" aria-labelledby="love-h"><div class="wrap"><div class="box"><p class="eyebrow">Love · Faith, partnership, and global reach</p><h2 id="love-h">Sharing the love of Jesus around the world</h2><p class="intro">Every H4KI program is grounded in the Love pillar, the conviction that the foundation of all we do is to show the love of Jesus to children and communities we serve. 2025 brought the ministry into an eighth country.</p><ul class="pstats" role="list"><li class="pstat"><strong class="tnum">8</strong><span>countries served</span></li><li class="pstat"><strong class="tnum">7</strong><span>major buildings completed</span></li><li class="pstat"><strong class="tnum">50,000+</strong><span>people reached by H4KI content</span></li><li class="pstat"><strong class="tnum">Nearly 60%</strong><span>email open rate</span></li></ul><ul class="points" role="list"><li>Cambodia, new: a Memorandum of Understanding was signed with a local partner ministry alongside the first well-drilling projects.</li><li>Romania: the ASA Community Center was dedicated during a July trip, a gathering space and classroom for sponsored children.</li><li>The Philippines: four homes were completed and six more funded for 2026, plus a covered basketball court extension.</li><li>Namibia: a farm irrigation project and a new community soup kitchen expanded food security.</li><li>Nepal: the first phase of the Saraswati Basic School was dedicated with We Ignite Nations, with phase two under construction.</li><li>Uganda campus: the new H4KI Student Chapel, the Becki Thompson and Cindy Brandom Worship Center, opened November 9, 2025.</li></ul><div class="ahead-mini"><h3>Looking to 2026</h3><ul role="list"><li>Launch the Advocacy Program and continue quarterly Ambassador updates.</li><li>Continue Adopt-a-Village progress at Watson School, Nambwa, Kasolo, and Nyafumba.</li></ul></div></div><div class="pics"><figure class="ph"><img src="photos/kh_000316-960.jpg" srcset="photos/kh_000316-480.jpg 480w,photos/kh_000316-960.jpg 960w,photos/kh_000316.jpg 1600w" sizes="(max-width:900px) 50vw, 33vw" alt="A young girl in Cambodia grins and flashes a peace sign" width="1200" height="1600" loading="lazy" decoding="async"><figcaption>Cambodia</figcaption></figure><figure class="ph"><img src="photos/gcuro_Ys26zI7Q-960.jpg" srcset="photos/gcuro_Ys26zI7Q-480.jpg 480w,photos/gcuro_Ys26zI7Q-960.jpg 960w,photos/gcuro_Ys26zI7Q.jpg 1600w" sizes="(max-width:900px) 50vw, 33vw" alt="A girl in a flower crown laughs beside a team member in Romania" width="1200" height="1600" loading="lazy" decoding="async"><figcaption>Romania</figcaption></figure></div></div></section>
+<section class="poster" aria-labelledby="m-h"><div class="wrap"><div class="l"><p class="eyebrow">Our mission</p><h2 id="m-h">Four pillars, one mission</h2><p>Hope 4 Kids International (H4KI) exists to bring hope to children living in poverty through the Four Pillars of Hope. In 2025 H4KI partnered with communities across eight countries, Uganda, Romania, Guatemala, Namibia, Nepal, the Philippines, Mexico, and, new this year, Cambodia, to restore dignity, build health, create joy, and share the love of Jesus.</p></div><div class="r"><img src="photos/ugn_001421-960.jpg" srcset="photos/ugn_001421-480.jpg 480w,photos/ugn_001421-960.jpg 960w,photos/ugn_001421.jpg 1600w" sizes="(max-width:900px) 100vw, 50vw" alt="Women in bright dresses raise their arms and celebrate at a well dedication" width="1600" height="1200" loading="lazy" decoding="async"></div></div></section>
+<section class="countries" aria-labelledby="c-h"><div class="wrap"><p class="eyebrow">Global reach</p><h2 id="c-h">Where the thread went in 2025</h2><ul role="list"><li><h3>Cambodia</h3><p>New in 2025. MOU signed with a local partner ministry; first wells drilled.</p></li><li><h3>Uganda</h3><p>New levels of accountability and efficiency; the Board tours projects quarterly.</p></li><li><h3>Philippines</h3><p>Four homes completed, six more funded; medical and water programs expanding.</p></li><li><h3>Romania</h3><p>ASA Community Center dedicated in July.</p></li><li><h3>Guatemala</h3><p>Housing support coordinated for a family in a medical crisis; outreach continued.</p></li><li><h3>Namibia</h3><p>Farm irrigation project and community soup kitchen completed.</p></li><li><h3>Mexico</h3><p>Storm-damaged classroom building renovation nearing completion.</p></li><li><h3>Nepal</h3><p>Saraswati Basic School phase one dedicated, phase two underway.</p></li></ul></div></section></div>
+<section id="stewardship" class="stew" aria-labelledby="s-h"><div class="wrap"><p class="eyebrow">Financial stewardship</p><h2 id="s-h">Faithful with every gift</h2><p class="lead">H4KI is committed to transparent, faithful stewardship of every gift entrusted to the ministry. Financial statements are audited annually by an independent CPA firm.</p><div class="stew-grid"><table class="ledger"><caption>2025 fundraising results</caption><thead><tr><th scope="col">Measure</th><th scope="col">Amount</th></tr></thead><tbody><tr><th scope="row">Total fundraising, through Oct. 31, 2025</th><td class="tnum">$4,283,956</td></tr><tr><th scope="row">Growth vs. year-to-date 2024</th><td class="tnum">+35%</td></tr><tr><th scope="row">Compared to the 2023 record giving year</th><td class="tnum">within 1%</td></tr><tr><th scope="row">Water 4 Kids well-funding income, Jan to Nov 2025</th><td class="tnum">$1,186,357</td></tr><tr><th scope="row">Water 4 Kids well-funding income, Jan to Nov 2024</th><td class="tnum">$1,213,849</td></tr><tr><th scope="row">Water 4 Kids well-funding income, 2024 full-year record</th><td class="tnum">$1,508,433</td></tr><tr><th scope="row">Walk 4 Water total raised, 10 events</th><td class="tnum">$387,023</td></tr></tbody></table><div class="board"><h3>Board governance</h3><p>Both resolutions were approved unanimously at the December 5, 2025 Board Meeting.</p><ol role="list"><li>A $100,000 distribution from H4KI&#x27;s Arizona Community Foundation reserve fund to support start-up costs for a new supporter data system, beginning January 2026.</li><li>Annual distributions from two named endowment scholarship funds at the Arizona Community Foundation, providing student scholarships beginning January 2026.</li></ol><p class="fine">Reviewed by H4KI leadership before external use. Figures are through the dates noted and are unaudited year-to-date results.</p></div></div></div></section>
+<section id="ahead" class="ahead" aria-labelledby="a-h"><div class="wrap"><p class="eyebrow">Looking ahead</p><h2 id="a-h">Three priorities for 2026</h2><ul class="ahead-list" role="list"><li><h3>Program development and sustainability</h3><p>Emphasize operational efficiency and the sustainable funding of existing programs, shifting some focus from new construction toward the ongoing needs of established schools and projects.</p></li><li><h3>New systems</h3><p>Transition to a new supporter and program database in 2026, enabling flexible sponsorship levels and stronger reporting across every department.</p></li><li><h3>New ideas, new audiences</h3><p>Launch an Advocacy Program and a Next Generation messaging strategy to engage a new generation of supporters in breaking the cycle of poverty.</p></li></ul><figure class="quote"><blockquote><p>“Our impact has never been greater. God is good.”</p></blockquote><figcaption>Ken Howell, Executive Director</figcaption></figure></div></section>
+</main><footer class="foot"><div class="wrap"><h2>With gratitude</h2><p>Hope 4 Kids International is grateful for the Board Members, staff, Ambassadors, Advocates, mission teams, and faithful partners whose generosity and prayers made 2025 possible. Together, we continue restoring hope to kids and families around the world.</p><p class="fine">Prepared for the H4KI Board of Directors and Staff. Based on the December 5, 2025 Board Meeting Packet. Photos from 2025 H4KI trips and Walk 4 Water events.</p></div></footer><script>
+(()=>{const k='h4ki-theme',h=document.documentElement,b=document.getElementById('theme');
+const dark=()=>h.dataset.theme?h.dataset.theme==='dark':matchMedia('(prefers-color-scheme:dark)').matches;
+const paint=()=>{const d=dark();b.textContent=d?'Light mode':'Dark mode';b.setAttribute('aria-pressed',String(d));};
+try{const s=localStorage.getItem(k);if(s)h.dataset.theme=s;}catch(e){}
+b.addEventListener('click',()=>{const d=!dark();h.dataset.theme=d?'dark':'light';try{localStorage.setItem(k,h.dataset.theme)}catch(e){}paint();});
+matchMedia('(prefers-color-scheme:dark)').addEventListener('change',paint);paint();})();
+</script>
+</body></html>
