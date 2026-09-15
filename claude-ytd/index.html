@@ -612,8 +612,8 @@ async function buildPdf(setStatus){
   [BLUE,ORANGE,GREEN,RED].forEach((c,i)=>{rgb('setFillColor',c);doc.circle(M+8+i*18,M+30,5,'F');});
   doc.setFont(F.mono,'normal');doc.setFontSize(9);rgb('setTextColor',PAPER);doc.text('HOPE 4 KIDS INTERNATIONAL × CLAUDE',M+92,M+33);
   doc.text('2026 YEAR TO DATE · JAN 1 TO SEP 15',W-M,M+33,{align:'right'});
-  doc.setFont(F.serif,'normal');doc.setFontSize(112);rgb('setTextColor',PAPER);doc.text('The hours',M,H*0.36);doc.text('we got',M,H*0.36+104);
-  doc.setFont(F.serif,'italic');doc.text('back.',M,H*0.62+96);rgb('setTextColor',INK);doc.text('back.',M,H*0.62+96);
+  doc.setFont(F.serif,'normal');doc.setFontSize(112);const hs=Math.min(112,112*(W-2*M-8)/doc.getTextWidth('The hours'));doc.setFontSize(hs);rgb('setTextColor',PAPER);doc.text('The hours',M,H*0.36);doc.text('we got',M,H*0.36+hs*0.93);
+  doc.setFont(F.serif,'italic');rgb('setTextColor',INK);doc.text('back.',M,H*0.62+hs*0.86);
   doc.setFont(F.serif,'normal');doc.setFontSize(15);rgb('setTextColor',INK);doc.text(doc.splitTextToSize('How Hope 4 Kids International adopted Claude in 2026: who is using it, how much they delegate, and what they build.',W-2*M-160),M,H*0.62+140);
   doc.setFont(F.mono,'normal');doc.setFontSize(7.5);doc.text('PREPARED BY TRAVIS CLARK · CREATIVE & TECHNOLOGY MANAGER · READ FROM THE H4KI CLAUDE ADMIN DASHBOARD SEP 15, 2026',M,H-40,{maxWidth:W-2*M});
 
