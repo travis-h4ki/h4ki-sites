@@ -337,7 +337,6 @@ section{padding:64px 0 8px;scroll-margin-top:84px}
     <span class="pill">JAN 1 – SEP 15, 2026</span>
     <h1>The hours we<br>got <em>back.</em></h1>
     <p class="lede">How Hope 4 Kids International adopted Claude in 2026: who is using it, how much they delegate, and what they build.</p>
-    <div class="meta">Sources: Claude admin analytics dashboard for the H4KI workspace (read Sep 15), Anthropic billing notices, staff email and Zoom summaries. No supporter personal or financial data was used. Spend intentionally excluded.</div>
     <div class="glance" aria-label="At a glance">
       <div><i></i><div><b>Every seat is claimed.</b><span>15 teammates opted in, tripled since April. 13 active this month.</span></div></div>
       <div><i></i><div><b>The team builds, not just chats.</b><span>119K lines of code kept at 99%+, 8.2 Claude actions per prompt.</span></div></div>
@@ -627,8 +626,7 @@ async function buildPdf(setStatus){
   const gw=(W-2*M)/3;glance.forEach((g,i)=>{const x=M+i*gw;rgb('setFillColor',TILE);rgb('setDrawColor',INK);doc.setLineWidth(1.2);doc.rect(x,y,gw,92,'FD');rgb('setFillColor',g[2]);doc.circle(x+16,y+19,5,'F');doc.setFont(F.serif,'bold');doc.setFontSize(12.5);rgb('setTextColor',INK);const tl=doc.splitTextToSize(g[0],gw-42);doc.text(tl,x+28,y+23);doc.setFont(F.sans,'normal');doc.setFontSize(8.5);rgb('setTextColor',INK2);doc.text(doc.splitTextToSize(g[1],gw-42),x+28,y+23+tl.length*15+6);});y+=92+18;
   const tileBg=[[228,234,247],[223,241,234],[255,232,196],[228,234,247],[251,220,220],[223,241,234]];const tw=(W-2*M)/3,th=96;
   DATA.tiles.forEach((t,i)=>{const x=M+(i%3)*tw,yy=y+Math.floor(i/3)*th;rgb('setFillColor',tileBg[i]);rgb('setDrawColor',INK);doc.setLineWidth(1.2);doc.rect(x,yy,tw,th,'FD');doc.setFont(F.serif,'normal');doc.setFontSize(40);rgb('setTextColor',INK);doc.text(t.n,x+14,yy+46);const nw=doc.getTextWidth(t.n);doc.setFont(F.mono,'normal');doc.setFontSize(11);rgb('setTextColor',INK2);doc.text(t.s,x+16+nw,yy+46);doc.setFont(F.mono,'bold');doc.setFontSize(7.5);rgb('setTextColor',INK);doc.text(t.l.toUpperCase(),x+14,yy+66);doc.setFont(F.mono,'normal');doc.setFontSize(6.8);rgb('setTextColor',INK2);doc.text(doc.splitTextToSize(t.w,tw-28)[0],x+14,yy+80);});y+=th*2+22;
-  mono('Sources: Claude admin analytics dashboard for the H4KI workspace (read Sep 15), Anthropic billing notices, staff email and Zoom summaries. No supporter personal or financial data was used. Spend intentionally excluded.',7,INK3);
-  y+=22;doc.setFont(F.mono,'bold');doc.setFontSize(9);rgb('setTextColor',INK);doc.text('METHOD AND CAVEATS',M,y+8);y+=18;rgb('setDrawColor',INK);doc.setLineWidth(2);doc.line(M,y,W-M,y);y+=10;
+  y+=10;doc.setFont(F.mono,'bold');doc.setFontSize(9);rgb('setTextColor',INK);doc.text('METHOD AND CAVEATS',M,y+8);y+=18;rgb('setDrawColor',INK);doc.setLineWidth(2);doc.line(M,y,W-M,y);y+=10;
   para('Workspace figures are from the Claude admin analytics dashboard, which caps most windows at 90 days; Claude Code productivity is reported monthly; adoption levels are as of Sep 14. Seat history from Anthropic billing notices; milestones from staff email and Zoom AI summaries. Spend figures are intentionally excluded. No supporter personal or financial data was accessed.',8.5,'courier',INK2,1.5);
 
   /* ADOPTION */
