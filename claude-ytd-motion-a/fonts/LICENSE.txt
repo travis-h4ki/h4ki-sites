@@ -1,0 +1,4 @@
+Fonts in this folder are licensed under the SIL Open Font License 1.1.
+Libre Baskerville: Impallari Type, via Google Fonts (static instances).
+IBM Plex Sans / IBM Plex Mono: IBM, github.com/IBM/plex and Google Fonts.
+Used only to embed text in the downloadable PDF report.
