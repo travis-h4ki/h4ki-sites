@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>H4KI × Claude · 2026 YTD · Motion B</title>
+<title>H4KI × Claude · 2026 YTD · Living Report</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <style>
@@ -332,6 +332,14 @@ html.mo .hero h1 em::after{transform:rotate(-1deg) scaleX(0);transform-origin:0 
 @keyframes mo-swipe{to{transform:rotate(-1deg) scaleX(1)}}
 html.mo .hero.lit h1 em::after{animation:mo-swipe .5s cubic-bezier(.22,.78,.2,1) .6s forwards}
 
+/* ---------- header: four colour reading progress ---------- */
+html.mo #prog{position:absolute;left:0;right:0;bottom:-4px;height:4px;pointer-events:none;overflow:hidden}
+html.mo #prog i{display:block;height:100%;transform:scaleX(0);transform-origin:0 50%;
+  background:linear-gradient(90deg,var(--dark) 0 25%,var(--orange) 25% 50%,var(--green) 50% 75%,var(--red) 75% 100%)}
+
+/* ---------- hero: the shapes answer the pointer ---------- */
+html.mo .blobs circle,html.mo .blobs path{transition:transform .65s cubic-bezier(.2,.8,.2,1)}
+
 /* ---------- reading rail ---------- */
 html.mo #rail{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:60;
   display:flex;flex-direction:column;gap:14px;align-items:flex-end}
@@ -346,10 +354,7 @@ html.mo #rail button.on{color:var(--ink)}
 html.mo #rail button:hover i{background:var(--ink)}
 @media(max-width:1180px){html.mo #rail{display:none}}
 
-/* ---------- charts: focus, segmented control ---------- */
-html.mo .chart svg *{transition:opacity .22s ease}
-html.mo .chart svg.dim>*:not(.hot):not(.bg){opacity:.15}
-html.mo .chart svg.dim>.hot{opacity:1}
+/* ---------- charts: tooltip and segmented control ---------- */
 html.mo .tip{transition:opacity .16s ease, left .06s ease-out, top .06s ease-out;
   box-shadow:4px 4px 0 rgba(29,28,26,.2)}
 html.mo .seg{display:inline-flex;border:2px solid var(--ink);margin:0 0 14px;background:var(--tile)}
@@ -488,7 +493,7 @@ html.mo[data-theme="dark"] .toast{background:#f1eee6;color:#15171f}
 
 <header>
   <div class="wrap">
-    <div class="brand"><span class="dots"><i></i><i></i><i></i><i></i></span> H4KI × Claude <small>2026 YTD · Motion B · Living Report</small></div>
+    <div class="brand"><span class="dots"><i></i><i></i><i></i><i></i></span> H4KI × Claude <small>2026 YTD · Living Report</small></div>
     <nav><a href="#adoption">Adoption</a><a href="#build">Building</a><a href="#projects">Projects</a><a href="#timeline">Timeline</a></nav>
     <div class="hdr-r">
     <button id="theme" title="Toggle dark mode" aria-label="Toggle dark mode" aria-pressed="false">
@@ -920,34 +925,10 @@ CH.funnel_people=function(){
 };
 
 /* ---------------------------------------------------------
-   2 · charts: focus on hover, redraw on entry
+   2 · charts: redraw on entry
    --------------------------------------------------------- */
-function groupOf(n){
-  var out=[n],p,q,k;
-  if(n.getAttribute('fill')==='transparent'){
-    p=n.previousElementSibling;k=0;
-    while(p&&k<3){out.push(p);p=p.previousElementSibling;k++;}
-    return out;
-  }
-  p=n.previousElementSibling;k=0;
-  while(p&&k<2&&(p.tagName==='text'||p.getAttribute('fill')===C.b10)){out.push(p);p=p.previousElementSibling;k++;}
-  q=n.nextElementSibling;k=0;
-  while(q&&k<2&&q.tagName==='text'){out.push(q);q=q.nextElementSibling;k++;}
-  return out;
-}
-function clearHot(svg){$$('.hot',svg).forEach(function(n){n.classList.remove('hot');});}
 function decorate(svg,key){
-  if(!svg)return;
-  if(key==='value')applyHours(svg);
-  if(svg.dataset.mo)return;svg.dataset.mo='1';
-  var bg=svg.firstElementChild;if(bg)bg.classList.add('bg');
-  svg.addEventListener('mouseover',function(e){
-    var t=e.target;
-    if(!t||t===svg||t.classList.contains('bg')){svg.classList.remove('dim');clearHot(svg);return;}
-    svg.classList.add('dim');clearHot(svg);
-    groupOf(t).forEach(function(n){n.classList.add('hot');});
-  });
-  svg.addEventListener('mouseleave',function(){svg.classList.remove('dim');clearHot(svg);});
+  if(svg&&key==='value')applyHours(svg);
 }
 function renderOne(c,animate){
   var f=CH[c.dataset.view||c.dataset.chart];if(!f)return;
@@ -1117,6 +1098,25 @@ setTimeout(function(){
 
 var hero=$('.hero');setTimeout(function(){hero.classList.add('lit');},40);
 
+var prog=document.createElement('div');prog.id='prog';prog.innerHTML='<i></i>';
+$('header').appendChild(prog);
+var bar=prog.firstChild;
+
+if(!RM&&matchMedia('(pointer:fine)').matches){
+  var depths=[];
+  $$('.blobs circle,.blobs path').forEach(function(n,i){depths.push([n,6+i*5]);});
+  hero.addEventListener('pointerleave',function(){
+    depths.forEach(function(d){d[0].style.transform='none';});
+  });
+  hero.addEventListener('pointermove',function(e){
+    var r=hero.getBoundingClientRect();
+    var x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
+    depths.forEach(function(d){
+      d[0].style.transform='translate('+((x-.5)*d[1]).toFixed(1)+'px,'+((y-.5)*d[1]).toFixed(1)+'px)';
+    });
+  });
+}
+
 var rail=document.createElement('div');rail.id='rail';
 var SEC=[['adoption','Adoption'],['build','Building'],['projects','Projects'],['timeline','Timeline']];
 rail.innerHTML=SEC.map(function(s){return '<button type="button" data-go="'+s[0]+'"><span>'+s[1]+'</span><i></i></button>';}).join('');
@@ -1132,6 +1132,8 @@ function onScroll(){
   if(ticking)return;ticking=true;
   raf(function(){
     ticking=false;var cur=-1;
+    var h=document.body.scrollHeight-innerHeight;
+    bar.style.transform='scaleX('+(h>0?Math.min(scrollY/h,1):0)+')';
     SEC.forEach(function(s,i){
       var n=document.getElementById(s[0]);if(!n)return;
       if(n.getBoundingClientRect().top<innerHeight*0.55)cur=i;
@@ -1264,10 +1266,10 @@ function applyTheme(){
   tbtn.setAttribute('aria-pressed',String(!dark));
   try{localStorage.setItem('h4ki-theme',dark?'light':'dark');}catch(e){}
   renderCharts();
-  $$('.chart').forEach(function(c){var s=c.querySelector('svg');if(s){s.dataset.mo='';decorate(s,c.dataset.chart);}});
+  decorateAll();
 }
 tbtn.addEventListener('click',function(){   /* fallback path: base handler re-rendered the charts */
-  setTimeout(function(){$$('.chart').forEach(function(c){var s=c.querySelector('svg');if(s&&!s.dataset.mo)decorate(s,c.dataset.chart);});},0);
+  setTimeout(decorateAll,0);
 });
 document.addEventListener('click',function(e){
   if(!e.target.closest||!e.target.closest('#theme'))return;
