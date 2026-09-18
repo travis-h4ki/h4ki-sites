@@ -310,9 +310,17 @@ section{padding:64px 0 8px;scroll-margin-top:84px}
 /* ============================================================
    MOTION B · "Living Report"
    Direct manipulation. The reader can turn the report over:
-   switch how a chart is drawn, move the assumptions behind the
-   hours, play the year back, and carry a figure away.
+   switch how a chart is drawn, play the year back, and carry a
+   figure away.
    ============================================================ */
+
+/* ---------- skip link and screen reader text ---------- */
+html.mo .skip{position:fixed;left:16px;top:-80px;z-index:200;padding:10px 14px;
+  background:var(--ink);color:var(--warm);font:700 11px/1 Menlo,monospace;letter-spacing:.14em;text-transform:uppercase;
+  text-decoration:none;box-shadow:4px 4px 0 var(--orange);transition:top .2s ease}
+html.mo .skip:focus{top:16px;outline:3px solid var(--orange);outline-offset:3px}
+html.mo main:focus{outline:none}
+html.mo .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 
 /* ---------- reveal: the print develops ---------- */
 html.mo .rv{opacity:0;filter:blur(9px)}
@@ -348,7 +356,7 @@ html.mo #rail button{all:unset;cursor:pointer;display:flex;align-items:center;ga
 html.mo #rail button i{width:26px;height:2px;background:var(--ink3);display:block;
   transition:width .35s cubic-bezier(.22,.78,.2,1), background .3s ease}
 html.mo #rail button span{opacity:0;transform:translateX(6px);transition:opacity .3s ease, transform .3s ease}
-html.mo #rail:hover button span{opacity:1;transform:none}
+html.mo #rail:hover button span,html.mo #rail:focus-within button span{opacity:1;transform:none}
 html.mo #rail button.on i{width:52px;background:var(--orange)}
 html.mo #rail button.on{color:var(--ink)}
 html.mo #rail button:hover i{background:var(--ink)}
@@ -367,42 +375,6 @@ html.mo .seg button.on{background:var(--ink);color:var(--warm)}
 @keyframes mo-swapchart{from{opacity:0;transform:translateY(10px) scale(.99)}to{opacity:1;transform:none}}
 html.mo .chart.swap svg{animation:mo-swapchart .45s cubic-bezier(.22,.78,.2,1)}
 
-/* ---------- the assumptions behind the hours ---------- */
-html.mo .knobs{border-top:2px dashed var(--ink3);margin-top:20px;padding-top:18px}
-html.mo .knobs-h{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:6px}
-html.mo .knobs-h b{font-family:"Iowan Old Style",Palatino,Georgia,serif;font-size:20px;font-weight:600}
-html.mo .knobs-h span{font:400 12.5px/1.5 Menlo,monospace;color:var(--ink2);text-transform:uppercase;letter-spacing:.06em}
-html.mo .knob-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:4px 26px;margin-top:14px}
-html.mo .knob label{display:flex;justify-content:space-between;align-items:baseline;gap:10px;
-  font:600 11px/1.4 Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
-html.mo .knob label b{font-size:14px;color:var(--orange-ink);font-variant-numeric:tabular-nums}
-html.mo .knob small{display:block;font:400 10.5px/1.5 Menlo,monospace;color:var(--ink3);margin-top:-2px}
-html.mo input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:2px;
-  background:var(--ink);margin:16px 0 6px;cursor:ew-resize}
-html.mo input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;
-  background:var(--orange);border:2px solid var(--ink);
-  transition:transform .2s cubic-bezier(.2,1.7,.4,1)}
-html.mo input[type=range]:hover::-webkit-slider-thumb{transform:scale(1.25)}
-html.mo input[type=range]:active::-webkit-slider-thumb{transform:scale(1.5)}
-html.mo input[type=range]::-moz-range-thumb{width:14px;height:14px;background:var(--orange);border:2px solid var(--ink);border-radius:0}
-html.mo .readout{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-top:16px;
-  border-top:2px solid var(--ink);padding-top:14px}
-html.mo .readout .big{font-family:"Iowan Old Style",Palatino,Georgia,serif;font-size:40px;line-height:1;
-  font-variant-numeric:tabular-nums;transition:color .3s ease}
-html.mo .readout.yours .big{color:var(--orange-ink)}
-html.mo .readout em{font-style:normal;font:400 12px/1.5 Menlo,monospace;text-transform:uppercase;
-  letter-spacing:.08em;color:var(--ink2)}
-html.mo .readout .reset{all:unset;cursor:pointer;margin-left:auto;
-  font:700 10.5px/1 Menlo,monospace;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--ink2);border-bottom:2px solid var(--orange);padding-bottom:3px;opacity:0;
-  transition:opacity .3s ease, color .25s ease}
-html.mo .readout.yours .reset{opacity:1}
-html.mo .readout .reset:hover{color:var(--ink)}
-@keyframes mo-pop{0%{transform:translateY(5px) scale(.97);opacity:.4}100%{transform:none;opacity:1}}
-html.mo .pop{animation:mo-pop .3s cubic-bezier(.22,.78,.2,1)}
-@keyframes mo-mark{from{background:var(--orange)}to{background:transparent}}
-html.mo .mark{animation:mo-mark 1.1s ease-out}
-
 /* ---------- tiles: press and carry away ---------- */
 html.mo .tile{position:relative;z-index:0;cursor:copy;
   transform:translate(var(--tx,0px),var(--ty,0px))!important;
@@ -414,7 +386,7 @@ html.mo .tile .n{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 
 html.mo .tile::before{content:"COPY";position:absolute;right:14px;top:12px;
   font:700 9px/1 Menlo,monospace;letter-spacing:.16em;color:var(--ink3);
   opacity:0;transition:opacity .25s ease}
-html.mo .tile:hover::before{opacity:.9}
+html.mo .tile:hover::before,html.mo .tile:focus-visible::before{opacity:.9}
 html.mo .tile.got::before{content:"COPIED";color:var(--orange-ink);opacity:1}
 
 /* ---------- timeline: play the year ---------- */
@@ -927,9 +899,6 @@ CH.funnel_people=function(){
 /* ---------------------------------------------------------
    2 · charts: redraw on entry
    --------------------------------------------------------- */
-function decorate(svg,key){
-  if(svg&&key==='value')applyHours(svg);
-}
 function renderOne(c,animate){
   var f=CH[c.dataset.view||c.dataset.chart];if(!f)return;
   loadTokens();
@@ -938,11 +907,8 @@ function renderOne(c,animate){
   svg.setAttribute('role','img');
   svg.setAttribute('aria-label',c.dataset.title+'. '+((c.parentNode.querySelector('.sub')||{}).textContent||''));
   c.innerHTML='';c.appendChild(svg);
-  decorate(svg,c.dataset.chart);
   if(animate){c.classList.remove('swap');void c.offsetWidth;c.classList.add('swap');}
 }
-function decorateAll(){$$('.chart').forEach(function(c){decorate(c.querySelector('svg'),c.dataset.chart);});}
-decorateAll();
 if(!RM&&'IntersectionObserver' in window){
   var cio=new IntersectionObserver(function(es){
     es.forEach(function(e){
@@ -981,102 +947,7 @@ seg('funnel',[
 ]);
 
 /* ---------------------------------------------------------
-   3 · the assumptions behind the hours
-   --------------------------------------------------------- */
-var OUT={file:873,conv:180,design:2,mcp:4};
-var DEF={file:1.5,conv:2,design:15,mcp:5};
-var NOW={file:DEF.file,conv:DEF.conv,design:DEF.design,mcp:DEF.mcp};
-var dirty=false;
-function hours(){
-  return (OUT.file*NOW.file+OUT.conv*NOW.conv+OUT.design*NOW.design+OUT.mcp*NOW.mcp)/60;
-}
-function hoursTxt(){var h=hours();return (h>=100?h.toFixed(0):h.toFixed(1))+' h';}
-
-/* rewrite the hours wherever the page states them */
-var tile=$$('.tile')[5],tileN=tile&&tile.querySelector('.n'),tileW=tile&&tile.querySelector('.w');
-var glance=$$('.glance>div')[2],glanceS=glance&&glance.querySelector('span');
-var tileN0=tileN?tileN.firstChild.nodeValue:'',tileW0=tileW?tileW.textContent:'';
-var glance0=glanceS?glanceS.textContent:'';
-function applyHours(svg){
-  var ts=$$('text',svg),big=null,sub=null,third=null;
-  ts.forEach(function(t){
-    var v=t.textContent.trim();
-    if(/^~?[\d.]+ h$/.test(v)&&+t.getAttribute('font-size')>30)big=t;
-    if(/^(recovered, 90 days|your model, 90 days)$/.test(v))sub=t;
-    if(/last 30 days|dashboard estimate/.test(v))third=t;
-  });
-  if(!big)return;
-  if(dirty){
-    big.textContent=hoursTxt();big.setAttribute('fill',R.getAttribute('data-theme')==='dark'?'#ffc46b':'#8a4b00');
-    if(sub)sub.textContent='your model, 90 days';
-    if(third){third.textContent='dashboard ~28 h · 30 days ~7 h';third.setAttribute('font-size',9.5);}
-  }else{
-    big.textContent='~28 h';big.setAttribute('fill',C.grey);
-    if(sub)sub.textContent='recovered, 90 days';
-    if(third){third.textContent='~7 h in the last 30 days';third.setAttribute('font-size',11.5);}
-  }
-}
-function paint(){
-  var t=hoursTxt();
-  $('#ro-big').textContent=t;
-  $('#readout').classList.toggle('yours',dirty);
-  $('#ro-big').classList.remove('pop');void $('#ro-big').offsetWidth;$('#ro-big').classList.add('pop');
-  var svg=$('.chart[data-chart="value"] svg');if(svg)applyHours(svg);
-  if(tileN){
-    tileN.firstChild.nodeValue=dirty?t.replace(' h',''):tileN0;
-    tileN.classList.remove('pop');void tileN.offsetWidth;tileN.classList.add('pop');
-  }
-  if(tileW)tileW.textContent=dirty?'your assumptions · dashboard ~28 h':tileW0;
-  if(glanceS)glanceS.textContent=dirty
-    ? glance0.replace(/~28 hours recovered in the last 90 days\./,
-        t.replace(' h','')+' hours recovered in the last 90 days on your assumptions.')
-    : glance0;
-}
-var knobs=document.createElement('div');
-knobs.className='knobs';
-knobs.innerHTML=
- '<div class="knobs-h"><b>Move the assumptions</b><span>The count of verified outputs comes from the dashboard. The minutes per task are an assumption the organization sets.</span></div>'+
- '<div class="knob-grid">'+
-   knob('file','Minutes per file operation','873 verified in 90 days',0.5,6,0.1)+
-   knob('conv','Minutes per conversation','180 verified in 90 days',0.5,12,0.5)+
-   knob('design','Minutes per design','2 verified in 90 days',2,60,1)+
-   knob('mcp','Minutes per MCP write','4 verified in 90 days',1,30,1)+
- '</div>'+
- '<div class="readout" id="readout">'+
-   '<span class="big" id="ro-big">28.7 h</span>'+
-   '<em>recovered in 90 days on these assumptions<br>dashboard estimate: about 28 hours</em>'+
-   '<button class="reset" id="ro-reset" type="button">Reset assumptions</button>'+
- '</div>';
-function knob(k,label,note,min,max,step){
-  return '<div class="knob"><label for="k-'+k+'">'+label+'<b id="v-'+k+'">'+DEF[k]+'</b></label>'+
-   '<input id="k-'+k+'" type="range" min="'+min+'" max="'+max+'" step="'+step+'" value="'+DEF[k]+'" '+
-   'aria-label="'+label+' in minutes">'+
-   '<small>'+note+'</small></div>';
-}
-var valueCard=$('.chart[data-chart="value"]');
-if(valueCard){
-  valueCard.parentNode.appendChild(knobs);
-  ['file','conv','design','mcp'].forEach(function(k){
-    var input=$('#k-'+k),out=$('#v-'+k);
-    input.addEventListener('input',function(){
-      NOW[k]=parseFloat(input.value);
-      out.textContent=input.value;
-      out.classList.remove('mark');void out.offsetWidth;out.classList.add('mark');
-      dirty=(NOW.file!==DEF.file||NOW.conv!==DEF.conv||NOW.design!==DEF.design||NOW.mcp!==DEF.mcp);
-      paint();
-    });
-  });
-  $('#ro-reset').addEventListener('click',function(){
-    ['file','conv','design','mcp'].forEach(function(k){
-      NOW[k]=DEF[k];$('#k-'+k).value=DEF[k];$('#v-'+k).textContent=DEF[k];
-    });
-    dirty=false;paint();toast('Back to the dashboard estimate.');
-  });
-  $('#ro-big').textContent=hoursTxt();
-}
-
-/* ---------------------------------------------------------
-   4 · reveal, hero, rail
+   3 · reveal, hero, rail
    --------------------------------------------------------- */
 $$('.glance>div,.tiles .tile,.card,.proj .p,.sec-h').forEach(function(n){n.classList.add('rv');});
 $$('.strip').forEach(function(n){n.classList.add('rvx');});
@@ -1117,7 +988,7 @@ if(!RM&&matchMedia('(pointer:fine)').matches){
   });
 }
 
-var rail=document.createElement('div');rail.id='rail';
+var rail=document.createElement('nav');rail.id='rail';rail.setAttribute('aria-label','Sections');
 var SEC=[['adoption','Adoption'],['build','Building'],['projects','Projects'],['timeline','Timeline']];
 rail.innerHTML=SEC.map(function(s){return '<button type="button" data-go="'+s[0]+'"><span>'+s[1]+'</span><i></i></button>';}).join('');
 document.body.appendChild(rail);
@@ -1138,13 +1009,20 @@ function onScroll(){
       var n=document.getElementById(s[0]);if(!n)return;
       if(n.getBoundingClientRect().top<innerHeight*0.55)cur=i;
     });
-    rbtns.forEach(function(b,i){b.classList.toggle('on',i===cur);});
+    rbtns.forEach(function(b,i){b.classList.toggle('on',i===cur);if(i===cur)b.setAttribute('aria-current','true');else b.removeAttribute('aria-current');});
   });
 }
 addEventListener('scroll',onScroll,{passive:true});onScroll();
+var mainEl=$('main');
+if(mainEl){
+  mainEl.id=mainEl.id||'main';mainEl.setAttribute('tabindex','-1');
+  var skip=document.createElement('a');skip.className='skip';skip.href='#'+mainEl.id;skip.textContent='Skip to content';
+  skip.addEventListener('click',function(e){e.preventDefault();mainEl.focus({preventScroll:true});mainEl.scrollIntoView({behavior:RM?'auto':'smooth',block:'start'});});
+  document.body.insertBefore(skip,document.body.firstChild);
+}
 
 /* ---------------------------------------------------------
-   5 · magnetic buttons, tiles you can carry away
+   4 · magnetic buttons, tiles you can carry away
    --------------------------------------------------------- */
 function magnet(n,strength){
   if(RM||!matchMedia('(pointer:fine)').matches)return;
@@ -1177,10 +1055,14 @@ function copyText(text){
   });
 }
 magnet($('#dl'),10);
+var hint=document.createElement('span');hint.id='tile-hint';hint.className='sr-only';
+hint.textContent='Press Enter to copy this figure and its caveat to the clipboard.';
+document.body.appendChild(hint);
 $$('.tile').forEach(function(t,i){
   magnet(t,8);
   t.setAttribute('tabindex','0');
   t.setAttribute('role','button');
+  t.setAttribute('aria-describedby','tile-hint');
   var say=function(){
     var n=t.querySelector('.n').textContent.trim();
     var l=t.querySelector('.l').textContent.trim();
@@ -1197,7 +1079,7 @@ $$('.tile').forEach(function(t,i){
 });
 
 /* ---------------------------------------------------------
-   6 · projects: detail lines stagger, all four read
+   5 · projects: detail lines stagger, all four read
    --------------------------------------------------------- */
 $$('.p').forEach(function(p){
   $$('.more li',p).forEach(function(li,i){li.style.setProperty('--li',i);});
@@ -1211,7 +1093,7 @@ $$('.p').forEach(function(p){
 });
 
 /* ---------------------------------------------------------
-   7 · play the year back
+   6 · play the year back
    --------------------------------------------------------- */
 var track=$('#tltrack'),detail=$('#tldetail'),fill=$('.fill',track);
 var dots=$$('.tl-dot',track);
@@ -1257,7 +1139,7 @@ if(window.MutationObserver){
 }
 
 /* ---------------------------------------------------------
-   8 · theme change wipes out from the button
+   7 · theme change wipes out from the button
    --------------------------------------------------------- */
 var tbtn=$('#theme');
 function applyTheme(){
@@ -1266,11 +1148,7 @@ function applyTheme(){
   tbtn.setAttribute('aria-pressed',String(!dark));
   try{localStorage.setItem('h4ki-theme',dark?'light':'dark');}catch(e){}
   renderCharts();
-  decorateAll();
 }
-tbtn.addEventListener('click',function(){   /* fallback path: base handler re-rendered the charts */
-  setTimeout(decorateAll,0);
-});
 document.addEventListener('click',function(e){
   if(!e.target.closest||!e.target.closest('#theme'))return;
   if(!document.startViewTransition||RM)return;
