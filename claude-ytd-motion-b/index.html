@@ -362,6 +362,25 @@ html.mo #rail button.on{color:var(--ink)}
 html.mo #rail button:hover i{background:var(--ink)}
 @media(max-width:1180px){html.mo #rail{display:none}}
 
+/* ---------- phone: jump row under the hero ---------- */
+html.mo #jump{display:none}
+@media(max-width:900px){
+  html.mo #jump{display:flex;gap:6px;position:sticky;z-index:40;margin:0 -16px 26px;padding:10px 16px;
+    overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;
+    background:var(--warm);border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    scroll-snap-type:x proximity}
+  html.mo #jump::-webkit-scrollbar{display:none}
+  html.mo #jump a{flex:0 0 auto;display:inline-flex;align-items:center;gap:7px;padding:8px 12px;
+    border:1.5px solid var(--ink);color:var(--ink);text-decoration:none;white-space:nowrap;scroll-snap-align:center;
+    font:700 10.5px/1 Menlo,monospace;letter-spacing:.12em;text-transform:uppercase;
+    transition:background .25s ease,color .25s ease,box-shadow .25s ease}
+  html.mo #jump a b{font-weight:700;color:var(--orange-ink);font-variant-numeric:tabular-nums}
+  html.mo #jump a.on{background:var(--ink);color:var(--warm);box-shadow:3px 3px 0 var(--orange)}
+  html.mo #jump a.on b{color:var(--orange)}
+  html.mo #jump a:active{transform:translate(1px,1px)}
+  html.mo section[id]{scroll-margin-top:var(--jump-off,120px)}
+}
+
 /* ---------- charts: tooltip and segmented control ---------- */
 html.mo .tip{transition:opacity .16s ease, left .06s ease-out, top .06s ease-out;
   box-shadow:4px 4px 0 rgba(29,28,26,.2)}
@@ -697,7 +716,7 @@ CH.value=c=>{const s=svgRoot(1100,220);const d=DATA.value.outputs;const defs=el(
   el('path',{d:'M830 105 h60',stroke:C.ink3,'stroke-width':2},s);el('path',{d:'M880 97 l10 8 -10 8',stroke:C.ink3,'stroke-width':2,fill:'none'},s);
   el('rect',{x:900,y:30,width:180,height:150,rx:20,fill:C.bg,stroke:C.orange,'stroke-width':3},s);
   txt(s,990,95,'~28 h',{anchor:'middle',fill:C.grey,weight:700,size:40});txt(s,990,122,'recovered, 90 days',{anchor:'middle',size:13,fill:C.grey});txt(s,990,146,'~7 h in the last 30 days',{anchor:'middle',size:11.5,fill:C.ink3});
-  txt(s,20,205,'Model: verified outputs × minutes per task (dashboard defaults, adjustable by the org). Spend is not an input.',{size:11.5,fill:C.ink3});return s;};
+  txt(s,20,205,'Model: verified outputs × minutes per task (dashboard defaults). Spend is not an input.',{size:11.5,fill:C.ink3});return s;};
 
 /* render */
 function renderCharts(){loadTokens();document.querySelectorAll('.chart').forEach(c=>{const f=CH[c.dataset.chart];if(!f)return;c.innerHTML='';const L=c.parentNode.querySelector('.legend');if(L)L.remove();const svg=f(c);svg.setAttribute('role','img');svg.setAttribute('aria-label',c.dataset.title+'. '+(c.parentNode.querySelector('.sub')||{}).textContent);c.appendChild(svg);});}
@@ -998,7 +1017,7 @@ $$('#rail button').forEach(function(b){
     if(t)t.scrollIntoView({behavior:RM?'auto':'smooth',block:'start'});
   });
 });
-var rbtns=$$('#rail button'),ticking=false;
+var rbtns=$$('#rail button'),ticking=false,jlinks=[],jump=null;
 function onScroll(){
   if(ticking)return;ticking=true;
   raf(function(){
@@ -1010,9 +1029,30 @@ function onScroll(){
       if(n.getBoundingClientRect().top<innerHeight*0.55)cur=i;
     });
     rbtns.forEach(function(b,i){b.classList.toggle('on',i===cur);if(i===cur)b.setAttribute('aria-current','true');else b.removeAttribute('aria-current');});
+    jlinks.forEach(function(a,i){a.classList.toggle('on',i===cur);if(i===cur)a.setAttribute('aria-current','true');else a.removeAttribute('aria-current');
+      if(i===cur&&a.scrollIntoView&&jump.scrollWidth>jump.clientWidth)a.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'});});
   });
 }
 addEventListener('scroll',onScroll,{passive:true});onScroll();
+/* phones lose the header nav and the rail, so a compact section row sits under
+   the hero and sticks beneath the header for the rest of the scroll */
+jump=document.createElement('nav');jump.id='jump';jump.setAttribute('aria-label','Jump to section');
+jump.innerHTML=SEC.map(function(s,i){return '<a href="#'+s[0]+'"><b>0'+(i+1)+'</b>'+s[1]+'</a>';}).join('');
+if(hero&&hero.parentNode)hero.parentNode.insertBefore(jump,hero.nextSibling);
+jlinks=$$('#jump a');
+jlinks.forEach(function(a){
+  a.addEventListener('click',function(e){
+    var t=document.getElementById(a.getAttribute('href').slice(1));if(!t)return;
+    e.preventDefault();t.scrollIntoView({behavior:RM?'auto':'smooth',block:'start'});
+    history.replaceState(null,'',a.getAttribute('href'));
+  });
+});
+function fitJump(){
+  var hh=$('header').offsetHeight;
+  jump.style.top=hh+'px';
+  R.style.setProperty('--jump-off',(hh+jump.offsetHeight+8)+'px');
+}
+fitJump();addEventListener('resize',fitJump);
 var mainEl=$('main');
 if(mainEl){
   mainEl.id=mainEl.id||'main';mainEl.setAttribute('tabindex','-1');
