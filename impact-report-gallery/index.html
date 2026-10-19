@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head><meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>H4KI 2026 Impact Report, Mockup Rounds</title>
+<meta name="description" content="Draft, internal review only. The final version of each 2026 Impact Report mockup round.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1D4695; --blue:#4179B5; --orange:#FFA225; --orange-text:#a35706;
+  --water:#2196F3; --mint:#92CAB4; --red:#F24444;
+  --ink:#10183a; --muted:#4a5270; --line:#dfe3ee; --paper:#f6f4ef; --card:#fff;
+  --head:"Oswald", "Helvetica Neue", Arial, sans-serif;
+  --body:"Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.55 var(--body)}
+a{color:inherit}
+img{display:block;max-width:100%}
+
+.draft{position:sticky;top:0;z-index:20;background:var(--ink);color:#fff;font:600 13px/1.4 var(--body);
+  letter-spacing:.02em;text-align:center;padding:9px 16px}
+.draft b{font-family:var(--head);font-weight:700;letter-spacing:.14em;color:var(--orange);margin-right:.5em}
+
+header.bar{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;
+  max-width:1240px;margin:0 auto;padding:22px 24px;border-bottom:1px solid var(--line)}
+.wordmark{font:700 20px/1 var(--head);letter-spacing:.04em;text-transform:uppercase;text-decoration:none}
+.wordmark span{color:var(--blue)}
+nav.dots{display:flex;flex-wrap:wrap;gap:6px 18px;font:500 14px/1 var(--head);letter-spacing:.08em;text-transform:uppercase}
+nav.dots a{display:inline-flex;align-items:center;gap:8px;text-decoration:none;padding:6px 0}
+nav.dots a::before{content:"";width:10px;height:10px;border-radius:50%;border:2px solid var(--c)}
+nav.dots a:hover,nav.dots a:focus-visible{text-decoration:underline;text-underline-offset:4px}
+
+main{max-width:1240px;margin:0 auto;padding:0 24px 80px}
+.intro{padding:56px 0 40px;max-width:780px}
+.kicker{font:700 15px/1 var(--head);letter-spacing:.18em;text-transform:uppercase;color:var(--orange-text);margin:0 0 14px}
+h1{font:700 clamp(40px,6vw,72px)/1.02 var(--head);letter-spacing:-.01em;margin:0 0 20px;text-transform:uppercase}
+.intro p{margin:0 0 12px;color:var(--muted);font-size:18px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:28px}
+.group{margin-top:64px;padding-top:32px;border-top:2px solid var(--ink)}
+.group h2{font:700 30px/1.1 var(--head);text-transform:uppercase;margin:0 0 8px}
+.group > p{color:var(--muted);margin:0 0 28px;max-width:780px}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;scroll-margin-top:60px}
+.cover{position:relative;display:block;width:100%;padding:0;border:0;background:#e9e6de;cursor:pointer;aspect-ratio:1546/2000;overflow:hidden}
+.cover img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.cover:hover img,.cover:focus-visible img{transform:scale(1.025)}
+.cover .open{position:absolute;left:14px;bottom:14px;background:rgba(16,24,58,.88);color:#fff;font:600 13px/1 var(--head);
+  letter-spacing:.1em;text-transform:uppercase;padding:9px 14px;border-radius:999px}
+.cover:focus-visible{outline:3px solid var(--orange);outline-offset:-3px}
+.meta{padding:20px 20px 22px;display:flex;flex-direction:column;gap:10px;flex:1}
+.tag{display:inline-flex;align-items:center;gap:8px;font:700 13px/1 var(--head);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.tag::before{content:"";width:10px;height:10px;border-radius:50%;border:2px solid var(--c)}
+.card h3{font:700 26px/1.1 var(--head);text-transform:uppercase;margin:0}
+.card p{margin:0;font-size:15.5px;color:var(--muted)}
+.facts{font-size:13.5px;color:var(--muted)}
+.facts code{font:12.5px/1.4 ui-monospace,Menlo,monospace;background:#f1f2f6;padding:1px 5px;border-radius:4px}
+.actions{margin-top:auto;padding-top:8px;display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;font:700 14px/1 var(--head);letter-spacing:.08em;text-transform:uppercase;
+  text-decoration:none;border-radius:999px;padding:12px 18px;border:1.5px solid var(--ink);background:none;color:var(--ink);cursor:pointer}
+.btn.primary{background:var(--orange);border-color:var(--orange);color:var(--ink)}
+.btn:hover{filter:brightness(.95)}
+.btn:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.btn small{font:500 12px/1 var(--body);letter-spacing:0;text-transform:none;opacity:.8}
+
+footer{max-width:1240px;margin:0 auto;padding:28px 24px 48px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+
+/* Flipbook */
+.viewer{position:fixed;inset:0;z-index:50;background:#0d1330;color:#fff;display:none;grid-template-rows:auto minmax(0,1fr) auto;grid-template-columns:minmax(0,1fr)}
+.viewer.on{display:grid}
+.vtop{display:flex;align-items:center;gap:16px;padding:10px 16px;border-bottom:1px solid rgba(255,255,255,.12)}
+.vtop .vdraft{font:700 12px/1 var(--head);letter-spacing:.14em;color:var(--orange);text-transform:uppercase;white-space:nowrap}
+.vtop h2{font:700 18px/1.2 var(--head);text-transform:uppercase;letter-spacing:.04em;margin:0;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.vtop .count{font:500 14px/1 var(--body);opacity:.85;white-space:nowrap}
+.vbtn{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:999px;
+  font:700 13px/1 var(--head);letter-spacing:.08em;text-transform:uppercase;padding:9px 14px;cursor:pointer;text-decoration:none;white-space:nowrap}
+.vbtn:hover{background:rgba(255,255,255,.2)}
+.vbtn:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.stage{position:relative;display:flex;align-items:center;justify-content:center;min-height:0;padding:16px 72px;touch-action:pan-y}
+.stage img{max-width:100%;max-height:100%;object-fit:contain;box-shadow:0 10px 40px rgba(0,0,0,.45);border-radius:2px;background:#fff}
+.nav{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:24px;line-height:1;cursor:pointer}
+.nav:hover{background:rgba(255,255,255,.24)}
+.nav:disabled{opacity:.25;cursor:default}
+.nav:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.nav.prev{left:12px}.nav.next{right:12px}
+.strip{display:flex;gap:8px;overflow-x:auto;padding:10px 16px 14px;border-top:1px solid rgba(255,255,255,.12);scrollbar-width:thin}
+.strip button{flex:0 0 auto;padding:0;border:2px solid transparent;border-radius:4px;background:none;cursor:pointer;opacity:.6}
+.strip button[aria-current="true"]{border-color:var(--orange);opacity:1}
+.strip button:hover{opacity:1}
+.strip img{height:64px;width:auto;border-radius:2px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+@media (max-width:640px){
+  header.bar{padding:16px}
+  main{padding:0 16px 60px}
+  .intro{padding:36px 0 28px}
+  .stage{padding:10px 8px}
+  .nav{width:44px;height:44px;top:auto;bottom:10px;transform:none}
+  .vtop .vdraft{display:none}
+  .vtop{gap:8px;padding:8px 10px}
+  .vtop h2{font-size:15px}
+  .vtop .count{font-size:12px}
+  .vbtn{padding:8px 10px;font-size:12px}
+  .strip img{height:48px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<div class="draft" role="note"><b>DRAFT</b>Internal review only. Not for distribution. Figures, names, stories and photo permissions are unconfirmed.</div>
+
+<header class="bar">
+  <a class="wordmark" href="#top">H4KI <span>Impact Report 2026</span></a>
+  <nav class="dots" aria-label="Rounds" id="dotnav"></nav>
+</header>
+
+<main id="top">
+  <section class="intro">
+    <p class="kicker">Mockup rounds · Sept 30 to Oct 5, 2026</p>
+    <h1>2026 Impact Report, every round</h1>
+    <p>The final version of each design round for the Hope 4 Kids International 2026 Impact Report, kept side by side for internal reference.</p>
+    <p>Click a cover to page through the presentation edition. Arrow keys turn pages, Esc closes. Each round's spreads PDF is also available to download.</p>
+  </section>
+
+  <div class="grid" id="rounds"></div>
+
+  <section class="group" id="round-6" aria-labelledby="r6h">
+    <h2 id="r6h">Round 6 · Two Speeds</h2>
+    <p>One design doc, built three times in parallel on Oct 5. A three minute band above a thirty minute body, a Goal, Actual, Next strip on every program spread, signed pages, and one continuous orange thread running through the whole book.</p>
+    <div class="grid" id="round6"></div>
+  </section>
+</main>
+
+<footer>Draft for internal review. Every figure, quote, byline and child photo in these mockups still needs sign off before any outside use. Built Oct 19, 2026.</footer>
+
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-labelledby="vtitle" hidden>
+  <div class="vtop">
+    <span class="vdraft">Draft · internal</span>
+    <h2 id="vtitle"></h2>
+    <span class="count" id="vcount" aria-live="polite"></span>
+    <a class="vbtn" id="vpdf" href="#" download>PDF</a>
+    <button class="vbtn" id="vclose" type="button">Close</button>
+  </div>
+  <div class="stage" id="stage">
+    <button class="nav prev" id="vprev" type="button" aria-label="Previous page">&#8249;</button>
+    <img id="vimg" alt="">
+    <button class="nav next" id="vnext" type="button" aria-label="Next page">&#8250;</button>
+  </div>
+  <div class="strip" id="strip" aria-label="Pages"></div>
+</div>
+
+<script>
+const ROUNDS = [
+  {id:"r1", label:"Round 1", name:"Open Doors", date:"Oct 1", pages:14, c:"#2196F3", mb:7.5,
+   pdf:"H4KI-2026-Impact-Report-Round-1-DRAFT-internal-review.pdf", src:"archive/Mockup",
+   desc:"Arched door frames, duotone photo plates, giant numerals and a palette pushed past the brand set, with real 2026 trip photos in a film look.",
+   format:"14 letter pages"},
+  {id:"r2", label:"Round 2", name:"Alongside", date:"Oct 2", pages:13, c:"#FFA225", mb:6.9,
+   pdf:"H4KI-2026-Impact-Report-Round-2-DRAFT-internal-review.pdf", src:"archive/Mockup-round2",
+   desc:"An editorial magazine in Oswald and Arimo like the live site, with dot logo circles as the only graphic device and program colors per chapter. Every figure comes from one verified data file.",
+   format:"Cover, 11 spreads, back"},
+  {id:"r3", label:"Round 3", name:"New Ground", date:"Oct 2", pages:19, c:"#92CAB4", mb:9.6,
+   pdf:"H4KI-2026-Impact-Report-Round-3-DRAFT-internal-review.pdf", src:"archive/Mockup-round3",
+   desc:"Round 1's art direction with round 2's data handling, built on the 17 section table of contents, written board first with full name bylines.",
+   format:"Cover, 17 spreads, back"},
+  {id:"r4", label:"Round 4", name:"Number Posters", date:"Oct 3", pages:19, c:"#F24444", mb:8.8,
+   pdf:"H4KI-2026-Impact-Report-Round-4-DRAFT-internal-review.pdf", src:"archive/Mockup-round4",
+   desc:"Round 3's content in the Number Posters look: Unbounded and Inter type, bold numeral fields and true color photos.",
+   format:"Cover, 17 spreads, back"},
+  {id:"r5", label:"Round 5", name:"Faces", date:"Oct 3", pages:19, c:"#4179B5", mb:11.4,
+   pdf:"H4KI-2026-Impact-Report-Round-5-DRAFT-internal-review.pdf", src:"archive/Mockup-round5",
+   desc:"Round 4 rebuilt around photos of the children in the communities we serve, with a portrait cover, a back cover mosaic and a brighter pop color combo.",
+   format:"Cover, 17 spreads, back"},
+  {id:"r6a", label:"Round 6A", name:"Two Speeds", date:"Oct 5", pages:18, c:"#FFA225", mb:42.0, six:true,
+   pdf:"H4KI-2026-Impact-Report-Round-6A-DRAFT-internal-review.pdf", src:"Mockup-round6-4fe32a",
+   desc:"Build A. Ink text on the orange and mint bands for contrast, with 13 new photos from the Oct 5 Dropbox pull.",
+   format:"Cover, 16 spreads, back"},
+  {id:"r6b", label:"Round 6B", name:"Two Speeds", date:"Oct 5", pages:18, c:"#92CAB4", mb:25.6, six:true,
+   pdf:"H4KI-2026-Impact-Report-Round-6B-DRAFT-internal-review.pdf", src:"Mockup-round6-b",
+   desc:"Build B. Same design doc, built independently, with 29 new Dropbox photos including the Watson building, medical center and Brandom.",
+   format:"Cover, 16 spreads, back"},
+  {id:"r6c", label:"Round 6C", name:"Two Speeds", date:"Oct 5", pages:18, c:"#4179B5", mb:32.1, six:true,
+   pdf:"H4KI-2026-Impact-Report-Round-6C-DRAFT-internal-review.pdf", src:"Mockup-round6-bc4ff4",
+   desc:"Build C. Same design doc, built independently, with stipple, grain and gradients baked into the images so the PDF renders cleanly in Apple Preview.",
+   format:"Cover, 16 spreads, back"}
+];
+const pad = n => String(n).padStart(2,"0");
+const pageSrc = (r,i) => `${r.id}/pages/p-${pad(i+1)}.jpg`;
+
+function card(r){
+  const el = document.createElement("article");
+  el.className = "card"; el.id = r.id; el.style.setProperty("--c", r.c);
+  el.innerHTML = `
+    <button class="cover" type="button" data-open="${r.id}" aria-label="Page through ${r.label}, ${r.name}">
+      <img src="${r.id}/cover.jpg" alt="" loading="lazy" width="720" height="932">
+      <span class="open">Page through</span>
+    </button>
+    <div class="meta">
+      <span class="tag">${r.label} · ${r.date}</span>
+      <h3>${r.name}</h3>
+      <p>${r.desc}</p>
+      <div class="facts">${r.format}, ${r.pages} PDF pages · <code>${r.src}</code></div>
+      <div class="actions">
+        <button class="btn primary" type="button" data-open="${r.id}">Page through</button>
+        <a class="btn" href="${r.id}/${r.pdf}" download>PDF <small>${r.mb.toFixed(1)} MB</small></a>
+      </div>
+    </div>`;
+  return el;
+}
+const main = document.getElementById("rounds"), six = document.getElementById("round6");
+ROUNDS.forEach(r => (r.six ? six : main).appendChild(card(r)));
+document.getElementById("dotnav").innerHTML =
+  ROUNDS.filter(r=>!r.six).map(r=>`<a href="#${r.id}" style="--c:${r.c}">${r.label.replace("Round ","R")}</a>`).join("") +
+  `<a href="#round-6" style="--c:#10183a">R6 A B C</a>`;
+
+/* Flipbook */
+const V = {el:viewer, img:vimg, title:vtitle, count:vcount, pdf:vpdf, strip, prev:vprev, next:vnext};
+let cur = null, idx = 0, opener = null;
+
+function open(id, page=0, push=true){
+  cur = ROUNDS.find(r=>r.id===id); if(!cur) return;
+  opener = document.activeElement;
+  V.title.textContent = `${cur.label} · ${cur.name}`;
+  V.pdf.href = `${cur.id}/${cur.pdf}`;
+  V.strip.innerHTML = Array.from({length:cur.pages},(_,i)=>
+    `<button type="button" data-p="${i}" aria-label="Page ${i+1}"><img src="${pageSrc(cur,i)}" alt="" loading="lazy"></button>`).join("");
+  V.el.hidden = false; V.el.classList.add("on"); document.body.style.overflow = "hidden";
+  go(page, push); V.next.focus();
+}
+function go(i, push=true){
+  idx = Math.max(0, Math.min(cur.pages-1, i));
+  V.img.src = pageSrc(cur, idx);
+  V.img.alt = `${cur.label} ${cur.name}, page ${idx+1} of ${cur.pages}`;
+  V.count.textContent = `Page ${idx+1} of ${cur.pages}`;
+  V.prev.disabled = idx===0; V.next.disabled = idx===cur.pages-1;
+  V.strip.querySelectorAll("button").forEach((b,n)=>b.setAttribute("aria-current", n===idx));
+  const t = V.strip.children[idx]; if (t) t.scrollIntoView({block:"nearest", inline:"center"});
+  [idx-1, idx+1].forEach(n => { if(n>=0 && n<cur.pages){ const p = new Image(); p.src = pageSrc(cur,n); } });
+  const h = `#${cur.id}/${idx+1}`;
+  if (push && location.hash !== h) history.replaceState(null, "", h);
+}
+function close(){
+  V.el.classList.remove("on"); V.el.hidden = true; document.body.style.overflow = "";
+  history.replaceState(null, "", `#${cur.id}`); cur = null;
+  if (opener) opener.focus();
+}
+document.addEventListener("click", e => {
+  const o = e.target.closest("[data-open]"); if (o) return open(o.dataset.open);
+  const p = e.target.closest("#strip [data-p]"); if (p) return go(+p.dataset.p);
+});
+V.prev.onclick = () => go(idx-1); V.next.onclick = () => go(idx+1);
+vclose.onclick = close;
+document.addEventListener("keydown", e => {
+  if (!cur) return;
+  if (e.key==="ArrowRight"||e.key==="PageDown"){ go(idx+1); e.preventDefault(); }
+  else if (e.key==="ArrowLeft"||e.key==="PageUp"){ go(idx-1); e.preventDefault(); }
+  else if (e.key==="Home"){ go(0); } else if (e.key==="End"){ go(cur.pages-1); }
+  else if (e.key==="Escape"){ close(); }
+  else if (e.key==="Tab"){ // keep focus inside the dialog
+    const f = [...V.el.querySelectorAll("a,button:not(:disabled)")];
+    const a = f.indexOf(document.activeElement);
+    if (e.shiftKey && a<=0){ f[f.length-1].focus(); e.preventDefault(); }
+    else if (!e.shiftKey && a===f.length-1){ f[0].focus(); e.preventDefault(); }
+  }
+});
+let sx = null;
+stage.addEventListener("touchstart", e => { sx = e.touches[0].clientX; }, {passive:true});
+stage.addEventListener("touchend", e => {
+  if (sx===null) return; const dx = e.changedTouches[0].clientX - sx; sx = null;
+  if (Math.abs(dx) > 40) go(idx + (dx < 0 ? 1 : -1));
+});
+V.img.addEventListener("click", e => { // click right half for next, left half for previous
+  const b = V.img.getBoundingClientRect(); go(idx + (e.clientX > b.left + b.width/2 ? 1 : -1));
+});
+// Deep links: #r3/5 opens round 3 at page 5
+function fromHash(){
+  const m = location.hash.match(/^#(r\d[abc]?)\/(\d+)$/);
+  if (!m) return;
+  if (cur && cur.id === m[1]) go(+m[2]-1, false); else open(m[1], +m[2]-1, false);
+}
+window.addEventListener("hashchange", fromHash);
+fromHash();
+</script>
+</body>
+</html>
