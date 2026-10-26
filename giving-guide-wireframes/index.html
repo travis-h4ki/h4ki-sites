@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head><meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Giving Guide Wireframes</title>
+<link rel="stylesheet" href="wire.css">
+<style>
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 36px 16px 64px; }
+  .wrap > h1 { font-size: 46px; margin: 8px 0 12px; }
+  .lede { max-width: 760px; margin: 0 0 28px; font-size: 16px; }
+  .dirs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .dir { background: var(--paper); border: 1.5px solid var(--ink); border-radius: var(--r); padding: 20px; display: flex; flex-direction: column; gap: 10px; text-decoration: none; }
+  .dir:hover { background: var(--fill); }
+  .dir .letter { font: 700 44px/1 var(--head); }
+  .dir h2 { font-size: 24px; }
+  .dir p { margin: 0; font-size: 14px; }
+  .dir .best { font-size: 13px; color: var(--mid); margin-top: auto; }
+  .rec { margin: 22px 0 0; padding: 16px 20px; background: var(--note-bg); color: var(--note); border-radius: var(--r); font-size: 15px; }
+  h2.sec { font-size: 30px; margin: 48px 0 6px; }
+  .sub { margin: 0 0 16px; color: var(--mid); max-width: 820px; }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 18px; }
+  .stat { background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 14px; }
+  .stat b { display: block; font: 700 32px/1 var(--head); }
+  .stat span { font-size: 13px; color: var(--mid); }
+  .tbl { overflow-x: auto; background: var(--paper); border: 1px solid var(--line); border-radius: 10px; }
+  table { border-collapse: collapse; width: 100%; font-size: 13px; min-width: 900px; }
+  th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--fill); vertical-align: top; }
+  th { font: 700 12px/1.2 var(--head); letter-spacing: .08em; text-transform: uppercase; background: var(--fill); position: sticky; top: 0; }
+  td code { font-size: 12px; }
+  td.ok { color: #1f6b52; font-weight: 600; }
+  td.bad { color: var(--flag); }
+  .fx { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .fx > div { background: var(--paper); border: 1px solid var(--line); border-left: 4px solid var(--flag); border-radius: 8px; padding: 14px 16px; }
+  .fx h3 { font-size: 17px; margin-bottom: 6px; }
+  .fx p { margin: 0; font-size: 14px; }
+  .thumbs { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; }
+  .thumbs img { width: 100%; border: 1px solid var(--line); border-radius: 4px; display: block; }
+  .src { font-size: 13px; color: var(--mid); margin-top: 28px; }
+  @media (max-width: 900px) { .dirs, .fx { grid-template-columns: 1fr; } .stats { grid-template-columns: 1fr 1fr; } .thumbs { grid-template-columns: repeat(3, 1fr); } .wrap > h1 { font-size: 34px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="kick">h4ki.org/GivingGuide · Christmas 2026</div>
+  <h1>Giving Guide page wireframes</h1>
+  <p class="lede">Three layout directions for the web version of the 2026 printed Giving Guide. Every direction carries all 21 guide gifts with the guide's prices and page numbers, and every give button opens that gift's live Givecloud giving experience. Grayscale on purpose: this round is about structure, not visual design.</p>
+
+  <div class="dirs">
+    <a class="dir" href="a-catalog.html"><span class="letter">A</span><h2>Gift Catalog</h2>
+      <p>Closest to today's page. Most requested gifts up top, then a filterable card grid of every gift by category.</p>
+      <span class="best">Best for: browsing and fast giving. Easiest Elementor build (Loop Grid or tabs).</span></a>
+    <a class="dir" href="b-guide.html"><span class="letter">B</span><h2>The Guide, Page by Page</h2>
+      <p>Mirrors the printed guide: Tom's thank you, the table of contents, then one chapter per printed spread in print order.</p>
+      <span class="best">Best for: supporters arriving from the mailed guide or a QR code.</span></a>
+    <a class="dir" href="c-finder.html"><span class="letter">C</span><h2>Gift Finder</h2>
+      <p>Budget first. Pick an amount range and see every gift at that price, plus a lane for shared big gifts and monthly giving.</p>
+      <span class="best">Best for: "I have $50, what can I give?" visitors and mobile.</span></a>
+  </div>
+  <p class="rec"><b>Recommendation:</b> build A, and borrow C's "Share a bigger gift" box for the well, safe home, and goals. A maps cleanly to native Elementor widgets and keeps the page short; page numbers on every card cover the print readers B is designed for.</p>
+
+  <h2 class="sec">Link audit: guide items to Givecloud</h2>
+  <p class="sub">Pulled live on Oct 25, 2026 from the Givecloud admin API and each form's public config. The guide's printed fund code is compared with the fund the form actually posts to. Turn on "Link audit flags" in any wireframe to see these issues on the cards.</p>
+  <div class="stats" id="stats"></div>
+  <div class="tbl"><table id="tbl"><thead><tr><th>p.</th><th>Gift</th><th>Guide price</th><th>Givecloud experience</th><th>Guide fund</th><th>Form fund</th><th>Presets</th><th>Status</th></tr></thead><tbody></tbody></table></div>
+
+  <h2 class="sec">Fix before launch</h2>
+  <p class="sub">Things the wireframes surfaced in Givecloud. These need a decision from finance or a form edit, not a page change.</p>
+  <div class="fx">
+    <div><h3>Two gifts have no form</h3><p><b>Bedding</b> ($15, fund 41102) and <b>Fruit Trees</b> ($60, fund 42031) are in the guide but have no active Givecloud experience. Their buttons read "Form needed" in the wireframes.</p></div>
+    <div><h3>Two fund codes differ from print</h3><p><b>Feed a Family in Mexico</b>: guide prints 91201, the Mexico Food Boxes form posts to 91200. <b>Mattresses</b>: guide prints 41118, the Sleeping Kits form posts to 11118. One side of each is wrong.</p></div>
+    <div><h3>Form presets don't match guide prices</h3><p>14 of the 20 linked forms use Givecloud's automatic amounts ($65, $125, $225, $500, $1,250, default $150). A supporter choosing a $10 Bible or a $50 Christmas gift lands on a form preset to $150.</p></div>
+    <div><h3>Sewing machine price</h3><p>The guide says $283. The form's custom presets ($60, $119, $238) look built around $238. Confirm which is right.</p></div>
+    <div><h3>Feed a Child: two forms, one fund</h3><p>The guide QR opens <b>Food 4 Kids Team</b> (monthly headline). One-time gifts ($60, $300, $600) are wired to <b>Child Feeding Program</b> here. Both post to 11212. Pick one, or keep the split.</p></div>
+    <div><h3>Goals aren't set in Givecloud</h3><p>Every form carries the default $10,000 goal. The guide's goals ($5,000 Health &amp; Wellness, $3,000 coats, $5,800 sports, 100 Mexico families) would need to be entered before any progress bar can be shown honestly.</p></div>
+  </div>
+  <p class="sub" style="margin-top:14px">Good news since the Sep 23 audit: the Goats form now posts to 41103, matching the guide. Welding Kits and Sewing Machine still share 41010 with BVSC Student Sponsorship, as printed.</p>
+
+  <h2 class="sec">On the live page today, not in the 2026 guide</h2>
+  <p class="sub" id="liveonly"></p>
+
+  <h2 class="sec">Source: printed guide</h2>
+  <div class="thumbs"></div>
+  <p class="src">Source PDF: Dropbox, Development &amp; Marketing/Design/m&amp;d/2026-08_HGG/print/2026-HGG[InDesign]/2026-HGG[Digital].pdf (Oct 22, 2026). QR codes in the guide decode to qrco.de short links for Hope 4 Christmas, water, Food 4 Kids Team, and medicine, which resolve to the same Givecloud forms used here. Links open <code>hope4kidsinternational.org/give/givingguide/?give=ID</code>, the overlay pattern the live page already uses.</p>
+</div>
+<script src="gifts.js"></script>
+<script>
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const body = document.querySelector('#tbl tbody');
+let ok = 0, mism = 0, none = 0, auto = 0;
+GIFTS.forEach(g => {
+  const prices = g.prices.map(p => money(p.amt) + (p.monthly ? '/mo' : '')).join(', ') + (g.total ? ` (${money(g.total.amt)} total)` : '');
+  const exp = g.form ? `<a href="${giveUrl(g.form)}" target="_blank" rel="noopener">${esc(g.formName)}</a> <code>${g.form}</code>` +
+    (g.altForm ? `<br><a href="${giveUrl(g.altForm)}" target="_blank" rel="noopener">${esc(g.altFormName)}</a> <code>${g.altForm}</code>` : '') : '<i>none</i>';
+  const issues = giftIssues(g);
+  const fundOk = g.form && g.formFund === g.guideFund;
+  if (!g.form) none++; else if (!fundOk) mism++; else ok++;
+  if (g.presets === 'auto') auto++;
+  body.insertAdjacentHTML('beforeend', `<tr><td>${g.page}</td><td><b>${esc(g.name)}</b></td><td>${prices}</td><td>${exp}</td>
+    <td>${g.guideFund}</td><td class="${g.form ? (fundOk ? 'ok' : 'bad') : 'bad'}">${g.formFund ?? 'none'}</td>
+    <td>${g.presets === 'auto' ? 'Givecloud default' : g.presets === 'custom' ? 'Custom' : ''}</td>
+    <td class="${issues.length ? 'bad' : 'ok'}">${issues.length ? issues.map(esc).join('<br>') : 'Ready'}</td></tr>`);
+});
+body.insertAdjacentHTML('beforeend', `<tr><td></td><td><b>Where Most Needed</b> (page fallback)</td><td>any</td><td><a href="${giveUrl(MOST_NEEDED.form)}" target="_blank" rel="noopener">${MOST_NEEDED.name}</a> <code>${MOST_NEEDED.form}</code></td><td>n/a</td><td class="ok">${MOST_NEEDED.fund}</td><td>Givecloud default</td><td class="ok">Ready</td></tr>`);
+document.getElementById('stats').innerHTML = [
+  [GIFTS.length, 'gifts in the 2026 guide'], [ok, 'linked, fund code matches print'], [mism + none, `need attention (${none} no form, ${mism} fund mismatch)`], [auto, 'gifts open on Givecloud default presets'],
+].map(([n, l]) => `<div class="stat"><b>${n}</b><span>${l}</span></div>`).join('');
+document.getElementById('liveonly').textContent = LIVE_ONLY.join(', ') + '. The wireframes leave these out; decide whether they move to a general giving page or retire for the season.';
+document.querySelector('.thumbs').innerHTML = [1, 2, 3, 4, 5, 6, 7].map(n => `<img src="guide-${n}.png" alt="Printed guide spread ${n}" loading="lazy">`).join('');
+</script>
+</body>
+</html>

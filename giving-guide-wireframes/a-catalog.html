@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head><meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Giving Guide Wireframe A</title>
+<link rel="stylesheet" href="wire.css">
+<style>
+  .hero { display: grid; grid-template-columns: 1.1fr 1fr; gap: 28px; padding: 40px 32px; align-items: center; }
+  .hero h1 { font-size: 56px; margin: 10px 0 14px; }
+  .hero .ph { min-height: 340px; }
+  .row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+  .band { display: flex; flex-wrap: wrap; gap: 14px 24px; align-items: center; justify-content: space-between; margin: 0 32px; padding: 18px 22px; border: 1.5px dashed var(--line); border-radius: var(--r); }
+  .band p { margin: 0; max-width: 640px; }
+  section.blk { padding: 40px 32px 0; }
+  .blk > header { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 10px; margin-bottom: 18px; }
+  .blk h2 { font-size: 34px; }
+  .top4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .top4 .card .ph { min-height: 190px; }
+  .filters { position: sticky; top: 44px; z-index: 5; background: var(--paper); display: flex; gap: 8px; overflow-x: auto; padding: 12px 32px; margin: 32px 0 0; border-block: 1px solid var(--line); scrollbar-width: none; }
+  .filters button { flex: none; min-height: 40px; padding: 8px 16px; border-radius: 99px; border: 1.5px solid var(--ink); background: var(--paper); font: 700 13px/1 var(--head); letter-spacing: .06em; text-transform: uppercase; cursor: pointer; }
+  .filters button[aria-pressed="true"] { background: var(--ink); color: #fff; }
+  .filters small { font-family: var(--body); font-weight: 400; opacity: .7; margin-left: 4px; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; padding: 24px 32px 0; }
+  .card { border: 1.5px solid var(--ink); border-radius: var(--r); padding: 10px; display: flex; flex-direction: column; gap: 10px; position: relative; }
+  .card .ph { min-height: 170px; }
+  .card h3 { font-size: 22px; }
+  .card p { margin: 0; font-size: 14px; }
+  .card .foot { margin-top: auto; display: flex; flex-direction: column; gap: 10px; }
+  .card .meta { display: flex; gap: 6px; flex-wrap: wrap; position: absolute; top: 18px; left: 18px; z-index: 2; }
+  .card .goal { font-size: 12px; color: var(--mid); }
+  .wide { display: grid; grid-template-columns: 1fr auto; gap: 18px; align-items: center; margin: 40px 32px 0; padding: 28px; background: var(--fill); border-radius: var(--r); }
+  .wide h2 { font-size: 30px; margin-bottom: 6px; }
+  .wide p { margin: 0; }
+  .trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; padding: 40px 32px; }
+  .trio > div { border: 1.5px solid var(--line); border-radius: var(--r); padding: 20px; display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+  .trio h3 { font-size: 20px; }
+  .trio p { margin: 0; font-size: 14px; }
+  @container frame (max-width: 1000px) { .top4 { grid-template-columns: 1fr 1fr; } .grid { grid-template-columns: 1fr 1fr; } }
+  @container frame (max-width: 700px) {
+    .hero { grid-template-columns: 1fr; padding: 24px 16px; } .hero h1 { font-size: 38px; } .hero .ph { min-height: 220px; order: -1; }
+    .band { margin: 0 16px; } section.blk { padding: 32px 16px 0; } .blk h2 { font-size: 28px; }
+    .top4 { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; padding-bottom: 6px; }
+    .top4 .card { flex: 0 0 78%; scroll-snap-align: start; }
+    .filters { padding: 10px 16px; top: 0; } .grid { grid-template-columns: 1fr; padding: 18px 16px 0; }
+    .wide { grid-template-columns: 1fr; margin: 32px 16px 0; padding: 20px; } .trio { grid-template-columns: 1fr; padding: 32px 16px; }
+  }
+</style>
+</head>
+<body>
+<div id="tool"></div>
+<div class="stage">
+  <main class="frame" id="frame"></main>
+  <div id="notes"></div>
+</div>
+<script src="gifts.js"></script>
+<script src="wire.js"></script>
+<script>
+document.getElementById('tool').innerHTML = toolbar('A · Gift Catalog');
+
+function card(g) {
+  return `<article class="card" data-cat="${g.cat}">
+    <div class="meta"><span class="tag">p. ${g.page}</span>${g.top ? '<span class="tag top">Most requested</span>' : ''}</div>
+    <div class="ph"><span>Photo from guide p. ${g.page}</span></div>
+    <h3>${esc(g.name)}</h3>
+    <p>${esc(g.line)}</p>
+    <div class="foot">
+      ${g.goal ? `<div class="goal">Goal: ${esc(g.goal)}</div>` : ''}
+      ${chipsHtml(g)}
+      ${giveBtn(g)}
+      ${flagsHtml(g)}
+    </div></article>`;
+}
+
+const topGifts = GIFTS.filter(g => g.top);
+const counts = Object.fromEntries(CATEGORIES.map(c => [c.id, GIFTS.filter(g => g.cat === c.id).length]));
+
+document.getElementById('frame').innerHTML = `
+  ${siteHead()}
+  <section class="hero rel">${pin(1, true)}
+    <div>
+      <div class="kick">Christmas 2026 Giving Guide</div>
+      <h1>Give a gift that transforms</h1>
+      <p>Every gift below meets a real need for children and families in the communities we serve, and lets a child know they are seen and loved.</p>
+      <div class="row"><a class="btn" href="#gifts">Browse all ${GIFTS.length} gifts</a><a class="btn ghost" href="${giveUrl(MOST_NEEDED.form)}" ${ext}>Give where most needed</a></div>
+    </div>
+    <div class="ph"><span>Hero photo: Hope 4 Christmas, guide p. 2</span></div>
+  </section>
+
+  <div class="band rel">
+    <p><b>Holding the printed guide?</b> Every gift is here with its page number. Gifts open our secure giving form right on this page.</p>
+    <span style="display:flex;gap:10px;align-items:center">${pin(2)}<span class="btn ghost sm">Download PDF guide</span></span>
+  </div>
+
+  <section class="blk">
+    <header><div><div class="kick">From the guide cover</div><h2>Most requested gifts</h2></div>${pin(3)}</header>
+    <div class="top4">${topGifts.map(g => card(g)).join('')}</div>
+  </section>
+
+  <div class="filters" id="gifts" role="group" aria-label="Filter gifts">
+    <button aria-pressed="true" data-f="all">All<small>${GIFTS.length}</small></button>
+    ${CATEGORIES.map(c => `<button aria-pressed="false" data-f="${c.id}">${esc(c.name)}<small>${counts[c.id]}</small></button>`).join('')}
+    ${pin(4)}
+  </div>
+  <div class="grid rel" id="grid">${pin(5, true)}${GIFTS.map(g => card(g)).join('')}</div>
+
+  <div class="wide rel">${pin(6, true)}
+    <div><h2>Give where most needed</h2><p>Not sure which gift to choose? Your gift goes to the greatest need across our programs.</p></div>
+    <a class="btn" href="${giveUrl(MOST_NEEDED.form)}" ${ext}>Give now</a>
+  </div>
+
+  <div class="trio rel">${pin(7, true)}
+    <div><span class="kick">Honor someone</span><h3>Give in honor of a loved one</h3><p>Choose any gift and dedicate it to a family member or friend.</p><span class="btn ghost sm">How it works</span></div>
+    <div><span class="kick">Go and serve</span><h3>Short term mission trips</h3><p>Join us in 2027. See upcoming trip dates and apply.</p><a class="btn ghost sm" href="https://h4ki.org/trips" ${ext}>View trips</a></div>
+    <div><span class="kick">Plan ahead</span><h3>Create a free will</h3><p>A free will building tool. Most people finish in 20 minutes or less.</p><a class="btn ghost sm" href="https://freewill.com/h4ki" ${ext}>FreeWill.com/H4KI</a></div>
+  </div>
+  ${siteFoot()}`;
+
+document.getElementById('notes').innerHTML = notesHtml('A · Gift Catalog', [
+  'Hero keeps the live page headline and the two buttons visitors already know. Photo matches the guide cover story (Hope 4 Christmas).',
+  'Bridge for print readers: page numbers on every card, plus the PDF. The QR codes in the guide keep working because they open the same Givecloud forms.',
+  'The four gifts the guide cover calls "most requested." Horizontal swipe on mobile.',
+  'Sticky category filter with counts. Pure Elementor option: Loop Grid with a taxonomy filter, if gifts become a custom post type. Otherwise tabs.',
+  'All 21 guide gifts in guide order. Each price chip and the main button open that gift\'s Givecloud form (<code>?give=ID</code>) as an overlay on this page. Bedding and Fruit Trees show a disabled "Form needed" state until forms exist.',
+  'Catch all for undecided visitors, Where Most Needed (fund 11015).',
+  'Every linked form has tributes enabled in Givecloud, so "in honor of" needs no new tooling. Trips and FreeWill come straight from the guide back cover.',
+], [
+  'Do price chips need to preset the amount? Givecloud prefill by URL is unconfirmed, so today every chip opens the same form.',
+  'Keep or retire the 8 live page gifts that are not in the 2026 guide (Vitamins, Chickens, Piglets, VBS, and others)?',
+]);
+wireUp();
+
+document.querySelectorAll('[data-f]').forEach(b => b.onclick = () => {
+  document.querySelectorAll('[data-f]').forEach(x => x.setAttribute('aria-pressed', x === b));
+  document.querySelectorAll('#grid .card').forEach(c => c.hidden = b.dataset.f !== 'all' && c.dataset.cat !== b.dataset.f);
+});
+</script>
+</body>
+</html>

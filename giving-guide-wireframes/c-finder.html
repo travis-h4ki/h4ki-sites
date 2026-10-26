@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head><meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Giving Guide Wireframe C</title>
+<link rel="stylesheet" href="wire.css">
+<style>
+  .intro { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; padding: 40px 32px 28px; align-items: end; }
+  .intro h1 { font-size: 52px; margin: 10px 0 12px; }
+  .intro p { margin: 0; }
+  .ask { border: 1.5px solid var(--ink); border-radius: var(--r); padding: 20px; }
+  .ask h2 { font-size: 20px; margin-bottom: 12px; }
+  .freq { display: inline-flex; border: 1.5px solid var(--ink); border-radius: 99px; overflow: hidden; margin-bottom: 14px; }
+  .freq button { border: 0; background: var(--paper); padding: 8px 18px; min-height: 40px; font: 700 13px/1 var(--head); letter-spacing: .06em; text-transform: uppercase; cursor: pointer; }
+  .freq button[aria-pressed="true"] { background: var(--ink); color: #fff; }
+  .tiers { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .tiers button { min-height: 64px; border: 1.5px solid var(--ink); border-radius: 12px; background: var(--paper); cursor: pointer; text-align: left; padding: 10px 12px; font: inherit; }
+  .tiers button b { display: block; font: 700 20px/1.1 var(--head); }
+  .tiers button small { color: var(--mid); }
+  .tiers button[aria-pressed="true"] { background: var(--ink); color: #fff; }
+  .tiers button[aria-pressed="true"] small { color: #ddd; }
+  .tiers button:disabled { opacity: .35; cursor: default; }
+  .split { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 28px; padding: 8px 32px 40px; }
+  .ledger-h { display: flex; justify-content: space-between; align-items: end; gap: 10px; padding: 16px 0 10px; border-bottom: 2px solid var(--ink); }
+  .ledger-h h2 { font-size: 26px; }
+  .row { display: grid; grid-template-columns: 92px minmax(0, 1fr) auto; gap: 16px; align-items: center; padding: 14px 0; border-bottom: 1px dotted var(--line); }
+  .row .amt { font: 700 30px/1 var(--head); }
+  .row .amt small { display: block; font: 400 11px/1.3 var(--body); color: var(--mid); text-transform: none; letter-spacing: 0; }
+  .row .what b { font-weight: 600; }
+  .row .what .small { margin-top: 2px; }
+  .row details { grid-column: 2 / -1; font-size: 13px; }
+  .row details summary { color: var(--mid); min-height: 28px; }
+  .row details p { margin: 4px 0 0; }
+  .empty { padding: 24px 0; color: var(--mid); }
+  aside.side { display: grid; gap: 18px; align-content: start; }
+  .box { border: 1.5px solid var(--ink); border-radius: var(--r); padding: 18px; }
+  .box h2 { font-size: 22px; margin-bottom: 4px; }
+  .box > p { margin: 0 0 12px; font-size: 14px; }
+  .big { display: grid; grid-template-columns: 1fr auto; gap: 6px 12px; padding: 12px 0; border-top: 1px dotted var(--line); align-items: center; }
+  .big .nm { font-weight: 600; }
+  .bar { grid-column: 1 / -1; height: 10px; border: 1.5px dashed var(--mid); border-radius: 99px; }
+  .bar + .small { grid-column: 1 / -1; }
+  .mo { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center; padding: 12px 0; border-top: 1px dotted var(--line); }
+  .mo b.a { font: 700 22px/1 var(--head); }
+  .closing { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; padding: 0 32px 40px; }
+  .closing > div { background: var(--fill); border-radius: var(--r); padding: 18px; display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+  .closing h3 { font-size: 19px; }
+  .closing p { margin: 0; font-size: 14px; }
+  @container frame (max-width: 900px) { .split { grid-template-columns: 1fr; } .intro { grid-template-columns: 1fr; } }
+  @container frame (max-width: 700px) {
+    .intro { padding: 24px 16px 20px; } .intro h1 { font-size: 36px; }
+    .tiers { grid-template-columns: 1fr 1fr; } .split { padding: 4px 16px 32px; }
+    .row { grid-template-columns: 70px minmax(0, 1fr); } .row .amt { font-size: 24px; } .row > .act { grid-column: 2; } .row details { grid-column: 1 / -1; }
+    .closing { grid-template-columns: 1fr; padding: 0 16px 32px; }
+  }
+</style>
+</head>
+<body>
+<div id="tool"></div>
+<div class="stage">
+  <main class="frame" id="frame"></main>
+  <div id="notes"></div>
+</div>
+<script src="gifts.js"></script>
+<script src="wire.js"></script>
+<script>
+document.getElementById('tool').innerHTML = toolbar('C · Gift Finder');
+
+const TIERS = [
+  { id: 't1', name: 'Up to $25', test: a => a <= 25 },
+  { id: 't2', name: '$26 to $60', test: a => a > 25 && a <= 60 },
+  { id: 't3', name: '$61 to $499', test: a => a > 60 && a < 500 },
+  { id: 't4', name: '$500 and up', test: a => a >= 500 },
+];
+const catName = Object.fromEntries(CATEGORIES.map(c => [c.id, c.name]));
+
+// One row per price point in the guide, so "$60" lists every $60 gift.
+const ROWS = GIFTS.flatMap(g => [
+  ...g.prices.map(p => ({ g, amt: p.amt, label: p.label, monthly: !!p.monthly, form: p.form || g.form })),
+  ...(g.total ? [{ g, amt: g.total.amt, label: g.total.label, monthly: false, form: g.form, total: true }] : []),
+]).sort((a, b) => a.amt - b.amt || a.g.page - b.g.page);
+
+const tierCount = t => ROWS.filter(r => !r.monthly && t.test(r.amt)).length;
+
+const rowHtml = r => `<div class="row" data-amt="${r.amt}" data-mo="${r.monthly ? 1 : 0}">
+  <div class="amt">${money(r.amt)}${r.monthly ? '<small>per month</small>' : ''}</div>
+  <div class="what"><b>${esc(r.g.name)}</b>${r.label ? ` <span class="muted">· ${esc(r.label)}</span>` : ''}
+    <div class="small muted">${esc(r.g.line)}</div>
+    <div class="small"><span class="tag">${esc(catName[r.g.cat])}</span> <span class="tag">p. ${r.g.page}</span>${r.g.top ? ' <span class="tag top">Most requested</span>' : ''}</div>
+    ${flagsHtml(r.g)}</div>
+  <div class="act">${r.form ? `<a class="btn sm" href="${giveUrl(r.form)}" ${ext}>Give ${money(r.amt)}</a>` : '<span class="btn sm off">Form needed</span>'}</div>
+  <details><summary>More about this gift</summary><p>${esc(r.g.blurb)}</p></details></div>`;
+
+const BIG = [
+  { g: 'well', label: 'Deep Water Well', of: 10500 },
+  { g: 'home', label: 'Safe Home', of: 9600 },
+  { g: 'sports', label: 'Sports Equipment goal', of: 5800 },
+  { g: 'nets', label: 'Health & Wellness goal', of: 5000, note: 'Nets, bedding, mattresses' },
+  { g: 'coats', label: 'Coats & Hats goal', of: 3000 },
+  { g: 'cows', label: 'Cows for one graduate', of: 1425 },
+].map(b => ({ ...b, gift: GIFTS.find(x => x.id === b.g) }));
+
+document.getElementById('frame').innerHTML = `
+  ${siteHead()}
+  <section class="intro">
+    <div><div class="kick">Christmas 2026 Giving Guide</div><h1>Find a gift that fits</h1>
+      <p>Every gift in this year's guide, sorted by amount. Pick a range and see what your gift provides for children and families in the communities we serve.</p></div>
+    <div class="ask rel">${pin(1, true)}
+      <h2>How would you like to give?</h2>
+      <div class="freq" role="group" aria-label="Frequency"><button data-fq="once" aria-pressed="true">One time</button><button data-fq="mo" aria-pressed="false">Monthly</button></div>
+      <div class="tiers" role="group" aria-label="Amount range">${TIERS.map((t, i) => `<button data-t="${t.id}" aria-pressed="${i === 1}"><b>${t.name}</b><small>${tierCount(t)} gifts</small></button>`).join('')}</div>
+    </div>
+  </section>
+
+  <div class="split">
+    <section>
+      <div class="ledger-h"><span style="display:flex;gap:10px;align-items:center"><h2 id="lh">Gifts: $26 to $60</h2>${pin(2)}</span><a href="#" id="showall" class="small">Show all ${ROWS.length}</a></div>
+      <div id="ledger">${ROWS.map(rowHtml).join('')}</div>
+      <p class="empty" id="empty" hidden>No gifts in this range.</p>
+    </section>
+    <aside class="side">
+      <div class="box rel">${pin(3, true)}
+        <h2>Share a bigger gift</h2><p>Join others to complete a well, a home, or a goal from the guide.</p>
+        ${BIG.map(b => `<div class="big"><div><div class="nm">${esc(b.label)}</div><div class="small muted">${b.note ? esc(b.note) + ' · ' : ''}${money(b.of)} total</div></div>
+          ${b.gift.form ? `<a class="btn sm ghost" href="${giveUrl(b.gift.form)}" ${ext}>Chip in</a>` : ''}
+          <div class="bar" aria-hidden="true"></div><div class="small muted">Progress bar: needs a real data source</div></div>`).join('')}
+      </div>
+      <div class="box rel">${pin(4, true)}
+        <h2>Give every month</h2><p>Monthly partners provide steady hope all year.</p>
+        ${GIFTS.flatMap(g => g.prices.filter(p => p.monthly).map(p => ({ g, p }))).map(({ g, p }) =>
+          `<div class="mo"><div><b class="a">${money(p.amt)}/mo</b> <span class="small">${esc(g.name === 'Feed a Hungry Child for a Year' ? 'Food 4 Kids Team' : g.name)}</span></div>
+          <a class="btn sm" href="${giveUrl(p.form || g.form)}" ${ext}>Join</a></div>`).join('')}
+      </div>
+    </aside>
+  </div>
+
+  <div class="closing rel">${pin(5, true)}
+    <div><h3>Not sure what to choose?</h3><p>Give where the need is greatest right now.</p><a class="btn sm" href="${giveUrl(MOST_NEEDED.form)}" ${ext}>Give where most needed</a></div>
+    <div><h3>Give in someone's honor</h3><p>Any gift can be dedicated to a family member or friend this Christmas.</p><span class="btn ghost sm">How it works</span></div>
+    <div><h3>Browse by program</h3><p>See every gift as cards with photos and stories.</p><a class="btn ghost sm" href="a-catalog.html">Gift catalog</a></div>
+  </div>
+  ${siteFoot()}`;
+
+document.getElementById('notes').innerHTML = notesHtml('C · Gift Finder', [
+  'Budget first. Opens on $26 to $60, where most guide gifts sit. Monthly switches the list to the two monthly gifts. Elementor: Tabs widget with four panels, or Loop Grid filtered by an amount field.',
+  'One row per price point printed in the guide (34 rows), so "$60" shows a year of meals, a Mexico food box, a mattress, six Bibles, three fruit trees, and school supplies side by side. Button text repeats the amount.',
+  'Big shared gifts and guide goals in one place. Progress bars are placeholders on purpose: every Givecloud form has a default $10,000 goal with no real progress, so live bars would be wrong until goals are set per form.',
+  'Monthly is its own lane: Circle the Thirsty at $40 and the Food 4 Kids Team at $15, the two monthly asks in the guide.',
+  'Exits for undecided visitors, honor gifts (tributes are on in every linked form), and a link to the visual catalog view.',
+], [
+  '"Give $60" only makes sense if the form opens on $60. Most forms show Givecloud default presets ($65, $125, $225, default $150). Set custom presets per form, or soften the button to "Give".',
+]);
+wireUp();
+
+const rows = [...document.querySelectorAll('#ledger .row')];
+let fq = 'once', tier = 't2', all = false;
+function render() {
+  const t = TIERS.find(x => x.id === tier);
+  let n = 0;
+  rows.forEach(r => {
+    const mo = r.dataset.mo === '1', a = +r.dataset.amt;
+    const show = fq === 'mo' ? mo : (!mo && (all || t.test(a)));
+    r.hidden = !show; if (show) n++;
+  });
+  document.getElementById('lh').textContent = fq === 'mo' ? 'Monthly gifts' : all ? 'Every gift, by amount' : 'Gifts: ' + t.name;
+  document.getElementById('empty').hidden = n > 0;
+  document.querySelectorAll('[data-t]').forEach(b => { b.disabled = fq === 'mo'; b.setAttribute('aria-pressed', !all && fq === 'once' && b.dataset.t === tier); });
+  document.querySelectorAll('[data-fq]').forEach(b => b.setAttribute('aria-pressed', b.dataset.fq === fq));
+}
+document.querySelectorAll('[data-t]').forEach(b => b.onclick = () => { tier = b.dataset.t; all = false; render(); });
+document.querySelectorAll('[data-fq]').forEach(b => b.onclick = () => { fq = b.dataset.fq; all = false; render(); });
+document.getElementById('showall').onclick = e => { e.preventDefault(); fq = 'once'; all = true; render(); };
+render();
+</script>
+</body>
+</html>
