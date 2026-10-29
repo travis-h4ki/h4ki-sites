@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="en">
+<head><meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Mockup B: Find Your Match | Hope 4 Kids International</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+<style>
+/* ===== H4KI shared tokens (brand-tokens.md §1 to §6) ===== */
+:root{
+  /* Kit system colors */
+  --h4ki-primary:#4179B5;      /* kit Primary */
+  --h4ki-secondary:#1D4695;    /* kit Secondary */
+  --h4ki-accent:#FFA225;       /* kit Accent */
+  --h4ki-text:#000000;         /* kit Text */
+  /* Kit saved colors */
+  --h4ki-white:#FFFFFF;
+  --h4ki-green:#92CAB4;        /* H4KI Green: Medical, Trips */
+  --h4ki-red:#F24444;          /* H4KI Red: Sponsorship, Crisis */
+  --h4ki-water:#2196F3;        /* Saved #8: Water */
+  --h4ki-gray-100:#E9E9E9;     /* Saved #12 */
+  --h4ki-gray-400:#AAAAAA;     /* Saved #13, decorative only */
+  --h4ki-gray-800:#353535;     /* Saved #15 */
+  --h4ki-navy-scrim:rgba(19,28,66,.72); /* hero overlay, darkened for AA */
+
+  /* M3-style roles mapped onto kit colors (AA pairs only) */
+  --surface:#FFFFFF; --on-surface:#000000; --on-surface-variant:#353535;
+  --surface-container-low:#F6F6F6; --surface-container:#EFEFEF; --surface-container-high:#E9E9E9;
+  --surface-inverse:#1D4695; --on-surface-inverse:#FFFFFF;
+  --outline:#000000; --outline-variant:#E9E9E9;
+
+  /* Type: Oswald display + Helvetica body; roles per M3 scale */
+  --font-display:"Oswald",Helvetica,Arial,sans-serif;
+  --font-body:Helvetica,"Helvetica Neue",Arial,sans-serif;
+  --display-l:clamp(48px,6.2vw,88px);   /* hero only */
+  --display-m:clamp(40px,4.6vw,64px);
+  --headline-l:clamp(34px,3.4vw,48px);  /* section H2 */
+  --headline-m:clamp(28px,2.6vw,36px);
+  --title-l:22px; --title-m:18px;
+  --body-l:18px; --body-m:16px; --body-s:14px;
+  --label-l:15px;
+
+  /* Spacing: 4pt rhythm */
+  --s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:20px;--s6:24px;--s8:32px;--s10:40px;--s12:48px;--s16:64px;--s20:80px;--s24:96px;
+  --gutter:20px; --maxw:1200px;
+
+  /* Shape */
+  --corner-full:9999px; --corner-xl:28px; --corner-l:16px; --corner-m:12px;
+
+  /* Motion (M3) */
+  --dur-short3:150ms; --dur-medium2:300ms; --dur-long2:500ms;
+  --ease-standard:cubic-bezier(.2,0,0,1); --ease-decel:cubic-bezier(.05,.7,.1,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--surface);color:var(--on-surface);font:400 var(--body-l)/1.55 var(--font-body)}
+@media (max-width:767px){body{font-size:var(--body-m)}}
+img{max-width:100%;display:block}
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.02;letter-spacing:-.5px;margin:0}
+p{margin:0}
+a{color:inherit}
+.link{color:var(--h4ki-primary);text-decoration:underline;text-underline-offset:3px;font-weight:700;display:inline-flex;align-items:center;min-height:44px}
+.logo{display:inline-flex;align-items:center;min-height:48px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gutter)}
+@media (min-width:1025px){:root{--gutter:40px}}
+.kicker{font:700 16px/1.2 var(--font-display);letter-spacing:2.5px;text-transform:uppercase}
+.sr-only{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:12px;top:-60px;z-index:999;background:#000;color:#fff;padding:12px 16px;border-radius:8px}
+.skip:focus{top:12px}
+.ph{background:repeating-linear-gradient(135deg,#F6F6F6 0 12px,#EFEFEF 12px 24px);color:#353535;display:grid;place-items:center;text-align:center;font:700 14px/1.3 var(--font-display);letter-spacing:1px;text-transform:uppercase}
+.stat{font-family:var(--font-display);font-weight:700}
+
+/* ===== Unified button (brand-tokens §6a) ===== */
+.btn{--bg:var(--h4ki-accent);--fg:#000;--bd:#000;
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font:700 16px/1 var(--font-display);letter-spacing:.5px;text-transform:uppercase;text-decoration:none;
+  min-height:48px;padding:14px 28px;border-radius:var(--corner-full);
+  background:var(--bg);color:var(--fg);border:solid var(--bd);border-width:1px 2px 2px 1px;
+  box-shadow:0 0 0 0 #000;cursor:pointer;white-space:nowrap;text-align:center;
+  transition:transform var(--dur-short3) var(--ease-standard),box-shadow var(--dur-short3) var(--ease-standard),background-color var(--dur-short3) var(--ease-standard),color var(--dur-short3) var(--ease-standard)}
+.btn:hover{transform:translateY(-2px);box-shadow:3px 3px 0 0 var(--bd)}
+.btn:active{transform:translate(1px,1px);box-shadow:0 0 0 0 var(--bd)}
+.btn:focus-visible{outline:3px solid var(--h4ki-secondary);outline-offset:3px}
+.btn--l{font-size:18px;min-height:56px;padding:18px 36px}
+.btn--s{font-size:15px;min-height:44px;padding:12px 22px}
+.btn--secondary{--bg:#fff;--fg:#000}
+.btn--secondary:hover{--bg:var(--h4ki-secondary);--fg:#fff}
+.btn--dark{--bg:transparent;--fg:#fff;--bd:#fff}
+.btn--dark:hover{--bg:#fff;--fg:#000}
+.btn--dark:focus-visible{outline-color:#fff}
+.btn--urgent{--bg:#fff;--fg:#000}
+.btn--urgent::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--h4ki-red);box-shadow:0 0 0 1px #000}
+.btn--urgent:hover{--bg:var(--h4ki-red);--fg:#000}
+.btn--block{width:100%}
+@media (max-width:767px){.btn--stack{width:100%}.btn{white-space:normal}}
+/* Focus on dark surfaces (review ALL-4) */
+.on-dark :focus-visible{outline-color:#fff!important}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .btn:hover,.btn:active{transform:none;box-shadow:none}
+}
+/* Logo dots (from H4KI-Logo-dots3.svg) */
+.dots{display:inline-flex;gap:6px}.dots i{width:10px;height:10px;border-radius:50%;display:block}
+.dots i:nth-child(1){background:var(--h4ki-primary)}.dots i:nth-child(2){background:var(--h4ki-accent)}.dots i:nth-child(3){background:var(--h4ki-red)}.dots i:nth-child(4){background:var(--h4ki-green)}
+
+/* ===== Mega menu mechanics (shared; each concept styles its own panel) ===== */
+.mm{position:static}
+.hdr-in{position:relative}
+.mm-list{display:flex;gap:4px;list-style:none;margin:0;padding:0}
+.mm-trigger{font:500 16px/1 var(--font-body);letter-spacing:1px;background:none;border:0;color:inherit;min-height:44px;padding:0 14px;border-radius:var(--corner-full);cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.mm-trigger::after{content:"";width:7px;height:7px;border:solid currentColor;border-width:0 2px 2px 0;transform:translateY(-2px) rotate(45deg);transition:transform var(--dur-short3) var(--ease-standard)}
+.mm-trigger[aria-expanded="true"]::after{transform:translateY(1px) rotate(-135deg)}
+.mm-trigger:hover,.mm-trigger[aria-expanded="true"]{background:var(--surface-container-high)}
+.mm-trigger:focus-visible,.mm-panel a:focus-visible,.drawer a:focus-visible,.drawer button:focus-visible,.icon-btn:focus-visible{outline:3px solid var(--h4ki-secondary);outline-offset:2px}
+.mm-panel{position:absolute;left:var(--gutter);right:var(--gutter);top:100%;background:#fff;border:solid #000;border-width:1px 2px 2px 1px;border-radius:var(--corner-xl);padding:var(--s8);opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity var(--dur-short3) var(--ease-standard),transform var(--dur-short3) var(--ease-standard),visibility 0s linear var(--dur-short3);z-index:60}
+.mm-panel.open{opacity:1;visibility:visible;transform:none;transition-delay:0s}
+.mm-panel a{text-decoration:none}
+.mm-col h3{font:700 13px/1 var(--font-display);letter-spacing:2px;text-transform:uppercase;color:#353535;margin-bottom:12px}
+.mm-col ul{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.mm-col li a{display:flex;align-items:center;min-height:40px;padding:6px 10px;margin-left:-10px;border-radius:10px;font-size:16px}
+.mm-col li a:hover{background:var(--surface-container)}
+.icon-btn{width:48px;height:48px;border-radius:50%;display:inline-grid;place-items:center;background:none;border:0;color:inherit;cursor:pointer}
+/* Mobile drawer */
+.drawer{position:fixed;inset:0;z-index:100;background:#fff;display:flex;flex-direction:column;transform:translateX(100%);visibility:hidden;transition:transform var(--dur-medium2) var(--ease-standard),visibility 0s linear var(--dur-medium2)}
+.drawer.open{transform:none;visibility:visible;transition-delay:0s}
+.drawer-top{display:flex;align-items:center;justify-content:space-between;padding:10px var(--gutter);border-bottom:1px solid var(--outline-variant)}
+.drawer-body{overflow:auto;padding:8px var(--gutter) 24px;flex:1}
+.drawer details{border-bottom:1px solid var(--outline-variant)}
+.drawer summary{list-style:none;display:flex;justify-content:space-between;align-items:center;min-height:56px;font:700 22px/1 var(--font-display);text-transform:uppercase;cursor:pointer}
+.drawer summary::-webkit-details-marker{display:none}
+.drawer summary::after{content:"+";font:400 28px/1 var(--font-body)}
+.drawer details[open] summary::after{content:"\2212"}
+.drawer details ul{list-style:none;margin:0 0 12px;padding:0}
+.drawer details a{display:flex;align-items:center;min-height:48px;text-decoration:none;font-size:17px}
+.drawer-foot{padding:12px var(--gutter) calc(12px + env(safe-area-inset-bottom));display:grid;gap:10px;border-top:1px solid var(--outline-variant)}
+.hdr .btn{white-space:nowrap}
+
+/* Review N-2: standalone small links meet 44px */
+address a,.legal a{display:inline-flex;align-items:center;min-height:44px}
+</style>
+<style>
+/* ===== Concept B: Find Your Match (app-like, M3 tonal surfaces) ===== */
+body{background:var(--surface-container-low)}
+.hdr{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--outline-variant)}
+.hdr-in{display:flex;align-items:center;gap:var(--s4);min-height:72px}
+.logo img{height:48px;width:auto}
+.hdr nav{margin-left:var(--s4)}
+.mm-trigger{padding:0 12px;white-space:nowrap}
+.hdr-actions .btn{white-space:nowrap}
+.hdr-actions{display:flex;gap:8px;margin-left:auto;align-items:center}
+.hdr .icon-btn.menu{display:none}
+.mm-panel{margin-top:8px;display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3);padding:var(--s5)}
+.task{display:grid;grid-template-columns:48px 1fr;gap:var(--s4);align-items:start;padding:var(--s4);border-radius:var(--corner-l);text-decoration:none;min-height:88px}
+.task:hover{background:var(--surface-container)}
+.task:focus-visible{outline:3px solid var(--h4ki-secondary);outline-offset:2px}
+.task .ic{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;background:var(--c,var(--h4ki-accent));border:solid #000;border-width:1px 2px 2px 1px}
+.task strong{font:700 18px/1.1 var(--font-display);text-transform:uppercase;display:block;margin-bottom:4px}
+.task span{font-size:15px;color:#353535;line-height:1.4}
+@media (max-width:1340px){.hdr-actions .btn--urgent{display:none}}
+@media (max-width:1100px){.hdr nav{display:none}.hdr .icon-btn.menu{display:inline-grid}.hdr-actions .btn--urgent{display:none}}
+@media (max-width:767px){.hdr-in{min-height:60px}.logo img{height:40px}.hdr-actions .btn{display:none}}
+
+/* Hero + finder */
+.hero{padding:var(--s12) 0 var(--s16)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:var(--s10);align-items:start}
+.hero .kicker{color:var(--h4ki-secondary)}
+.hero h1{font-size:clamp(44px,5vw,72px);text-transform:uppercase;line-height:.95;margin-top:var(--s3)}
+.hero .lede{margin-top:var(--s5);font-size:19px;max-width:40ch}
+.steps{list-style:none;padding:0;margin:var(--s8) 0 0;display:grid;gap:var(--s4)}
+.steps li{display:grid;grid-template-columns:44px 1fr;gap:var(--s4);align-items:center}
+.steps b{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:#fff;border:solid #000;border-width:1px 2px 2px 1px;font:700 18px/1 var(--font-display)}
+.steps strong{font:700 18px/1.1 var(--font-display);text-transform:uppercase;display:block}
+.steps span{font-size:15px;color:#353535}
+.finder{background:#fff;border-radius:var(--corner-xl);border:solid #000;border-width:1px 2px 2px 1px;padding:var(--s6);box-shadow:6px 6px 0 var(--h4ki-accent)}
+.finder-top{display:flex;justify-content:space-between;align-items:baseline;gap:var(--s4);flex-wrap:wrap}
+.finder h2{font-size:28px;text-transform:uppercase}
+.count{font-size:15px;color:#353535}
+.fgroup{margin-top:var(--s5)}
+.fgroup legend,.fgroup .lbl{font:700 13px/1 var(--font-display);letter-spacing:1.5px;text-transform:uppercase;color:#353535;margin-bottom:10px;padding:0}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding:2px}
+@media (max-width:767px){.chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding:4px 2px}
+.seg{display:grid;grid-template-columns:1fr 1fr;border-radius:16px;overflow:visible;width:100%}.seg button{border-left:0;border-top:1px solid #353535}.seg button:nth-child(-n+2){border-top:0}.seg button:nth-child(even){border-left:1px solid #353535}.seg button:first-child{border-radius:15px 0 0 0}.seg button:nth-child(2){border-radius:0 15px 0 0}.seg button:nth-child(3){border-radius:0 0 0 15px}.seg button:last-child{border-radius:0 0 15px 0}}
+.chip{flex:none;min-height:40px;padding:0 16px;border-radius:10px;border:1px solid #353535;background:#fff;font:500 15px/1 var(--font-body);cursor:pointer;display:inline-flex;align-items:center;gap:6px;position:relative}
+.chip::before{content:"";position:absolute;inset:-4px 0}/* 48px target */
+.chip[aria-pressed="true"]{background:var(--h4ki-secondary);color:#fff;border-color:var(--h4ki-secondary)}
+.chip[aria-pressed="true"]::after{content:"";width:6px;height:10px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg) translateY(-2px);order:-1}
+.chip:hover{background:var(--surface-container)}
+.chip[aria-pressed="true"]:hover{background:#163a7c}
+.chip:focus-visible{outline:3px solid var(--h4ki-secondary);outline-offset:2px}
+.seg{display:inline-flex;max-width:100%;overflow-x:auto;scrollbar-width:none;border:1px solid #353535;border-radius:var(--corner-full)}
+.seg button:first-child{border-radius:var(--corner-full) 0 0 var(--corner-full)}.seg button:last-child{border-radius:0 var(--corner-full) var(--corner-full) 0}
+.seg button{flex:none;white-space:nowrap;min-height:44px;padding:0 18px;background:#fff;border:0;border-left:1px solid #353535;font:500 15px/1 var(--font-body);cursor:pointer}
+.seg button:first-child{border-left:0}
+.seg button[aria-pressed="true"]{background:var(--h4ki-accent);font-weight:700}
+.seg button:focus-visible{outline:3px solid var(--h4ki-secondary);outline-offset:-3px}
+.results{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4);margin-top:var(--s6)}
+.kid{position:relative;border-radius:var(--corner-l);background:var(--surface-container-low);overflow:hidden;display:flex;flex-direction:column}
+.kid .ph{aspect-ratio:4/5;font-size:12px}
+.kid-body{padding:var(--s4);display:grid;gap:6px;flex:1}
+.kid h3{font-size:22px;text-transform:uppercase}
+.kid p{font-size:14px;color:#353535}
+.kid .btn{margin-top:auto;width:100%;padding-inline:12px}
+.kid[hidden]{display:none}
+.empty{grid-column:1/-1;padding:var(--s8);text-align:center;background:#fff;border:1px dashed #353535;border-radius:var(--corner-l)}
+.finder-foot{display:flex;justify-content:space-between;align-items:center;gap:var(--s4);margin-top:var(--s5);flex-wrap:wrap}
+.finder-foot p{font-size:14px;color:#353535}
+@media (max-width:1024px){.hero-grid{grid-template-columns:minmax(0,1fr)}.steps{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:767px){
+  .hero{padding:var(--s6) 0 var(--s10)}
+  .hero h1{font-size:40px}
+  .hero .lede{font-size:17px}
+  .steps{display:none}
+  .finder{padding:var(--s4);border-radius:var(--corner-l);box-shadow:4px 4px 0 var(--h4ki-accent);margin-inline:calc(var(--s1) * -1)}
+  .results{grid-auto-flow:column;grid-template-columns:none;grid-auto-columns:72%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin-inline:calc(var(--s4) * -1);padding-inline:var(--s4)}
+  .kid{scroll-snap-align:start}
+  .chips{margin-inline:calc(var(--s4) * -1);padding-inline:var(--s4)}
+  .finder-foot .btn{width:100%}
+}
+
+/* Sections */
+.sec{padding:var(--s16) 0}
+.sec-h{display:flex;justify-content:space-between;align-items:end;gap:var(--s4);flex-wrap:wrap;margin-bottom:var(--s8)}
+.sec h2{font-size:var(--headline-l);text-transform:uppercase}
+.sec-h p{max-width:52ch;color:#353535;margin-top:var(--s3)}
+.how{background:#fff}
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s5)}
+.how-card{border-radius:var(--corner-xl);background:var(--surface-container-high);padding:var(--s8);display:grid;gap:var(--s3);align-content:start}
+.how-card .n{font:700 64px/1 var(--font-display);color:#000}
+.how-card h3{font-size:26px;text-transform:uppercase}
+.how-cta{display:flex;gap:var(--s3);flex-wrap:wrap;margin-top:var(--s8);align-items:center}
+@media (max-width:900px){.how-grid{grid-template-columns:1fr}.how-card{padding:var(--s6);grid-template-columns:56px 1fr;align-items:start}.how-card .n{font-size:44px;grid-row:span 2}}
+
+.hl{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:auto auto;gap:var(--s4)}
+.card{border-radius:var(--corner-xl);background:#fff;overflow:hidden;display:flex;flex-direction:column;border:1px solid var(--outline-variant)}
+.card img{width:100%;object-fit:cover}
+.card-body{padding:var(--s6);display:grid;gap:var(--s3);align-content:start;flex:1}
+.card h3{font-size:26px;text-transform:uppercase}
+.card p{font-size:16px}
+.card .btn{justify-self:start;margin-top:auto}
+.tag{justify-self:start;display:inline-flex;align-items:center;gap:8px;font:700 12px/1 var(--font-display);letter-spacing:1.5px;text-transform:uppercase;padding:7px 12px;border-radius:var(--corner-full);background:var(--c,var(--h4ki-accent));border:1px solid #000}
+.card--feature{grid-row:span 2;display:grid;grid-template-rows:1fr auto}
+.card--feature img{height:100%;min-height:280px}
+.card--urgent{background:#000;color:#fff;border-color:#000}
+.card--urgent .tag{background:var(--h4ki-red);color:#000}
+.mini{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.mini li{display:flex;justify-content:space-between;gap:8px;border-bottom:1px solid var(--outline-variant);padding-bottom:8px;font-size:15px}
+.mini li b{font-family:var(--font-display);text-transform:uppercase;font-size:17px}
+.card--wide{grid-column:span 2}
+@media (max-width:1024px){.hl{grid-template-columns:1fr 1fr}.card--feature{grid-column:1/-1;grid-row:auto}}
+@media (max-width:600px){.hl{grid-template-columns:minmax(0,1fr)}.card--wide{grid-column:auto}}
+
+.dash{background:#fff}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s4)}
+.tile{border-radius:var(--corner-xl);background:var(--c);color:#000;padding:var(--s6);display:grid;gap:var(--s3);align-content:start;min-height:280px;border:solid #000;border-width:1px 2px 2px 1px}
+.tile h3{font-size:36px;text-transform:uppercase}
+.tile .stat{font-size:40px;line-height:1;margin-top:auto}
+.tile p{font-size:16px}
+.tile ul{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:6px}
+.tile li a{display:inline-flex;min-height:44px;align-items:center;padding:0 12px;border-radius:var(--corner-full);background:#fff;border:1px solid #000;font-size:14px;text-decoration:none}
+.tile li a:hover{background:#000;color:#fff}
+.tile li a:focus-visible{outline:3px solid #000;outline-offset:2px}
+@media (max-width:1024px){.tiles{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.tiles{grid-template-columns:1fr}.tile{min-height:0}}
+
+.proof-grid{display:grid;grid-template-columns:1fr 2fr;gap:var(--s8);align-items:start}
+.trust{background:#fff;border-radius:var(--corner-xl);padding:var(--s6);display:grid;gap:var(--s5);border:1px solid var(--outline-variant)}
+.trust img{height:72px;width:auto}
+.tq{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s4)}
+.tq figure{margin:0;background:#fff;border-radius:var(--corner-xl);padding:var(--s6);display:grid;gap:var(--s4);border:1px solid var(--outline-variant)}
+.tq blockquote{margin:0;font-size:18px}
+.who{display:flex;gap:12px;align-items:center;font-size:14px;color:#353535}
+.who .ph{width:48px;height:48px;border-radius:50%;font-size:9px}
+@media (max-width:900px){.proof-grid,.tq{grid-template-columns:1fr}}
+
+.ftr{background:var(--h4ki-secondary);color:#fff;padding:var(--s12) 0 calc(var(--s8) + 96px)}
+.ftr-grid{display:grid;grid-template-columns:1.2fr 2fr 1.2fr;gap:var(--s10)}
+.ftr-links{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s6)}
+.ftr h3{font:700 14px/1 var(--font-display);letter-spacing:2px;text-transform:uppercase;margin-bottom:var(--s3)}
+.ftr ul{list-style:none;margin:0;padding:0}
+.ftr li a{display:inline-flex;min-height:44px;align-items:center;text-decoration:none;font-size:15px}
+.ftr li a:hover{text-decoration:underline}
+.ftr a:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.ftr address{font-style:normal;font-size:15px;line-height:1.7;margin-top:var(--s4)}
+.news label{display:block;font-size:14px;margin-bottom:6px}
+.news .row{display:flex;gap:8px}
+.news input{flex:1;min-width:0;min-height:48px;border-radius:var(--corner-full);border:1px solid #fff;background:rgba(255,255,255,.08);color:#fff;padding:0 18px;font:16px var(--font-body)}
+.news input:focus-visible{outline:3px solid var(--h4ki-accent);outline-offset:2px}
+.legal{margin-top:var(--s10);padding-top:var(--s5);border-top:1px solid rgba(255,255,255,.35);display:flex;justify-content:space-between;flex-wrap:wrap;gap:var(--s4);font-size:14px}
+@media (max-width:1024px){.ftr-grid{grid-template-columns:1fr}.ftr-links{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:560px){.ftr-links{grid-template-columns:1fr 1fr}}
+
+/* Bottom action bar (M3 compact) */
+.abar{position:fixed;left:0;right:0;bottom:0;z-index:45;background:#fff;border-top:1px solid var(--outline-variant);display:none;grid-template-columns:1fr 2fr 1fr;gap:6px;align-items:center;padding:8px 12px calc(8px + env(safe-area-inset-bottom))}
+.abar a,.abar button{display:grid;justify-items:center;gap:2px;min-height:56px;align-content:center;font:500 12px/1 var(--font-body);background:none;border:0;color:#000;text-decoration:none;border-radius:16px;cursor:pointer}
+.abar a:focus-visible,.abar button:focus-visible{outline:3px solid var(--h4ki-secondary);outline-offset:-3px}
+.abar a.btn{display:inline-flex;background:var(--bg);font:700 16px/1 var(--font-display);min-height:48px;border-radius:var(--corner-full);white-space:nowrap;padding:0 28px}
+@media (max-width:767px){.abar{display:grid}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="hdr">
+  <div class="wrap hdr-in">
+    <a class="logo" href="#" aria-label="Hope 4 Kids International home"><img src="https://www.hope4kidsinternational.org/wp-content/uploads/2020/03/H4KI-Logo-dots3.svg" alt="Hope 4 Kids International" width="120" height="48"></a>
+    <nav class="mm" aria-label="Main">
+      <ul class="mm-list">
+        <li><button class="mm-trigger" aria-expanded="false" aria-controls="b-sponsor">Sponsor a child</button></li>
+        <li><button class="mm-trigger" aria-expanded="false" aria-controls="b-give">Give</button></li>
+        <li><button class="mm-trigger" aria-expanded="false" aria-controls="b-go">Go on a trip</button></li>
+        <li><button class="mm-trigger" aria-expanded="false" aria-controls="b-inv">Get involved</button></li>
+        <li><button class="mm-trigger" aria-expanded="false" aria-controls="b-about">About us</button></li>
+      </ul>
+      <div class="mm-panel" id="b-sponsor">
+        <a class="task" href="#finder"><span class="ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span><div><strong>Find a child</strong><span>Browse children waiting for a sponsor</span></div></a>
+        <a class="task" href="#" style="--c:var(--h4ki-green)"><span class="ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5Z"/><path d="M4 19a2 2 0 0 1 2-2h13"/></svg></span><div><strong>Pathways to Purpose</strong><span>Sponsor a Fairmont boarding student, $93 a month</span></div></a>
+        <a class="task" href="#how" style="--c:#fff"><span class="ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg></span><div><strong>How it works</strong><span>What sponsorship includes and FAQ</span></div></a>
+        <a class="task" href="#" style="--c:#fff"><span class="ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/></svg></span><div><strong>My account</strong><span>Log in to manage your sponsorship</span></div></a>
+      </div>
+      <div class="mm-panel" id="b-give">
+        <a class="task" href="#"><span class="ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M16.5 7.5c0-1.9-2-3-4.5-3s-4.5 1.2-4.5 3.2 2 2.8 4.5 3.3 4.5 1.3 4.5 3.3-2 3.2-4.5 3.2-4.5-1.1-4.5-3"/></svg></span><div><strong>Donate now</strong><span>Give where it's needed most</span></div></a>
+        <a class="task" href="#" style="--c:var(--h4ki-red)"><span class="ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17v.5"/></svg></span><div><strong>Crisis relief: Nepal</strong><span>[CRISIS DETAIL]</span></div></a>
+        <a class="task" href="#" style="--c:var(--h4ki-water)"><span class="ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg></span><div><strong>Circle the Thirsty</strong><span>Give to safe water</span></div></a>
+        <a class="task" href="#" style="--c:var(--h4ki-green)"><span class="ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span><div><strong>Medical center</strong><span>Give toward medical care</span></div></a>
+        <a class="task" href="#" style="--c:#fff"><span class="ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11h16v10H4zM2 7h20v4H2zM12 7v14M12 7s-2-4-5-4a2 2 0 0 0 0 4M12 7s2-4 5-4a2 2 0 0 1 0 4"/></svg></span><div><strong>Legacy and planned giving</strong><span>Legacy 4 Kids, Smart Giving</span></div></a>
+        <a class="task" href="#" style="--c:#fff"><span class="ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l4 4-4 4"/><path d="M3 11V9a3 3 0 0 1 3-3h15M7 22l-4-4 4-4"/><path d="M21 13v2a3 3 0 0 1-3 3H3"/></svg></span><div><strong>Give monthly</strong><span>Difference Maker Plus</span></div></a>
+      </div>
+      <div class="mm-panel" id="b-go">
+        <a class="task" href="#" style="--c:var(--h4ki-green)"><span class="ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 16l20-8-7 13-3-6-10 1Z"/></svg></span><div><strong>Upcoming trips</strong><span>Philippines Oct 2026, Uganda Nov 2026</span></div></a>
+        <a class="task" href="#" style="--c:#fff"><span class="ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><div><strong>2027 trip dates</strong><span>Plan ahead with your team</span></div></a>
+        <a class="task" href="#" style="--c:#fff"><span class="ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2 20a7 7 0 0 1 14 0M16 4.5a3.5 3.5 0 0 1 0 7M18 13.5a7 7 0 0 1 4 6.5"/></svg></span><div><strong>Join a team</strong><span>Travel with your church or friends</span></div></a>
+      </div>
+      <div class="mm-panel" id="b-inv">
+        <a class="task" href="#" style="--c:var(--h4ki-water)"><span class="ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="4" r="2"/><path d="M9 21l3-7 3 3v4M7 12l3-4h4l2 4"/></svg></span><div><strong>Walk 4 Water</strong><span>Fall 2026 walks in California</span></div></a>
+        <a class="task" href="#"><span class="ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-8.6-8.6A4.6 4.6 0 0 1 12 6.5a4.6 4.6 0 0 1 8.6 4.9C19 15.6 12 20 12 20Z"/></svg></span><div><strong>Become an ambassador</strong><span>Share H4KI with your community</span></div></a>
+        <a class="task" href="#" style="--c:#fff"><span class="ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M7 8h10"/></svg></span><div><strong>Churches</strong><span>Partner as a congregation</span></div></a>
+        <a class="task" href="#" style="--c:#fff"><span class="ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V5l8-3v19M12 9h8v12M8 8v.5M8 12v.5M8 16v.5M16 13v.5M16 17v.5M2 21h20"/></svg></span><div><strong>Foundations and companies</strong><span>Long-term project partnerships</span></div></a>
+        <a class="task" href="#" style="--c:#fff"><span class="ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span><div><strong>Stories 4 Hope</strong><span>Listen to the podcast</span></div></a>
+        <a class="task" href="#" style="--c:#fff"><span class="ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><div><strong>Events</strong><span>See what's coming up</span></div></a>
+      </div>
+      <div class="mm-panel" id="b-about">
+        <a class="task" href="#" style="--c:#fff"><span class="ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-8.6-8.6A4.6 4.6 0 0 1 12 6.5a4.6 4.6 0 0 1 8.6 4.9C19 15.6 12 20 12 20Z"/></svg></span><div><strong>Mission and faith</strong><span>Why we do what we do</span></div></a>
+        <a class="task" href="#" style="--c:#fff"><span class="ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg></span><div><strong>Where we work</strong><span>Uganda, Namibia, Nepal, Philippines, Romania, Guatemala, Mexico</span></div></a>
+        <a class="task" href="#" style="--c:#fff"><span class="ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span><div><strong>Programs</strong><span>Education, Food 4 Kids, Medical, Water 4 Kids International, International Projects</span></div></a>
+        <a class="task" href="#" style="--c:#fff"><span class="ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2 20a7 7 0 0 1 14 0M16 4.5a3.5 3.5 0 0 1 0 7M18 13.5a7 7 0 0 1 4 6.5"/></svg></span><div><strong>Team and board</strong><span>The people behind H4KI</span></div></a>
+        <a class="task" href="#" style="--c:#fff"><span class="ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3Z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></span><div><strong>Finances</strong><span>Transparency and accountability</span></div></a>
+        <a class="task" href="#" style="--c:#fff"><span class="ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><div><strong>Contact and FAQ</strong><span>We're glad to help</span></div></a>
+      </div>
+    </nav>
+    <div class="hdr-actions">
+      <a class="btn btn--s btn--urgent" href="#">Nepal relief</a>
+            <a class="btn btn--s" href="#finder">Sponsor a child</a>
+      <button class="icon-btn menu" data-open-drawer aria-expanded="false" aria-controls="drawer" aria-label="Open menu"><svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="#000" stroke-width="2.4" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<div class="drawer" id="drawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="drawer-top"><strong style="font:700 22px var(--font-display);text-transform:uppercase">I want to…</strong><button class="icon-btn" data-close-drawer aria-label="Close menu"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" stroke="#000" stroke-width="2.4" stroke-linecap="round"/></svg></button></div>
+  <div class="drawer-body">
+    <details open><summary>Sponsor a child</summary><ul><li><a href="#finder" data-close-drawer>Find a child</a></li><li><a href="#">Pathways to Purpose</a></li><li><a href="#how" data-close-drawer>How it works</a></li><li><a href="#">My account (log in)</a></li></ul></details>
+    <details><summary>Give</summary><ul><li><a href="#">Donate now</a></li><li><a href="#">Crisis relief: Nepal</a></li><li><a href="#">Circle the Thirsty</a></li><li><a href="#">Medical center</a></li><li><a href="#">Legacy and planned giving</a></li><li><a href="#">Give monthly</a></li></ul></details>
+    <details><summary>Go on a trip</summary><ul><li><a href="#">Upcoming trips</a></li><li><a href="#">2027 trip dates</a></li><li><a href="#">Join a team</a></li></ul></details>
+    <details><summary>Get involved</summary><ul><li><a href="#">Walk 4 Water</a></li><li><a href="#">Become an ambassador</a></li><li><a href="#">Churches</a></li><li><a href="#">Foundations and companies</a></li><li><a href="#">Stories 4 Hope</a></li><li><a href="#">Events</a></li></ul></details>
+    <details><summary>About us</summary><ul><li><a href="#">Mission and faith</a></li><li><a href="#">Where we work</a></li><li><a href="#">Programs</a></li><li><a href="#">Team and board</a></li><li><a href="#">Finances</a></li><li><a href="#">Contact and FAQ</a></li></ul></details>
+  </div>
+  <div class="drawer-foot"><a class="btn btn--l btn--block" href="#finder" data-close-drawer>Sponsor a child</a></div>
+</div>
+
+<main id="main">
+  <section class="hero" aria-labelledby="hero-h">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="kicker">Child sponsorship</span>
+        <h1 id="hero-h">Meet a child waiting for a sponsor.</h1>
+        <p class="lede">Every child Hope 4 Kids International serves is known by name. Choose a child, give [AMOUNT] a month, and walk with them as they learn, grow and build a future with dignity.</p>
+        <a class="btn btn--l btn--stack" href="#finder" style="margin-top:var(--s6)">Sponsor a child</a>
+        <ol class="steps" id="how-mini">
+          <li><b>1</b><div><strong>Choose a child</strong><span>Filter by country and age</span></div></li>
+          <li><b>2</b><div><strong>Give monthly</strong><span>[AMOUNT] a month</span></div></li>
+          <li><b>3</b><div><strong>Stay connected</strong><span>Follow their story as they grow</span></div></li>
+        </ol>
+      </div>
+
+      <section class="finder" id="finder" aria-labelledby="finder-h">
+        <div class="finder-top"><h2 id="finder-h">Find a child</h2><p class="count" aria-live="polite" id="count">Showing 6 children</p></div>
+        <fieldset class="fgroup">
+          <legend>Country</legend>
+          <div class="chips" data-filter="country">
+            <button class="chip" type="button" aria-pressed="true" data-v="all">All</button>
+            <button class="chip" type="button" aria-pressed="false" data-v="uganda">Uganda</button>
+            <button class="chip" type="button" aria-pressed="false" data-v="philippines">Philippines</button>
+            <button class="chip" type="button" aria-pressed="false" data-v="mexico">Mexico</button>
+            <button class="chip" type="button" aria-pressed="false" data-v="namibia">Namibia</button>
+            <button class="chip" type="button" aria-pressed="false" data-v="nepal">Nepal</button>
+            <button class="chip" type="button" aria-pressed="false" data-v="guatemala">Guatemala</button>
+            <button class="chip" type="button" aria-pressed="false" data-v="romania">Romania</button>
+          </div>
+        </fieldset>
+        <fieldset class="fgroup">
+          <legend>Age</legend>
+          <div class="seg" data-filter="age">
+            <button type="button" aria-pressed="true" data-v="all">Any</button>
+            <button type="button" aria-pressed="false" data-v="young">[AGE RANGE 1]</button>
+            <button type="button" aria-pressed="false" data-v="mid">[AGE RANGE 2]</button>
+            <button type="button" aria-pressed="false" data-v="teen">[AGE RANGE 3]</button>
+          </div>
+        </fieldset>
+        <div class="results" id="results">
+          <article class="kid" data-country="uganda" data-age="young"><div class="ph" role="img" aria-label="Child photo placeholder">Child photo</div><div class="kid-body"><h3>[First name]</h3><p>Age [#] · Uganda</p><a class="btn btn--s btn--secondary" href="#">Meet<span class="sr-only"> [First name] from Uganda, child 1</span></a></div></article>
+          <article class="kid" data-country="philippines" data-age="mid"><div class="ph" role="img" aria-label="Child photo placeholder">Child photo</div><div class="kid-body"><h3>[First name]</h3><p>Age [#] · Philippines</p><a class="btn btn--s btn--secondary" href="#">Meet<span class="sr-only"> [First name] from Philippines, child 2</span></a></div></article>
+          <article class="kid" data-country="mexico" data-age="young"><div class="ph" role="img" aria-label="Child photo placeholder">Child photo</div><div class="kid-body"><h3>[First name]</h3><p>Age [#] · Mexico</p><a class="btn btn--s btn--secondary" href="#">Meet<span class="sr-only"> [First name] from Mexico, child 3</span></a></div></article>
+          <article class="kid" data-country="uganda" data-age="teen"><div class="ph" role="img" aria-label="Child photo placeholder">Child photo</div><div class="kid-body"><h3>[First name]</h3><p>Age [#] · Uganda</p><a class="btn btn--s btn--secondary" href="#">Meet<span class="sr-only"> [First name] from Uganda, child 4</span></a></div></article>
+          <article class="kid" data-country="namibia" data-age="mid"><div class="ph" role="img" aria-label="Child photo placeholder">Child photo</div><div class="kid-body"><h3>[First name]</h3><p>Age [#] · Namibia</p><a class="btn btn--s btn--secondary" href="#">Meet<span class="sr-only"> [First name] from Namibia, child 5</span></a></div></article>
+          <article class="kid" data-country="nepal" data-age="teen"><div class="ph" role="img" aria-label="Child photo placeholder">Child photo</div><div class="kid-body"><h3>[First name]</h3><p>Age [#] · Nepal</p><a class="btn btn--s btn--secondary" href="#">Meet<span class="sr-only"> [First name] from Nepal, child 6</span></a></div></article>
+          <p class="empty" id="empty" hidden>No children match these filters right now. <a class="link" href="#" data-reset>Show all children</a></p>
+        </div>
+        <div class="finder-foot"><p>Placeholder cards. Live data would come from the sponsorship system.</p><a class="btn btn--secondary" href="#">See all children</a></div>
+      </section>
+    </div>
+  </section>
+
+  <section class="sec how" id="how" aria-labelledby="how-h">
+    <div class="wrap">
+      <div class="sec-h"><div><h2 id="how-h">How sponsorship works</h2><p>Simple to start, personal for years. Sponsorship is at the heart of how Hope 4 Kids International restores hope to children living in poverty.</p></div></div>
+      <div class="how-grid">
+        <article class="how-card"><span class="n" aria-hidden="true">01</span><h3>Choose a child</h3><p>Browse children by country and age, and read their story.</p></article>
+        <article class="how-card"><span class="n" aria-hidden="true">02</span><h3>Give [AMOUNT] a month</h3><p>Your gift helps equip a child for school, from day school to boarding school and higher education.</p></article>
+        <article class="how-card"><span class="n" aria-hidden="true">03</span><h3>Stay connected</h3><p>Follow their journey, and when you're ready, visit on a mission trip.</p></article>
+      </div>
+      <div class="how-cta"><a class="btn btn--l btn--stack" href="#finder">Find a child</a><a class="link" href="#">Read the sponsorship FAQ</a></div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="hl-h">
+    <div class="wrap">
+      <div class="sec-h"><div><h2 id="hl-h">Happening now</h2><p>Programs and events you can be part of this season.</p></div><a class="btn btn--secondary" href="#">All events</a></div>
+      <div class="hl">
+        <article class="card card--feature">
+          <img src="https://www.hope4kidsinternational.org/wp-content/uploads/2023/10/2023-web_50bs.webp" alt="A smiling student in a blue and orange school uniform" loading="lazy">
+          <div class="card-body"><span class="tag" style="--c:var(--h4ki-accent)">Education · Dignity</span><h3>Pathways to Purpose</h3><p>An education today. A brighter future tomorrow. 101 Fairmont students need boarding sponsors at $93 a month.</p><a class="btn" href="#">Sponsor a Fairmont student</a></div>
+        </article>
+        <article class="card card--urgent on-dark">
+          <div class="card-body"><span class="tag">Crisis relief</span><h3>Nepal</h3><p>[CRISIS DETAIL] Your gift goes to relief for children and families in Nepal.</p><a class="btn btn--dark" href="#">Give to Nepal relief</a></div>
+        </article>
+        <article class="card">
+          <div class="card-body"><span class="tag" style="--c:var(--h4ki-water)">Water · Health</span><h3>Walk 4 Water</h3>
+            <ul class="mini"><li><b>Benicia</b>Sat, Sep 26</li><li><b>Orange County</b>[DATE]</li></ul>
+            <a class="btn btn--secondary btn--s" href="#">Join a walk</a></div>
+        </article>
+        <article class="card card--wide">
+          <div class="card-body"><span class="tag" style="--c:var(--h4ki-green)">Mission trips · Joy</span><h3>Go and see</h3>
+            <ul class="mini"><li><b>Philippines</b>Oct 6 to 16, 2026</li><li><b>Uganda</b>Nov 3 to 16, 2026</li><li><b>2027 trips</b>Dates now available</li></ul>
+            <a class="btn btn--secondary btn--s" href="#">Trip info</a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec dash" aria-labelledby="dash-h">
+    <div class="wrap">
+      <div class="sec-h"><div><h2 id="dash-h">Your impact, four ways</h2><p>Faith-based and rooted in the love of Jesus, H4KI works through four pillars in [COUNT] countries since 1973.</p></div></div>
+      <div class="tiles">
+        <article class="tile" style="--c:var(--h4ki-primary)"><h3>Dignity</h3><p>Equipping children to become educated, self-sufficient leaders.</p><ul><li><a href="#">Child Sponsorship</a></li><li><a href="#">Education</a></li></ul><span class="stat">[STAT]</span><p>children sponsored</p></article>
+        <article class="tile" style="--c:var(--h4ki-green)"><h3>Health</h3><p>Safe water, nutrition and care for children and families.</p><ul><li><a href="#">Water 4 Kids International</a></li><li><a href="#">Medical</a></li><li><a href="#">Food 4 Kids</a></li></ul><span class="stat">[STAT]</span><p>deep water wells drilled</p></article>
+        <article class="tile" style="--c:var(--h4ki-accent)"><h3>Joy</h3><p>Learning, play and friendship in the communities we serve.</p><ul><li><a href="#">Mission Trips</a></li><li><a href="#">Events</a></li></ul><span class="stat">[STAT]</span><p>trip participants [YEAR]</p></article>
+        <article class="tile" style="--c:var(--h4ki-red)"><h3>Love</h3><p>Sharing the love of Jesus through presence and service.</p><ul><li><a href="#">Our faith</a></li><li><a href="#">International Projects</a></li></ul><span class="stat">[STAT]</span><p>[METRIC TO CONFIRM]</p></article>
+      </div>
+      <p style="font-size:14px;color:#353535;margin-top:var(--s5)">Program to pillar mapping is a proposal for review. [CONFIRM with program team]</p>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="proof-h">
+    <div class="wrap">
+      <div class="sec-h"><h2 id="proof-h">Trusted by supporters</h2></div>
+      <div class="proof-grid">
+        <div class="trust">
+          <img src="https://www.hope4kidsinternational.org/wp-content/uploads/2025/03/Four-Star-Rating-Badge-black.webp" alt="Charity Navigator Four-Star Rating" loading="lazy">
+          <img src="https://www.hope4kidsinternational.org/wp-content/uploads/2025/03/ME-Associate-Member-Icon-1024x344.webp" alt="Mission Excellence Associate Member" style="height:48px" loading="lazy">
+          <a class="link" href="#">See our finances</a>
+        </div>
+        <div class="tq">
+          <figure><blockquote>"[Sponsor testimonial placeholder]"</blockquote><figcaption class="who"><span class="ph" aria-hidden="true">Photo</span>[First name], sponsor since [YEAR]</figcaption></figure>
+          <figure><blockquote>"[Church partner testimonial placeholder]"</blockquote><figcaption class="who"><span class="ph" aria-hidden="true">Photo</span>[Leader], [Church name]</figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="ftr on-dark">
+  <div class="wrap">
+    <div class="ftr-grid">
+      <div><img src="https://www.hope4kidsinternational.org/wp-content/uploads/2020/03/h4ki-w4ki_locked-logo_4-dots-all-white-768x278.png" alt="Hope 4 Kids International and Water 4 Kids International" style="height:52px;width:auto" loading="lazy"><address>PO Box 74010, Phoenix, AZ 85087<br><a href="tel:6239795516">623-979-5516</a> · <a href="mailto:info@h4ki.org">info@h4ki.org</a></address></div>
+      <div class="ftr-links">
+        <div><h3>Sponsor</h3><ul><li><a href="#finder">Find a child</a></li><li><a href="#">Pathways to Purpose</a></li><li><a href="#">My account</a></li></ul></div>
+        <div><h3>Give</h3><ul><li><a href="#">Donate</a></li><li><a href="#">Nepal relief</a></li><li><a href="#">Legacy 4 Kids</a></li></ul></div>
+        <div><h3>About</h3><ul><li><a href="#">Mission and faith</a></li><li><a href="#">Finances</a></li><li><a href="#">Contact</a></li></ul></div>
+      </div>
+      <form class="news" onsubmit="return false"><h3>Get stories of hope</h3><label for="b-em">Email</label><div class="row"><input id="b-em" type="email" autocomplete="email"><button class="btn btn--dark" type="submit">Subscribe</button></div></form>
+    </div>
+    <div class="legal"><span>©2026 Hope 4 Kids International, a faith-based 501(c)(3) nonprofit.</span><span><a href="#">Privacy</a> · <a href="#">Disclosures</a> · <a href="#">Finance</a> · <a href="#">FAQ</a></span></div>
+  </div>
+</footer>
+
+<nav class="abar" aria-label="Quick actions">
+  <a href="#"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.4-9.3-9A5 5 0 0 1 12 6a5 5 0 0 1 9.3 6c-2.3 4.6-9.3 9-9.3 9Z" fill="none" stroke="#000" stroke-width="2"/></svg>Donate</a>
+  <a class="btn" href="#finder">Sponsor a child</a>
+  <button type="button" data-open-drawer aria-expanded="false" aria-controls="drawer"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="#000" stroke-width="2.2" stroke-linecap="round"/></svg>Menu</button>
+</nav>
+
+<script>
+// Mega menu: click/keyboard disclosure. Tab from an open trigger enters its panel;
+// Tab past the last link moves to the next trigger. Escape and outside click close.
+(function(){
+  var triggers=[].slice.call(document.querySelectorAll('.mm-trigger'));
+  var FOCUSABLE='summary,a[href],button:not([disabled]),input,select,textarea,[tabindex]:not([tabindex="-1"])';
+  function panelOf(t){return document.getElementById(t.getAttribute('aria-controls'));}
+  function closeAll(except){triggers.forEach(function(t){if(t!==except){t.setAttribute('aria-expanded','false');var p=panelOf(t);if(p)p.classList.remove('open');}});}
+  triggers.forEach(function(t,i){
+    var p=panelOf(t);
+    t.addEventListener('click',function(e){e.stopPropagation();var open=t.getAttribute('aria-expanded')==='true';closeAll(t);t.setAttribute('aria-expanded',String(!open));p.classList.toggle('open',!open);});
+    t.addEventListener('keydown',function(e){
+      if(e.key==='Tab'&&!e.shiftKey&&t.getAttribute('aria-expanded')==='true'){var f=p.querySelectorAll(FOCUSABLE);if(f.length){e.preventDefault();f[0].focus();}}
+    });
+    p.addEventListener('click',function(e){e.stopPropagation();});
+    p.addEventListener('keydown',function(e){
+      if(e.key!=='Tab')return;var f=[].slice.call(p.querySelectorAll(FOCUSABLE));
+      if(!e.shiftKey&&document.activeElement===f[f.length-1]){e.preventDefault();closeAll();(triggers[i+1]||t).focus();}
+      else if(e.shiftKey&&document.activeElement===f[0]){e.preventDefault();t.focus();}
+    });
+  });
+  document.addEventListener('click',function(){closeAll();});
+  // Drawer: any number of openers, focus trap, focus restore (review ALL-3, B-6)
+  var drawer=document.querySelector('.drawer'),openers=[].slice.call(document.querySelectorAll('[data-open-drawer]')),lastFocus=null;
+  function setExpanded(v){openers.forEach(function(o){o.setAttribute('aria-expanded',String(v));});}
+  function openDrawer(from){lastFocus=from;drawer.classList.add('open');drawer.setAttribute('aria-hidden','false');setExpanded(true);document.body.style.overflow='hidden';var c=drawer.querySelector('[data-close-drawer]');if(c)c.focus();}
+  function closeDrawer(restore){if(!drawer||!drawer.classList.contains('open'))return;drawer.classList.remove('open');drawer.setAttribute('aria-hidden','true');setExpanded(false);document.body.style.overflow='';if(restore!==false&&lastFocus)lastFocus.focus();}
+  if(drawer){
+    openers.forEach(function(o){o.addEventListener('click',function(){openDrawer(o);});});
+    [].slice.call(drawer.querySelectorAll('[data-close-drawer]')).forEach(function(b){b.addEventListener('click',function(){closeDrawer(b.tagName!=='A');});});
+    drawer.addEventListener('keydown',function(e){
+      if(e.key!=='Tab')return;var f=[].slice.call(drawer.querySelectorAll(FOCUSABLE)).filter(function(x){return x.offsetParent!==null;});
+      if(!f.length)return;var first=f[0],last=f[f.length-1];
+      if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+      else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+    });
+  }
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){var open=triggers.filter(function(t){return t.getAttribute('aria-expanded')==='true';})[0];closeAll();if(open)open.focus();closeDrawer();}});
+  // Mockup links go nowhere
+  [].slice.call(document.querySelectorAll('a[href="#"]')).forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();});});
+})();
+</script>
+<script>
+// Finder: filter chips + segmented age control, live count
+(function(){
+  var state={country:'all',age:'all'},kids=[].slice.call(document.querySelectorAll('.kid')),count=document.getElementById('count'),empty=document.getElementById('empty');
+  function apply(){var n=0;kids.forEach(function(k){var ok=(state.country==='all'||k.dataset.country===state.country)&&(state.age==='all'||k.dataset.age===state.age);k.hidden=!ok;if(ok)n++;});count.textContent='Showing '+n+(n===1?' child':' children');empty.hidden=n>0;}
+  [].slice.call(document.querySelectorAll('[data-filter]')).forEach(function(g){
+    g.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;[].slice.call(g.querySelectorAll('button')).forEach(function(x){x.setAttribute('aria-pressed',String(x===b));});state[g.dataset.filter]=b.dataset.v;apply();});
+  });
+  document.querySelector('[data-reset]').addEventListener('click',function(e){e.preventDefault();state={country:'all',age:'all'};document.querySelectorAll('[data-filter] button').forEach(function(x){x.setAttribute('aria-pressed',String(x.dataset.v==='all'));});apply();});
+})();
+</script>
+</body>
+</html>

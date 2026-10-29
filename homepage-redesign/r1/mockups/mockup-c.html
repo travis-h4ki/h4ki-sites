@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="en">
+<head><meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Mockup C: Partners in Hope | Hope 4 Kids International</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+<style>
+/* ===== H4KI shared tokens (brand-tokens.md §1 to §6) ===== */
+:root{
+  /* Kit system colors */
+  --h4ki-primary:#4179B5;      /* kit Primary */
+  --h4ki-secondary:#1D4695;    /* kit Secondary */
+  --h4ki-accent:#FFA225;       /* kit Accent */
+  --h4ki-text:#000000;         /* kit Text */
+  /* Kit saved colors */
+  --h4ki-white:#FFFFFF;
+  --h4ki-green:#92CAB4;        /* H4KI Green: Medical, Trips */
+  --h4ki-red:#F24444;          /* H4KI Red: Sponsorship, Crisis */
+  --h4ki-water:#2196F3;        /* Saved #8: Water */
+  --h4ki-gray-100:#E9E9E9;     /* Saved #12 */
+  --h4ki-gray-400:#AAAAAA;     /* Saved #13, decorative only */
+  --h4ki-gray-800:#353535;     /* Saved #15 */
+  --h4ki-navy-scrim:rgba(19,28,66,.72); /* hero overlay, darkened for AA */
+
+  /* M3-style roles mapped onto kit colors (AA pairs only) */
+  --surface:#FFFFFF; --on-surface:#000000; --on-surface-variant:#353535;
+  --surface-container-low:#F6F6F6; --surface-container:#EFEFEF; --surface-container-high:#E9E9E9;
+  --surface-inverse:#1D4695; --on-surface-inverse:#FFFFFF;
+  --outline:#000000; --outline-variant:#E9E9E9;
+
+  /* Type: Oswald display + Helvetica body; roles per M3 scale */
+  --font-display:"Oswald",Helvetica,Arial,sans-serif;
+  --font-body:Helvetica,"Helvetica Neue",Arial,sans-serif;
+  --display-l:clamp(48px,6.2vw,88px);   /* hero only */
+  --display-m:clamp(40px,4.6vw,64px);
+  --headline-l:clamp(34px,3.4vw,48px);  /* section H2 */
+  --headline-m:clamp(28px,2.6vw,36px);
+  --title-l:22px; --title-m:18px;
+  --body-l:18px; --body-m:16px; --body-s:14px;
+  --label-l:15px;
+
+  /* Spacing: 4pt rhythm */
+  --s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:20px;--s6:24px;--s8:32px;--s10:40px;--s12:48px;--s16:64px;--s20:80px;--s24:96px;
+  --gutter:20px; --maxw:1200px;
+
+  /* Shape */
+  --corner-full:9999px; --corner-xl:28px; --corner-l:16px; --corner-m:12px;
+
+  /* Motion (M3) */
+  --dur-short3:150ms; --dur-medium2:300ms; --dur-long2:500ms;
+  --ease-standard:cubic-bezier(.2,0,0,1); --ease-decel:cubic-bezier(.05,.7,.1,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--surface);color:var(--on-surface);font:400 var(--body-l)/1.55 var(--font-body)}
+@media (max-width:767px){body{font-size:var(--body-m)}}
+img{max-width:100%;display:block}
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.02;letter-spacing:-.5px;margin:0}
+p{margin:0}
+a{color:inherit}
+.link{color:var(--h4ki-primary);text-decoration:underline;text-underline-offset:3px;font-weight:700;display:inline-flex;align-items:center;min-height:44px}
+.logo{display:inline-flex;align-items:center;min-height:48px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gutter)}
+@media (min-width:1025px){:root{--gutter:40px}}
+.kicker{font:700 16px/1.2 var(--font-display);letter-spacing:2.5px;text-transform:uppercase}
+.sr-only{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:12px;top:-60px;z-index:999;background:#000;color:#fff;padding:12px 16px;border-radius:8px}
+.skip:focus{top:12px}
+.ph{background:repeating-linear-gradient(135deg,#F6F6F6 0 12px,#EFEFEF 12px 24px);color:#353535;display:grid;place-items:center;text-align:center;font:700 14px/1.3 var(--font-display);letter-spacing:1px;text-transform:uppercase}
+.stat{font-family:var(--font-display);font-weight:700}
+
+/* ===== Unified button (brand-tokens §6a) ===== */
+.btn{--bg:var(--h4ki-accent);--fg:#000;--bd:#000;
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font:700 16px/1 var(--font-display);letter-spacing:.5px;text-transform:uppercase;text-decoration:none;
+  min-height:48px;padding:14px 28px;border-radius:var(--corner-full);
+  background:var(--bg);color:var(--fg);border:solid var(--bd);border-width:1px 2px 2px 1px;
+  box-shadow:0 0 0 0 #000;cursor:pointer;white-space:nowrap;text-align:center;
+  transition:transform var(--dur-short3) var(--ease-standard),box-shadow var(--dur-short3) var(--ease-standard),background-color var(--dur-short3) var(--ease-standard),color var(--dur-short3) var(--ease-standard)}
+.btn:hover{transform:translateY(-2px);box-shadow:3px 3px 0 0 var(--bd)}
+.btn:active{transform:translate(1px,1px);box-shadow:0 0 0 0 var(--bd)}
+.btn:focus-visible{outline:3px solid var(--h4ki-secondary);outline-offset:3px}
+.btn--l{font-size:18px;min-height:56px;padding:18px 36px}
+.btn--s{font-size:15px;min-height:44px;padding:12px 22px}
+.btn--secondary{--bg:#fff;--fg:#000}
+.btn--secondary:hover{--bg:var(--h4ki-secondary);--fg:#fff}
+.btn--dark{--bg:transparent;--fg:#fff;--bd:#fff}
+.btn--dark:hover{--bg:#fff;--fg:#000}
+.btn--dark:focus-visible{outline-color:#fff}
+.btn--urgent{--bg:#fff;--fg:#000}
+.btn--urgent::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--h4ki-red);box-shadow:0 0 0 1px #000}
+.btn--urgent:hover{--bg:var(--h4ki-red);--fg:#000}
+.btn--block{width:100%}
+@media (max-width:767px){.btn--stack{width:100%}.btn{white-space:normal}}
+/* Focus on dark surfaces (review ALL-4) */
+.on-dark :focus-visible{outline-color:#fff!important}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .btn:hover,.btn:active{transform:none;box-shadow:none}
+}
+/* Logo dots (from H4KI-Logo-dots3.svg) */
+.dots{display:inline-flex;gap:6px}.dots i{width:10px;height:10px;border-radius:50%;display:block}
+.dots i:nth-child(1){background:var(--h4ki-primary)}.dots i:nth-child(2){background:var(--h4ki-accent)}.dots i:nth-child(3){background:var(--h4ki-red)}.dots i:nth-child(4){background:var(--h4ki-green)}
+
+/* ===== Mega menu mechanics (shared; each concept styles its own panel) ===== */
+.mm{position:static}
+.hdr-in{position:relative}
+.mm-list{display:flex;gap:4px;list-style:none;margin:0;padding:0}
+.mm-trigger{font:500 16px/1 var(--font-body);letter-spacing:1px;background:none;border:0;color:inherit;min-height:44px;padding:0 14px;border-radius:var(--corner-full);cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.mm-trigger::after{content:"";width:7px;height:7px;border:solid currentColor;border-width:0 2px 2px 0;transform:translateY(-2px) rotate(45deg);transition:transform var(--dur-short3) var(--ease-standard)}
+.mm-trigger[aria-expanded="true"]::after{transform:translateY(1px) rotate(-135deg)}
+.mm-trigger:hover,.mm-trigger[aria-expanded="true"]{background:var(--surface-container-high)}
+.mm-trigger:focus-visible,.mm-panel a:focus-visible,.drawer a:focus-visible,.drawer button:focus-visible,.icon-btn:focus-visible{outline:3px solid var(--h4ki-secondary);outline-offset:2px}
+.mm-panel{position:absolute;left:var(--gutter);right:var(--gutter);top:100%;background:#fff;border:solid #000;border-width:1px 2px 2px 1px;border-radius:var(--corner-xl);padding:var(--s8);opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity var(--dur-short3) var(--ease-standard),transform var(--dur-short3) var(--ease-standard),visibility 0s linear var(--dur-short3);z-index:60}
+.mm-panel.open{opacity:1;visibility:visible;transform:none;transition-delay:0s}
+.mm-panel a{text-decoration:none}
+.mm-col h3{font:700 13px/1 var(--font-display);letter-spacing:2px;text-transform:uppercase;color:#353535;margin-bottom:12px}
+.mm-col ul{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.mm-col li a{display:flex;align-items:center;min-height:40px;padding:6px 10px;margin-left:-10px;border-radius:10px;font-size:16px}
+.mm-col li a:hover{background:var(--surface-container)}
+.icon-btn{width:48px;height:48px;border-radius:50%;display:inline-grid;place-items:center;background:none;border:0;color:inherit;cursor:pointer}
+/* Mobile drawer */
+.drawer{position:fixed;inset:0;z-index:100;background:#fff;display:flex;flex-direction:column;transform:translateX(100%);visibility:hidden;transition:transform var(--dur-medium2) var(--ease-standard),visibility 0s linear var(--dur-medium2)}
+.drawer.open{transform:none;visibility:visible;transition-delay:0s}
+.drawer-top{display:flex;align-items:center;justify-content:space-between;padding:10px var(--gutter);border-bottom:1px solid var(--outline-variant)}
+.drawer-body{overflow:auto;padding:8px var(--gutter) 24px;flex:1}
+.drawer details{border-bottom:1px solid var(--outline-variant)}
+.drawer summary{list-style:none;display:flex;justify-content:space-between;align-items:center;min-height:56px;font:700 22px/1 var(--font-display);text-transform:uppercase;cursor:pointer}
+.drawer summary::-webkit-details-marker{display:none}
+.drawer summary::after{content:"+";font:400 28px/1 var(--font-body)}
+.drawer details[open] summary::after{content:"\2212"}
+.drawer details ul{list-style:none;margin:0 0 12px;padding:0}
+.drawer details a{display:flex;align-items:center;min-height:48px;text-decoration:none;font-size:17px}
+.drawer-foot{padding:12px var(--gutter) calc(12px + env(safe-area-inset-bottom));display:grid;gap:10px;border-top:1px solid var(--outline-variant)}
+.hdr .btn{white-space:nowrap}
+
+/* Review N-2: standalone small links meet 44px */
+address a,.legal a{display:inline-flex;align-items:center;min-height:44px}
+</style>
+<style>
+/* ===== Concept C: Partners in Hope (editorial grid, tonal surfaces) ===== */
+.util{background:var(--h4ki-secondary);color:#fff;font-size:14px}
+.util .wrap{display:flex;justify-content:flex-end;gap:var(--s5);min-height:44px;align-items:center}
+.util a{color:#fff;text-underline-offset:3px;display:inline-flex;align-items:center;gap:8px;min-height:44px}
+.util a:focus-visible{outline:3px solid #fff;outline-offset:-3px}
+.util .crisis{margin-right:auto;font-weight:700}
+.util .crisis::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--h4ki-red);box-shadow:0 0 0 1px #fff}
+.hdr{position:sticky;top:0;z-index:50;background:#fff;border-bottom:2px solid #000}
+.hdr-in{display:flex;align-items:center;gap:var(--s5);min-height:80px}
+.logo img{height:54px;width:auto}
+.hdr nav{margin-left:auto}
+.mm-trigger{white-space:nowrap}
+.hdr .icon-btn{display:none}
+.mm-panel{margin-top:10px;padding:var(--s8)}
+.pgrid4{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s6)}
+.pcol{border-top:6px solid var(--c);padding-top:var(--s4)}
+.pcol h3{font:700 24px/1 var(--font-display);text-transform:uppercase;margin-bottom:6px;color:#000;letter-spacing:0}
+.pcol p{font-size:14px;color:#353535;margin-bottom:10px}
+.mm-foot{margin-top:var(--s6);padding-top:var(--s5);border-top:1px solid var(--outline-variant);display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;font-size:15px}
+.mm-foot strong{font:700 13px/1 var(--font-display);letter-spacing:2px;text-transform:uppercase;margin-right:6px}
+.mm-foot a{min-height:40px;display:inline-flex;align-items:center;text-decoration:underline;text-underline-offset:3px}
+.mm-2{display:grid;grid-template-columns:repeat(3,1fr) 1.3fr;gap:var(--s8)}
+.mm-feat{background:var(--surface-container-high);border-radius:var(--corner-l);padding:var(--s5);display:grid;gap:var(--s3);align-content:start}
+.mm-feat p{font:700 20px/1.1 var(--font-display);text-transform:uppercase}
+@media (max-width:1120px){.hdr nav{display:none}.hdr .icon-btn{display:inline-grid}.hdr-in>.btn{margin-left:auto}}
+@media (max-width:767px){.util .wrap>a:not(.crisis){display:none}.util .wrap{justify-content:center}.util .crisis{margin:0}.hdr-in{min-height:64px;gap:var(--s2)}.logo img{height:38px}}
+
+/* Hero */
+.hero{padding:var(--s16) 0 var(--s20);border-bottom:2px solid #000}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:var(--s12);align-items:center}
+.hero .kicker{color:var(--h4ki-secondary)}
+.hero h1{font-size:clamp(52px,7vw,104px);text-transform:uppercase;line-height:.9;letter-spacing:-2px;margin-top:var(--s4)}
+.hero h1 em{font-style:normal;background:linear-gradient(transparent 62%,var(--h4ki-accent) 62%,var(--h4ki-accent) 92%,transparent 92%)}
+.hero .lede{font-size:20px;max-width:44ch;margin-top:var(--s6)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:var(--s3);margin-top:var(--s8)}
+.mosaic{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:var(--s3);aspect-ratio:1/1.02}
+.mosaic figure{margin:0;position:relative;border-radius:var(--corner-l);overflow:hidden;background:#000}
+.mosaic img{width:100%;height:100%;object-fit:cover}
+.mosaic figcaption{position:absolute;left:12px;bottom:12px;background:#fff;border:solid #000;border-width:1px 2px 2px 1px;border-radius:var(--corner-full);padding:8px 14px;font:700 14px/1 var(--font-display);letter-spacing:1.5px;text-transform:uppercase;display:flex;align-items:center;gap:8px}
+.mosaic figcaption::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--c);box-shadow:0 0 0 1px #000}
+.mosaic figure:nth-child(1){border-top-left-radius:120px}
+.mosaic figure:nth-child(4){border-bottom-right-radius:120px}
+@media (max-width:960px){.hero-grid{grid-template-columns:minmax(0,1fr)}.hero{padding:var(--s10) 0 var(--s12)}.mosaic{aspect-ratio:auto;grid-template-rows:180px 180px}.mosaic figure:nth-child(1){border-top-left-radius:64px}.mosaic figure:nth-child(4){border-bottom-right-radius:64px}}
+@media (max-width:767px){.hero .lede{font-size:17px}.mosaic{grid-template-rows:150px 150px}.mosaic figcaption{font-size:12px;padding:7px 10px;left:8px;bottom:8px}.hero-cta{margin-top:var(--s6)}}
+
+/* Section scaffolding */
+.sec{padding:var(--s20) 0}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s10);align-items:end;margin-bottom:var(--s10)}
+.sec-head h2{font-size:var(--headline-l);text-transform:uppercase}
+.sec-head p{color:#353535;max-width:52ch}
+.num{font:700 14px/1 var(--font-display);letter-spacing:2.5px;text-transform:uppercase;color:#353535;display:block;margin-bottom:var(--s3)}
+@media (max-width:860px){.sec{padding:var(--s12) 0}.sec-head{grid-template-columns:1fr;gap:var(--s4);margin-bottom:var(--s8)}}
+
+/* Lanes */
+.lanes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s5)}
+.lane{background:var(--surface-container-low);border-radius:var(--corner-xl);padding:var(--s8);display:flex;flex-direction:column;gap:var(--s4);border:1px solid var(--outline-variant)}
+.lane--primary{background:var(--h4ki-accent);border:solid #000;border-width:1px 2px 2px 1px}
+.lane .who{font:700 14px/1 var(--font-display);letter-spacing:2px;text-transform:uppercase}
+.lane h3{font-size:34px;text-transform:uppercase}
+.lane ul{list-style:none;padding:0;margin:0;display:grid;gap:8px;font-size:16px}
+.lane li{display:grid;grid-template-columns:18px 1fr;gap:10px}
+.lane li::before{content:"";width:8px;height:8px;border-radius:50%;background:#000;margin-top:9px}
+.lane .btn{margin-top:auto;align-self:flex-start}
+.lane .link{font-size:15px}
+@media (max-width:960px){.lanes{grid-template-columns:1fr}.lane{padding:var(--s6)}}
+
+/* Pillars framework */
+.pillars{background:var(--surface-container-high)}
+.prow{display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr) minmax(0,360px);gap:var(--s8);align-items:center;padding:var(--s8) 0;border-top:2px solid #000}
+.prow:last-child{border-bottom:2px solid #000}
+.prow h3{font-size:clamp(48px,5vw,72px);text-transform:uppercase;display:flex;align-items:center;gap:var(--s4)}
+.prow h3::before{content:"";width:22px;height:22px;border-radius:50%;background:var(--c);border:solid #000;border-width:1px 2px 2px 1px;flex:none}
+.prow p{font-size:18px;max-width:48ch}
+.progs{display:flex;flex-wrap:wrap;gap:8px;margin-top:var(--s4)}
+.progs a{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:var(--corner-full);background:#fff;border:1px solid #000;text-decoration:none;font-size:15px}
+.progs a:hover{background:var(--c)}
+.progs a:focus-visible{outline:3px solid var(--h4ki-secondary);outline-offset:2px}
+.prow img{border-radius:var(--corner-l);aspect-ratio:16/10;object-fit:cover;width:100%}
+.note{font-size:14px;color:#353535;margin-top:var(--s5)}
+@media (max-width:960px){.prow{grid-template-columns:1fr;gap:var(--s4);padding:var(--s6) 0}.prow img{order:-1;aspect-ratio:16/9}}
+
+/* Project partnership feature */
+.proj{background:#000;color:#fff}
+.proj-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:var(--s12);align-items:center}
+.proj .num{color:#fff}
+.proj h2{font-size:var(--headline-l);text-transform:uppercase}
+.proj p{margin-top:var(--s5);font-size:18px;max-width:50ch}
+.proj-photo{position:relative}
+.proj-photo img{border-radius:var(--corner-xl);width:100%;aspect-ratio:4/3;object-fit:cover}
+.proj-photo .badge{position:absolute;right:-12px;bottom:-24px;width:120px;height:120px;border-radius:50%;background:var(--h4ki-secondary);display:grid;place-items:center;border:3px solid #fff}
+.proj-photo .badge img{width:84px;height:84px;aspect-ratio:auto;border-radius:0}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s4);margin-top:var(--s8)}
+.facts div{border-top:1px solid #fff;padding-top:var(--s3)}
+.facts b{display:block;font:700 28px/1 var(--font-display);text-transform:uppercase}
+.facts span{font-size:14px}
+.proj .ctas{display:flex;flex-wrap:wrap;gap:var(--s3);margin-top:var(--s8)}
+.proj .ctas .btn--l{padding-inline:28px}
+@media (max-width:960px){.proj-grid{grid-template-columns:1fr}.proj-photo .badge{width:92px;height:92px;right:12px}.proj-photo .badge img{width:64px;height:64px}.facts{grid-template-columns:1fr}}
+
+/* This season */
+.season{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--s4)}
+.s-card{border:solid #000;border-width:1px 2px 2px 1px;border-radius:var(--corner-l);padding:var(--s6);display:flex;flex-direction:column;gap:var(--s3);background:#fff}
+.s-card .tag{align-self:flex-start;font:700 12px/1 var(--font-display);letter-spacing:1.5px;text-transform:uppercase;background:var(--c);border:1px solid #000;border-radius:var(--corner-full);padding:7px 12px}
+.s-card h3{font-size:26px;text-transform:uppercase}
+.s-card p{font-size:16px}
+.s-card .btn{margin-top:auto;align-self:flex-start}
+@media (max-width:1024px){.season{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.season{grid-template-columns:1fr}}
+
+/* Trust + proof */
+.trust{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:var(--s10);align-items:start}
+.facts-list{display:grid;gap:0;border-top:2px solid #000}
+.facts-list div{display:flex;justify-content:space-between;align-items:baseline;gap:var(--s4);padding:var(--s4) 0;border-bottom:1px solid var(--outline-variant)}
+.facts-list b{font:700 32px/1 var(--font-display)}
+.badges{display:flex;gap:var(--s6);align-items:center;flex-wrap:wrap;margin-top:var(--s6)}
+.badges img{height:72px;width:auto}
+.quotes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s4)}
+.quotes figure{margin:0;background:var(--surface-container-low);border-radius:var(--corner-l);padding:var(--s6);display:flex;flex-direction:column;gap:var(--s4);border-top:6px solid var(--c)}
+.quotes .aud{font:700 13px/1 var(--font-display);letter-spacing:2px;text-transform:uppercase}
+.quotes blockquote{margin:0;font-size:18px}
+.quotes figcaption{font-size:14px;color:#353535;margin-top:auto}
+@media (max-width:960px){.trust,.quotes{grid-template-columns:1fr}}
+
+/* Closing + footer */
+.close{background:var(--h4ki-secondary);color:#fff;text-align:center;padding:var(--s16) 0;position:relative;overflow:hidden}
+.close::before{content:"";position:absolute;inset:0;background:url(https://www.hope4kidsinternational.org/wp-content/uploads/2020/03/Blue_Speckled_Background-768x432.png) center/cover;mix-blend-mode:screen;opacity:.3}
+.close .wrap{position:relative}
+.close h2{font-size:var(--display-m);text-transform:uppercase}
+.close p{margin:var(--s4) auto var(--s8);max-width:52ch;font-size:19px}
+.close .ctas{display:flex;justify-content:center;flex-wrap:wrap;gap:var(--s3)}
+.ftr{padding:var(--s12) 0 var(--s8);border-top:2px solid #000}
+.ftr-grid{display:grid;grid-template-columns:minmax(0,1.3fr) repeat(4,minmax(0,1fr));gap:var(--s8)}
+.ftr h3{font:700 14px/1 var(--font-display);letter-spacing:2px;text-transform:uppercase;margin-bottom:var(--s3)}
+.ftr ul{list-style:none;margin:0;padding:0}
+.ftr li a{display:inline-flex;min-height:44px;align-items:center;text-decoration:none;font-size:15px}
+.ftr li a:hover{text-decoration:underline}
+.ftr a:focus-visible{outline:3px solid var(--h4ki-secondary);outline-offset:2px}
+.ftr address{font-style:normal;font-size:15px;line-height:1.7;margin-top:var(--s4)}
+.news{margin-top:var(--s5)}
+.news label{display:block;font-size:14px;margin-bottom:6px}
+.news .row{display:flex;gap:8px}
+.news input{flex:1;min-width:0;min-height:48px;border-radius:var(--corner-full);border:1px solid #000;padding:0 18px;font:16px var(--font-body)}
+.news input:focus-visible{outline:3px solid var(--h4ki-secondary);outline-offset:2px}
+.legal{margin-top:var(--s10);padding-top:var(--s5);border-top:1px solid var(--outline-variant);display:flex;justify-content:space-between;flex-wrap:wrap;gap:var(--s4);font-size:14px}
+@media (max-width:1024px){.ftr-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ftr-grid>div:first-child{grid-column:1/-1}}
+@media (max-width:767px){.ftr{padding-bottom:calc(var(--s8) + 76px)}}
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:45;background:#fff;border-top:2px solid #000;padding:10px var(--gutter) calc(10px + env(safe-area-inset-bottom));display:none;gap:10px}
+.mbar{transform:translateY(110%);transition:transform var(--dur-medium2) var(--ease-standard)}.mbar.show{transform:none}
+.mbar .btn{flex:1;padding-inline:12px}
+@media (max-width:767px){.mbar{display:flex}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="util on-dark">
+  <div class="wrap">
+    <a class="crisis" href="#">Crisis relief: Nepal. Give now</a>
+    <a href="#">My account</a>
+    <a href="#">Events</a>
+    <a href="#">Donate</a>
+  </div>
+</div>
+
+<header class="hdr">
+  <div class="wrap hdr-in">
+    <a class="logo" href="#" aria-label="Hope 4 Kids International home"><img src="https://www.hope4kidsinternational.org/wp-content/uploads/2020/03/H4KI-Logo-dots3.svg" alt="Hope 4 Kids International" width="136" height="54"></a>
+    <nav class="mm" aria-label="Main">
+      <ul class="mm-list">
+        <li><button class="mm-trigger" aria-expanded="false" aria-controls="c-work">Our work</button></li>
+        <li><button class="mm-trigger" aria-expanded="false" aria-controls="c-sponsor">Sponsor</button></li>
+        <li><button class="mm-trigger" aria-expanded="false" aria-controls="c-church">Churches</button></li>
+        <li><button class="mm-trigger" aria-expanded="false" aria-controls="c-found">Foundations &amp; companies</button></li>
+        <li><button class="mm-trigger" aria-expanded="false" aria-controls="c-about">About</button></li>
+      </ul>
+      <div class="mm-panel" id="c-work">
+        <div class="pgrid4">
+          <div class="pcol mm-col" style="--c:var(--h4ki-primary)"><h3>Dignity</h3><p>Known by name, equipped to lead</p><ul><li><a href="#">Child Sponsorship</a></li><li><a href="#">Education</a></li></ul></div>
+          <div class="pcol mm-col" style="--c:var(--h4ki-green)"><h3>Health</h3><p>Water, nutrition and care</p><ul><li><a href="#">Water 4 Kids International</a></li><li><a href="#">Medical</a></li><li><a href="#">Food 4 Kids</a></li></ul></div>
+          <div class="pcol mm-col" style="--c:var(--h4ki-accent)"><h3>Joy</h3><p>Learning, play and belonging</p><ul><li><a href="#">Mission Trips</a></li><li><a href="#">Events</a></li></ul></div>
+          <div class="pcol mm-col" style="--c:var(--h4ki-red)"><h3>Love</h3><p>The love of Jesus in action</p><ul><li><a href="#">International Projects</a></li><li><a href="#">Our faith</a></li></ul></div>
+        </div>
+        <div class="mm-foot"><strong>Where we work</strong><a href="#">Uganda</a><a href="#">Namibia</a><a href="#">Nepal</a><a href="#">Philippines</a><a href="#">Romania</a><a href="#">Guatemala</a><a href="#">Mexico</a></div>
+      </div>
+      <div class="mm-panel" id="c-sponsor"><div class="mm-2">
+        <div class="mm-col"><h3>Sponsor</h3><ul><li><a href="#">Sponsor a child</a></li><li><a href="#">Pathways to Purpose</a></li><li><a href="#">How it works</a></li></ul></div>
+        <div class="mm-col"><h3>Sponsors</h3><ul><li><a href="#">My account</a></li><li><a href="#">Visit on a trip</a></li><li><a href="#">Become an ambassador</a></li></ul></div>
+        <div class="mm-col"><h3>Give</h3><ul><li><a href="#">Donate now</a></li><li><a href="#">Give monthly</a></li><li><a href="#">Legacy 4 Kids</a></li></ul></div>
+        <div class="mm-feat"><p>101 Fairmont students need boarding sponsors</p><a class="btn btn--s" href="#">Sponsor a student</a></div>
+      </div></div>
+      <div class="mm-panel" id="c-church"><div class="mm-2">
+        <div class="mm-col"><h3>Partner as a church</h3><ul><li><a href="#">Church partnerships</a></li><li><a href="#">Sponsor as a congregation</a></li></ul></div>
+        <div class="mm-col"><h3>Go together</h3><ul><li><a href="#">Send a trip team</a></li><li><a href="#">2027 trip dates</a></li></ul></div>
+        <div class="mm-col"><h3>Resources</h3><ul><li><a href="#">[Church resource kit]</a></li><li><a href="#">Stories 4 Hope podcast</a></li></ul></div>
+        <div class="mm-feat"><p>Bring hope to your whole congregation</p><a class="btn btn--s" href="#">Start a church partnership</a></div>
+      </div></div>
+      <div class="mm-panel" id="c-found"><div class="mm-2">
+        <div class="mm-col"><h3>Project partnerships</h3><ul><li><a href="#">Partner on a project</a></li><li><a href="#">Lee Preparatory Academy</a></li></ul></div>
+        <div class="mm-col"><h3>Ways to give</h3><ul><li><a href="#">Smart Giving</a></li><li><a href="#">Legacy 4 Kids</a></li><li><a href="#">Corporate giving</a></li></ul></div>
+        <div class="mm-col"><h3>Accountability</h3><ul><li><a href="#">Our finances</a></li><li><a href="#">Disclosures</a></li></ul></div>
+        <div class="mm-feat"><p>Transform a community, together</p><a class="btn btn--s" href="#">Talk with our team</a></div>
+      </div></div>
+      <div class="mm-panel" id="c-about"><div class="mm-2">
+        <div class="mm-col"><h3>Who we are</h3><ul><li><a href="#">Our mission</a></li><li><a href="#">Our faith</a></li><li><a href="#">Our history</a></li></ul></div>
+        <div class="mm-col"><h3>People</h3><ul><li><a href="#">Our team</a></li><li><a href="#">Our board</a></li><li><a href="#">Ambassadors</a></li></ul></div>
+        <div class="mm-col"><h3>Help</h3><ul><li><a href="#">FAQ</a></li><li><a href="#">Contact us</a></li></ul></div>
+        <div class="mm-feat"><p>Restoring hope since 1973</p><a class="btn btn--s btn--secondary" href="#">Our story</a></div>
+      </div></div>
+    </nav>
+    <a class="btn btn--s" href="#">Sponsor a child</a>
+    <button class="icon-btn" data-open-drawer aria-expanded="false" aria-controls="drawer" aria-label="Open menu"><svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="#000" stroke-width="2.4" stroke-linecap="round"/></svg></button>
+  </div>
+</header>
+
+<div class="drawer" id="drawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="drawer-top"><img src="https://www.hope4kidsinternational.org/wp-content/uploads/2020/03/H4KI-Logo-dots3.svg" alt="Hope 4 Kids International" style="height:42px;width:auto"><button class="icon-btn" data-close-drawer aria-label="Close menu"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" stroke="#000" stroke-width="2.4" stroke-linecap="round"/></svg></button></div>
+  <div class="drawer-body">
+    <details open><summary>Our work</summary><ul><li><a href="#">Dignity: Sponsorship, Education</a></li><li><a href="#">Health: Water, Medical, Food 4 Kids</a></li><li><a href="#">Joy: Mission Trips, Events</a></li><li><a href="#">Love: International Projects, Faith</a></li><li><a href="#">Where we work</a></li></ul></details>
+    <details><summary>Sponsor</summary><ul><li><a href="#">Sponsor a child</a></li><li><a href="#">Pathways to Purpose</a></li><li><a href="#">My account</a></li><li><a href="#">Donate now</a></li></ul></details>
+    <details><summary>Churches</summary><ul><li><a href="#">Church partnerships</a></li><li><a href="#">Send a trip team</a></li></ul></details>
+    <details><summary>Foundations &amp; companies</summary><ul><li><a href="#">Partner on a project</a></li><li><a href="#">Smart Giving</a></li><li><a href="#">Our finances</a></li></ul></details>
+    <details><summary>About</summary><ul><li><a href="#">Our mission</a></li><li><a href="#">Our faith</a></li><li><a href="#">Our team</a></li><li><a href="#">Contact us</a></li></ul></details>
+  </div>
+  <div class="drawer-foot"><a class="btn btn--l btn--block" href="#">Sponsor a child</a></div>
+</div>
+
+<main id="main">
+  <section class="hero" aria-labelledby="hero-h">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="kicker">Hope 4 Kids International</span>
+        <h1 id="hero-h">Restoring hope, <em>together.</em></h1>
+        <p class="lede">Since 1973, we've partnered with communities in [COUNT] countries to break the cycle of poverty through four pillars: dignity, health, joy and love. There's a place for you in it.</p>
+        <div class="hero-cta">
+          <a class="btn btn--l btn--stack" href="#">Sponsor a child</a>
+          <a class="btn btn--l btn--secondary btn--stack" href="#partner">Find your way to partner</a>
+        </div>
+      </div>
+      <div class="mosaic">
+        <figure style="--c:var(--h4ki-primary)"><img src="https://www.hope4kidsinternational.org/wp-content/uploads/2020/07/LPA_08552-1536x1025.webp" alt="Students in school uniforms smiling in class"><figcaption>Dignity</figcaption></figure>
+        <figure style="--c:var(--h4ki-green)"><img src="https://www.hope4kidsinternational.org/wp-content/uploads/2020/02/water_top-1536x1152.webp" alt="Children celebrating at a water well"><figcaption>Health</figcaption></figure>
+        <figure style="--c:var(--h4ki-accent)"><img src="https://www.hope4kidsinternational.org/wp-content/uploads/2020/02/gallagher_20130715_4612-1-e1583955394769.webp" alt="A group of children laughing together"><figcaption>Joy</figcaption></figure>
+        <figure style="--c:var(--h4ki-red)"><img src="https://www.hope4kidsinternational.org/wp-content/uploads/2020/01/about-top-768x512.webp" alt="An adult hand holding a child's hand"><figcaption>Love</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="partner" aria-labelledby="lanes-h">
+    <div class="wrap">
+      <div class="sec-head"><div><span class="num">01 · Partner with us</span><h2 id="lanes-h">How will you partner?</h2></div><p>Individuals, churches and foundations each play a part. Choose the path that fits you, and we'll walk it with you.</p></div>
+      <div class="lanes">
+        <article class="lane lane--primary">
+          <span class="who">Individuals &amp; families</span>
+          <h3>Sponsor a child</h3>
+          <ul><li>Stand with one child through school and beyond</li><li>Visit the communities we serve on a mission trip</li><li>Come home and share as an ambassador</li></ul>
+          <a class="btn btn--l btn--secondary" href="#">Sponsor a child</a>
+        </article>
+        <article class="lane">
+          <span class="who">Churches</span>
+          <h3>Partner as a congregation</h3>
+          <ul><li>Invite your church family to sponsor children</li><li>Send a short-term mission team</li><li>Pray and serve alongside the communities we serve</li></ul>
+          <a class="btn btn--secondary" href="#">Start a church partnership</a>
+        </article>
+        <article class="lane">
+          <span class="who">Foundations &amp; companies</span>
+          <h3>Fund a lasting project</h3>
+          <ul><li>Partner on schools, safe water and community projects</li><li>Make a multi-year commitment with a dedicated contact [CONFIRM]</li><li>See our finances and accountability</li></ul>
+          <a class="btn btn--secondary" href="#">Discuss a project partnership</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec pillars" aria-labelledby="pil-h">
+    <div class="wrap">
+      <div class="sec-head"><div><span class="num">02 · Our work</span><h2 id="pil-h">Four pillars. One purpose.</h2></div><p>Hope 4 Kids International is a faith-based 501(c)(3) nonprofit committed to children living in poverty. Everything we do restores dignity, health, joy and love.</p></div>
+      <div class="prow" style="--c:var(--h4ki-primary)"><h3>Dignity</h3><div><p>Every child is known by name and equipped to become an educated, self-sufficient leader who can help break the cycle of poverty.</p><div class="progs"><a href="#">Child Sponsorship</a><a href="#">Education</a></div></div><img src="https://www.hope4kidsinternational.org/wp-content/uploads/2024/11/watson_3.webp" alt="Two students in blue uniforms waving and smiling" loading="lazy"></div>
+      <div class="prow" style="--c:var(--h4ki-green)"><h3>Health</h3><div><p>Safe water, nutrition and medical care give children and families the foundation to thrive.</p><div class="progs"><a href="#">Water 4 Kids International</a><a href="#">Medical</a><a href="#">Food 4 Kids</a></div></div><img src="https://www.hope4kidsinternational.org/wp-content/uploads/2020/02/water_top-1536x1152.webp" alt="Children playing in water from a new well" loading="lazy"></div>
+      <div class="prow" style="--c:var(--h4ki-accent)"><h3>Joy</h3><div><p>Childhood is meant for learning, play and belonging. Supporters share in that joy when they visit and serve.</p><div class="progs"><a href="#">Mission Trips</a><a href="#">Events</a></div></div><img src="https://www.hope4kidsinternational.org/wp-content/uploads/2020/02/mx-top-e1583252283359.webp" alt="Children and a caregiver sitting together outdoors" loading="lazy"></div>
+      <div class="prow" style="--c:var(--h4ki-red)"><h3>Love</h3><div><p>We share the love of Jesus through presence, service and long-term relationships with the communities we serve.</p><div class="progs"><a href="#">International Projects</a><a href="#">Our faith</a></div></div><img src="https://www.hope4kidsinternational.org/wp-content/uploads/2025/01/WhatsApp-Image-2024-05-08-at-08.31.44_644bc2e2.webp" alt="Young children seated at blue desks in a bright classroom" loading="lazy"></div>
+      <p class="note">Program to pillar mapping is a proposal for review. [CONFIRM with program team]</p>
+    </div>
+  </section>
+
+  <section class="sec proj on-dark" aria-labelledby="proj-h">
+    <div class="wrap proj-grid">
+      <div>
+        <span class="num">03 · Partnership in action</span>
+        <h2 id="proj-h">Lee Preparatory Academy and Nyafumba Village</h2>
+        <p>The development of Lee Preparatory Academy and Nyafumba Village is made possible by a generous partnership with the Lee Family Foundation. It shows what a long-term project partnership can make possible for a whole community.</p>
+        <div class="facts"><div><b>[STAT]</b><span>Students enrolled</span></div><div><b>[YEAR]</b><span>Partnership began</span></div><div><b>[STAT]</b><span>Families in the village</span></div></div>
+        <div class="ctas"><a class="btn btn--l btn--dark btn--stack" href="#">Discuss a project partnership</a><a class="btn btn--l btn--dark btn--stack" href="#">Read the story</a></div>
+      </div>
+      <div class="proj-photo">
+        <img src="https://www.hope4kidsinternational.org/wp-content/uploads/2022/06/PHOTO-2022-04-12-08-06-44-e1656372255339.webp" alt="Students and staff gathered in front of a school building" loading="lazy">
+        <span class="badge"><img src="https://www.hope4kidsinternational.org/wp-content/uploads/2022/06/leeprep_logo-white-150x150.webp" alt="Lee Preparatory Academy logo" loading="lazy"></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="season-h">
+    <div class="wrap">
+      <div class="sec-head"><div><span class="num">04 · This season</span><h2 id="season-h">Programs and events</h2></div><p>Ways to take part right now.</p></div>
+      <div class="season">
+        <article class="s-card" style="--c:var(--h4ki-accent)"><span class="tag">Education</span><h3>Pathways to Purpose</h3><p>101 Fairmont students need boarding sponsors at $93 a month.</p><a class="btn btn--s" href="#">Sponsor a student</a></article>
+        <article class="s-card" style="--c:var(--h4ki-water)"><span class="tag">Water</span><h3>Walk 4 Water</h3><p>Benicia, Sat Sep 26. Orange County, [DATE].</p><a class="btn btn--s btn--secondary" href="#">Join a walk</a></article>
+        <article class="s-card" style="--c:var(--h4ki-green)"><span class="tag">Trips</span><h3>Go and serve</h3><p>Philippines Oct 6 to 16, 2026. Uganda Nov 3 to 16, 2026. 2027 dates available.</p><a class="btn btn--s btn--secondary" href="#">Trip info</a></article>
+        <article class="s-card" style="--c:var(--h4ki-red)"><span class="tag">Crisis relief</span><h3>Nepal</h3><p>[CRISIS DETAIL] Your gift goes to relief for children and families in Nepal.</p><a class="btn btn--s btn--urgent" href="#">Give to Nepal</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0" aria-labelledby="trust-h">
+    <div class="wrap trust">
+      <div>
+        <span class="num">05 · Trust</span>
+        <h2 id="trust-h" style="font-size:var(--headline-m);text-transform:uppercase">Faithful stewardship</h2>
+        <div class="facts-list" style="margin-top:var(--s6)">
+          <div><span>Restoring hope since</span><b>1973</b></div>
+          <div><span>Countries served</span><b>[COUNT]</b></div>
+          <div><span>Children sponsored</span><b>[STAT]</b></div>
+        </div>
+        <div class="badges"><img src="https://www.hope4kidsinternational.org/wp-content/uploads/2025/03/Four-Star-Rating-Badge-black.webp" alt="Charity Navigator Four-Star Rating" loading="lazy"><img src="https://www.hope4kidsinternational.org/wp-content/uploads/2025/03/ME-Associate-Member-Icon-1024x344.webp" alt="Mission Excellence Associate Member" style="height:48px" loading="lazy"></div>
+        <p style="margin-top:var(--s5)"><a class="link" href="#">See our finances</a></p>
+      </div>
+      <div class="quotes">
+        <figure style="--c:var(--h4ki-accent)"><span class="aud">Sponsor</span><blockquote>"[Sponsor testimonial placeholder]"</blockquote><figcaption>[First name], sponsor since [YEAR]</figcaption></figure>
+        <figure style="--c:var(--h4ki-primary)"><span class="aud">Church partner</span><blockquote>"[Church partner testimonial placeholder]"</blockquote><figcaption>[Leader], [Church name]</figcaption></figure>
+        <figure style="--c:var(--h4ki-green)"><span class="aud">Foundation partner</span><blockquote>"[Foundation testimonial placeholder, pending approval]"</blockquote><figcaption>[Name], [Foundation]</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="close on-dark" aria-labelledby="close-h">
+    <div class="wrap">
+      <h2 id="close-h">There's a place for you here.</h2>
+      <p>Sponsor a child, bring your church, or partner on a project that transforms a community.</p>
+      <div class="ctas"><a class="btn btn--l btn--stack" href="#">Sponsor a child</a><a class="btn btn--l btn--dark btn--stack" href="#">Talk with our team</a></div>
+    </div>
+  </section>
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-grid">
+      <div>
+        <img src="https://www.hope4kidsinternational.org/wp-content/uploads/2020/03/H4KI-Logo-dots3.svg" alt="Hope 4 Kids International" style="height:54px;width:auto" loading="lazy">
+        <address>PO Box 74010, Phoenix, AZ 85087<br><a href="tel:6239795516">623-979-5516</a> · <a href="mailto:info@h4ki.org">info@h4ki.org</a></address>
+        <form class="news" onsubmit="return false"><label for="c-em">Get stories of hope by email</label><div class="row"><input id="c-em" type="email" autocomplete="email"><button class="btn btn--secondary" type="submit">Subscribe</button></div></form>
+      </div>
+      <div><h3>Our work</h3><ul><li><a href="#">Dignity</a></li><li><a href="#">Health</a></li><li><a href="#">Joy</a></li><li><a href="#">Love</a></li></ul></div>
+      <div><h3>Partner</h3><ul><li><a href="#">Sponsor a child</a></li><li><a href="#">Churches</a></li><li><a href="#">Foundations &amp; companies</a></li></ul></div>
+      <div><h3>Get involved</h3><ul><li><a href="#">Trips</a></li><li><a href="#">Events</a></li><li><a href="#">Ambassadors</a></li><li><a href="#">Podcast</a></li></ul></div>
+      <div><h3>About</h3><ul><li><a href="#">Mission</a></li><li><a href="#">Faith</a></li><li><a href="#">Finances</a></li><li><a href="#">Contact</a></li></ul></div>
+    </div>
+    <div class="legal"><span>©2026 Hope 4 Kids International, a faith-based 501(c)(3) nonprofit.</span><span><a href="#">Privacy</a> · <a href="#">Disclosures</a> · <a href="#">Finance</a> · <a href="#">FAQ</a></span></div>
+  </div>
+</footer>
+
+<div class="mbar" role="region" aria-label="Quick actions"><a class="btn" href="#">Sponsor a child</a><a class="btn btn--secondary" href="#partner">Partner</a></div>
+
+<script>
+// Mega menu: click/keyboard disclosure. Tab from an open trigger enters its panel;
+// Tab past the last link moves to the next trigger. Escape and outside click close.
+(function(){
+  var triggers=[].slice.call(document.querySelectorAll('.mm-trigger'));
+  var FOCUSABLE='summary,a[href],button:not([disabled]),input,select,textarea,[tabindex]:not([tabindex="-1"])';
+  function panelOf(t){return document.getElementById(t.getAttribute('aria-controls'));}
+  function closeAll(except){triggers.forEach(function(t){if(t!==except){t.setAttribute('aria-expanded','false');var p=panelOf(t);if(p)p.classList.remove('open');}});}
+  triggers.forEach(function(t,i){
+    var p=panelOf(t);
+    t.addEventListener('click',function(e){e.stopPropagation();var open=t.getAttribute('aria-expanded')==='true';closeAll(t);t.setAttribute('aria-expanded',String(!open));p.classList.toggle('open',!open);});
+    t.addEventListener('keydown',function(e){
+      if(e.key==='Tab'&&!e.shiftKey&&t.getAttribute('aria-expanded')==='true'){var f=p.querySelectorAll(FOCUSABLE);if(f.length){e.preventDefault();f[0].focus();}}
+    });
+    p.addEventListener('click',function(e){e.stopPropagation();});
+    p.addEventListener('keydown',function(e){
+      if(e.key!=='Tab')return;var f=[].slice.call(p.querySelectorAll(FOCUSABLE));
+      if(!e.shiftKey&&document.activeElement===f[f.length-1]){e.preventDefault();closeAll();(triggers[i+1]||t).focus();}
+      else if(e.shiftKey&&document.activeElement===f[0]){e.preventDefault();t.focus();}
+    });
+  });
+  document.addEventListener('click',function(){closeAll();});
+  // Drawer: any number of openers, focus trap, focus restore (review ALL-3, B-6)
+  var drawer=document.querySelector('.drawer'),openers=[].slice.call(document.querySelectorAll('[data-open-drawer]')),lastFocus=null;
+  function setExpanded(v){openers.forEach(function(o){o.setAttribute('aria-expanded',String(v));});}
+  function openDrawer(from){lastFocus=from;drawer.classList.add('open');drawer.setAttribute('aria-hidden','false');setExpanded(true);document.body.style.overflow='hidden';var c=drawer.querySelector('[data-close-drawer]');if(c)c.focus();}
+  function closeDrawer(restore){if(!drawer||!drawer.classList.contains('open'))return;drawer.classList.remove('open');drawer.setAttribute('aria-hidden','true');setExpanded(false);document.body.style.overflow='';if(restore!==false&&lastFocus)lastFocus.focus();}
+  if(drawer){
+    openers.forEach(function(o){o.addEventListener('click',function(){openDrawer(o);});});
+    [].slice.call(drawer.querySelectorAll('[data-close-drawer]')).forEach(function(b){b.addEventListener('click',function(){closeDrawer(b.tagName!=='A');});});
+    drawer.addEventListener('keydown',function(e){
+      if(e.key!=='Tab')return;var f=[].slice.call(drawer.querySelectorAll(FOCUSABLE)).filter(function(x){return x.offsetParent!==null;});
+      if(!f.length)return;var first=f[0],last=f[f.length-1];
+      if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+      else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+    });
+  }
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){var open=triggers.filter(function(t){return t.getAttribute('aria-expanded')==='true';})[0];closeAll();if(open)open.focus();closeDrawer();}});
+  // Mockup links go nowhere
+  [].slice.call(document.querySelectorAll('a[href="#"]')).forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();});});
+})();
+</script>
+<script>new IntersectionObserver(function(e){document.querySelector('.mbar').classList.toggle('show',!e[0].isIntersecting);}).observe(document.querySelector('.hero'));</script>
+</body>
+</html>

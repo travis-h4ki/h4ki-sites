@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head><meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Homepage Redesign Rounds</title>
+<meta name="description" content="Every homepage brainstorming round for Hope 4 Kids International in one place: the directions, the review scores and where the decision stands.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+<style>:root{--bg:#FFFFFF;--surface:#F6F6F6;--card:#FFFFFF;--text:#000000;--muted:#353535;--line:#000000;--soft:#E9E9E9;--link:#1D4695;
+  --grid:#E9E9E9;--d-final:#1D4695;--d-first:#4179B5;--d-ring:#FFFFFF;
+  --font-d:"Oswald",Helvetica,Arial,sans-serif;--font-b:Helvetica,"Helvetica Neue",Arial,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E1220;--surface:#161B2E;--card:#1B2137;--text:#F4F4F4;--muted:#CFCFCF;--line:#8C93AB;--soft:#2A3150;--link:#9DB8F0;--grid:#2A3150;--d-final:#9DB8F0;--d-first:#6F8FCF;--d-ring:#1B2137}}
+:root[data-theme="dark"]{--bg:#0E1220;--surface:#161B2E;--card:#1B2137;--text:#F4F4F4;--muted:#CFCFCF;--line:#8C93AB;--soft:#2A3150;--link:#9DB8F0;--grid:#2A3150;--d-final:#9DB8F0;--d-first:#6F8FCF;--d-ring:#1B2137}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:400 17px/1.6 var(--font-b)}
+a{color:var(--link);text-underline-offset:3px}
+a:focus-visible,.dot:focus-visible,summary:focus-visible{outline:3px solid #FFA225;outline-offset:3px;border-radius:6px}
+h1,h2,h3{font-family:var(--font-d);font-weight:700;text-transform:uppercase;line-height:1.05;margin:0}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:16px;top:-60px;background:#FFA225;color:#000;padding:10px 16px;border-radius:999px;z-index:5}
+.skip:focus{top:12px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 16px}
+@media (min-width:900px){.wrap{padding:0 40px}}
+.draft{background:#FFA225;color:#000;font-size:14px;line-height:1.4;padding:8px 16px;text-align:center}
+.top{background:#1D4695;color:#fff;padding:52px 0 40px}
+.kick{font:700 15px/1.3 var(--font-d);letter-spacing:2.5px;text-transform:uppercase;display:flex;align-items:center;gap:10px;margin:0}
+.kick::before{content:"";flex:none;width:10px;height:10px;border-radius:50%;background:#FFA225}
+.top h1{font-size:clamp(38px,6vw,72px);margin:14px 0 14px;letter-spacing:-1px}
+.top .sum{max-width:860px;font-size:19px;margin:0}
+.jump{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+.jump a{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border:1px solid #fff;border-radius:999px;text-decoration:none;font-weight:700;color:#fff}
+.jump a:hover{background:#fff;color:#1D4695}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin:-1px 0 0;padding:28px 0;border-bottom:1px solid var(--soft)}
+.kpi{background:var(--surface);border-radius:16px;padding:18px 20px}
+.kpi b{display:block;font:700 44px/1 var(--font-d)}
+.kpi span{display:block;margin-top:8px;font-size:15px;color:var(--muted);line-height:1.35}
+@media (max-width:860px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.kpi b{font-size:36px}}
+main section{padding:52px 0;border-bottom:1px solid var(--soft)}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px 24px;flex-wrap:wrap;margin-bottom:14px}
+.sec-head h2{font-size:clamp(32px,4.2vw,52px)}
+.eyebrow{font:700 15px/1 var(--font-d);letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+.lede{max-width:900px;margin:0 0 26px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 26px;border-radius:999px;background:#FFA225;color:#000;border:solid #000;border-width:1px 2px 2px 1px;font:700 16px/1 var(--font-d);letter-spacing:.5px;text-transform:uppercase;text-decoration:none;white-space:nowrap}
+.btn:hover{transform:translateY(-2px);box-shadow:3px 3px 0 #000}
+.btn--s{min-height:44px;padding:10px 20px;font-size:15px}
+.btn--o{background:var(--card);color:var(--text);border-color:var(--line)}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+@media (max-width:1000px){.cards{grid-template-columns:1fr;max-width:620px}}
+.card{background:var(--card);border:solid var(--line);border-width:1px 2px 2px 1px;border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.card-img{display:block;aspect-ratio:16/10;overflow:hidden;background:var(--soft);border-bottom:1px solid var(--line)}
+.card-img img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
+.card-body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:12px;flex:1}
+.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.card h3{font-size:26px;display:flex;align-items:center;gap:10px}
+.let{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#1D4695;color:#fff;font-size:18px;flex:none}
+.score{font:700 30px/1 var(--font-d);white-space:nowrap}
+.score small{font-size:16px;color:var(--muted)}
+.bet{margin:0;font-size:16px}
+.card dl{margin:0;display:grid;gap:8px;font-size:15px;line-height:1.4}
+.card dt{font:700 13px/1.2 var(--font-d);letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
+.card dd{margin:2px 0 0}
+.links{margin-top:auto;display:flex;flex-wrap:wrap;align-items:center;gap:4px 16px;padding-top:6px}
+.links .btn{margin-right:4px}
+.lnk{display:inline-flex;align-items:center;min-height:44px;font-size:15px;font-weight:700}
+.extra{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;margin-top:22px;font-size:15px}
+.extra b{font-family:var(--font-d);text-transform:uppercase;letter-spacing:1.5px;font-size:14px;color:var(--muted)}
+.recbox{background:var(--surface);border:2px solid var(--line);border-radius:24px;padding:26px 28px}
+.recbox p{max-width:920px;margin:0 0 12px}
+.recbox ul{margin:0;padding-left:20px}
+.recbox li{margin:4px 0}
+.status{display:inline-flex;align-items:center;gap:8px;font:700 15px/1 var(--font-d);letter-spacing:1.5px;text-transform:uppercase;margin:0 0 14px}
+.status::before{content:"";width:10px;height:10px;border-radius:50%;background:#FFA225;border:1px solid #000}
+.charts{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+@media (max-width:900px){.charts{grid-template-columns:1fr}}
+.chart{margin:0;background:var(--card);border:1px solid var(--soft);border-radius:18px;padding:20px 20px 14px}
+.chart figcaption{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+.chart figcaption h3{font-size:22px}
+.chart figcaption span{font-size:15px;color:var(--muted)}
+.db-row{display:grid;grid-template-columns:150px minmax(0,1fr);align-items:center;min-height:52px}
+.db-label{font-size:15px;font-weight:700;line-height:1.25;padding-right:12px}
+.db-track{position:relative;height:44px;margin:0 22px 0 10px}
+.db-axis{min-height:28px}
+.db-axis .db-track{height:28px}
+.tick{position:absolute;top:0;bottom:0;width:1px;background:var(--grid)}
+.tick i{position:absolute;top:2px;left:6px;font:400 13px/1 var(--font-b);font-style:normal;color:var(--muted)}
+.db-line{position:absolute;top:50%;height:2px;margin-top:-1px;background:var(--d-first)}
+.dot{position:absolute;top:50%;width:28px;height:28px;margin:-14px 0 0 -14px;border-radius:50%;cursor:default}
+.dot::before{content:"";position:absolute;inset:7px;border-radius:50%;box-sizing:border-box}
+.dot.first::before{background:var(--d-ring);border:2px solid var(--d-first)}
+.dot.mid::before{inset:9px;background:var(--d-first);box-shadow:0 0 0 2px var(--d-ring)}
+.dot.final::before{inset:6px;background:var(--d-final);box-shadow:0 0 0 2px var(--d-ring)}
+.dot:hover::after,.dot:focus-visible::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:var(--text);color:var(--bg);font:400 13px/1.3 var(--font-b);padding:6px 10px;border-radius:8px;white-space:nowrap;z-index:3;pointer-events:none}
+.db-val{position:absolute;top:50%;transform:translate(14px,-50%);font:700 18px/1 var(--font-d)}
+.legend{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:15px;color:var(--muted);margin:16px 0 0}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.legend i{display:inline-block;width:14px;height:14px;border-radius:50%}
+.legend .l-first{background:var(--d-ring);border:2px solid var(--d-first)}
+.legend .l-mid{width:10px;height:10px;background:var(--d-first)}
+.legend .l-final{background:var(--d-final)}
+details{margin-top:10px;font-size:15px}
+summary{cursor:pointer;min-height:44px;display:inline-flex;align-items:center;font-weight:700;color:var(--link)}
+.tablewrap{overflow-x:auto;border:1px solid var(--soft);border-radius:12px;margin-top:6px}
+.tablewrap table{border-collapse:collapse;width:100%;min-width:420px}
+.tablewrap th,.tablewrap td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--soft)}
+.tablewrap thead th{font:700 13px/1.2 var(--font-d);letter-spacing:1px;text-transform:uppercase;background:var(--surface)}
+.note{font-size:15px;color:var(--muted);max-width:920px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+@media (max-width:860px){.two{grid-template-columns:1fr}}
+.two article{background:var(--surface);border-radius:18px;padding:22px 24px}
+.two h3{font-size:22px;margin-bottom:10px}
+.two ul{margin:0;padding-left:20px}
+.two li{margin:6px 0}
+.oq{columns:2;column-gap:40px;padding-left:20px;margin:0}
+.oq li{break-inside:avoid;margin:0 0 12px}
+@media (max-width:860px){.oq{columns:1}}
+footer{padding:32px 0 48px;color:var(--muted);font-size:15px}
+footer p{margin:0 0 8px;max-width:920px}</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="draft">Internal review draft. These are design mockups, not the live site. Prices, dates and placeholders are as of each round.</div>
+<header class="top">
+  <div class="wrap">
+    <p class="kick">Hope 4 Kids International · h4ki.org homepage redesign</p>
+    <h1>Homepage brainstorming rounds</h1>
+    <p class="sum">Two rounds of homepage directions for Hope 4 Kids International, six in all, each built as a working mockup and scored by an independent reviewer. Start with round 2, the latest thinking, or open any mockup on its own. Every direction keeps Dignity, Health, Joy and Love at the heart of the page.</p>
+    <nav class="jump" aria-label="Jump to"><a href="#status">Where it stands</a><a href="#round-2">Round 2</a><a href="#round-1">Round 1</a><a href="#scores">Scores</a><a href="#open">Open items</a></nav>
+  </div>
+</header>
+<main id="main">
+  <div class="wrap">
+    <div class="kpis">
+      <div class="kpi"><b>2</b><span>rounds, Sep 25 and Sep 29 to Oct 1, 2026</span></div>
+      <div class="kpi"><b>6</b><span>directions, each a full working mockup</span></div>
+      <div class="kpi"><b>5</b><span>independent review passes</span></div>
+      <div class="kpi"><b>36<small style="font-size:20px">/40</small></b><span>top score: round 2, A. Pocket Stories</span></div>
+    </div>
+
+    <section id="status" aria-labelledby="st-h">
+      <p class="eyebrow">Where it stands</p>
+      <div class="sec-head"><h2 id="st-h">Recommended: build on round 2, A</h2></div>
+      <div class="recbox">
+        <p class="status">Decision open as of October 1, 2026</p>
+        <p><b>Base: A. Pocket Stories.</b> It keeps the sponsor ask within thumb reach on every phone size, leads with real faces and a share action, and its intent menu (Sponsor, Give, Go, Partner, About) is the clearest answer to the directors' request for a full navigation overhaul. Borrow from the other two:</p>
+        <ul><li>A: hero, story rail, price cards, sticky mobile bar and intent-based mega menu (the base)</li><li>B: &quot;Who we are, in 20 seconds&quot; with Since 1973, 8 countries and 1,397 wells, right after the program pills, for first-time visitors and search</li><li>C: &quot;After you say yes&quot; journey, now sourced from the live sponsorship pages, so it can ship at launch</li><li>C: tiered partner wall, once at least 3 partners approve their logos</li></ul>
+      </div>
+    </section>
+
+    <section id="round-2" aria-labelledby="round-2-h">
+      <p class="eyebrow">Round 2 · September 29 to October 1, 2026</p>
+      <div class="sec-head"><h2 id="round-2-h">Shaped by the board</h2><a class="btn btn--o" href="r2/index.html">Open the round 2 review page</a></div>
+      <p class="lede">Round 2 rebuilt the brief around the 2026 board reports: long-term sustainability through partnerships, reaching the next generation of supporters, and turning first gifts into ongoing relationships. Each direction leads with the Pathways to Purpose campaign in a seasonal slot, adds a general Donate button, and replaces today&#x27;s menus with a mega menu. Each one makes a different bet about who the homepage should serve first.</p>
+      <div class="cards"><article class="card">
+  <a class="card-img" href="r2/mockup-a-pocket.html" aria-label="Open A. Pocket Stories, round 2"><img src="r2/screenshots/a-desktop-fold.jpg" alt="A. Pocket Stories at 1440px, first screen" loading="lazy" width="1440" height="900"></a>
+  <div class="card-body">
+    <div class="card-top"><h3><span class="let">A</span>Pocket Stories</h3><span class="score" aria-label="Final score 36 of 40">36<small>/40</small></span></div>
+    <p class="bet">Next Gen decides in a thumb scroll. Real faces and short proof come first, and visitors act after two or three small moments, often by sharing.</p>
+    <dl><div><dt>For</dt><dd>Next Gen on a phone, ages 25 to 35</dd></div><div><dt>Menu</dt><dd>By intent: Sponsor, Give, Go, Partner, About</dd></div></dl>
+    <div class="links"><a class="btn btn--s" href="r2/mockup-a-pocket.html">Open mockup<span class="sr-only">: Pocket Stories</span></a>
+      <a class="lnk" href="r2/screenshots/a-desktop-full.jpg">Desktop full page<span class="sr-only">: Pocket Stories</span></a><a class="lnk" href="r2/screenshots/a-mobile-full.jpg">Mobile full page<span class="sr-only">: Pocket Stories</span></a></div>
+  </div>
+</article><article class="card">
+  <a class="card-img" href="r2/mockup-b-openbook.html" aria-label="Open B. Open Book, round 2"><img src="r2/screenshots/b-desktop-fold.jpg" alt="B. Open Book at 1440px, first screen" loading="lazy" width="1440" height="900"></a>
+  <div class="card-body">
+    <div class="card-top"><h3><span class="let">B</span>Open Book</h3><span class="score" aria-label="Final score 33 of 40">33<small>/40</small></span></div>
+    <p class="bet">First-time visitors reward clarity and proof. Earn trust in the first scroll, then ask.</p>
+    <dl><div><dt>For</dt><dd>Any first-time visitor, any device</dd></div><div><dt>Menu</dt><dd>By program: Programs, Countries, Give, Get Involved, About</dd></div></dl>
+    <div class="links"><a class="btn btn--s" href="r2/mockup-b-openbook.html">Open mockup<span class="sr-only">: Open Book</span></a>
+      <a class="lnk" href="r2/screenshots/b-desktop-full.jpg">Desktop full page<span class="sr-only">: Open Book</span></a><a class="lnk" href="r2/screenshots/b-mobile-full.jpg">Mobile full page<span class="sr-only">: Open Book</span></a></div>
+  </div>
+</article><article class="card">
+  <a class="card-img" href="r2/mockup-c-paths.html" aria-label="Open C. Many Paths, round 2"><img src="r2/screenshots/c-desktop-fold.jpg" alt="C. Many Paths at 1440px, first screen" loading="lazy" width="1440" height="900"></a>
+  <div class="card-body">
+    <div class="card-top"><h3><span class="let">C</span>Many Paths</h3><span class="score" aria-label="Final score 35 of 40">35<small>/40</small></span></div>
+    <p class="bet">The supporter journey is the growth engine. Every visitor sees their door and one clear next step.</p>
+    <dl><div><dt>For</dt><dd>Next Gen and first-time visitors together</dd></div><div><dt>Menu</dt><dd>Task based: one &quot;I want to...&quot; menu plus About</dd></div></dl>
+    <div class="links"><a class="btn btn--s" href="r2/mockup-c-paths.html">Open mockup<span class="sr-only">: Many Paths</span></a>
+      <a class="lnk" href="r2/screenshots/c-desktop-full.jpg">Desktop full page<span class="sr-only">: Many Paths</span></a><a class="lnk" href="r2/screenshots/c-mobile-full.jpg">Mobile full page<span class="sr-only">: Many Paths</span></a></div>
+  </div>
+</article></div>
+      
+    </section><section id="round-1" aria-labelledby="round-1-h">
+      <p class="eyebrow">Round 1 · September 25, 2026</p>
+      <div class="sec-head"><h2 id="round-1-h">The supporter journey</h2><a class="btn btn--o" href="r1/index.html">Open the round 1 review page</a></div>
+      <p class="lede">Round 1 started from the live homepage audit and a supporter journey brief: sponsor a child, go on a trip, fund a project, become an Ambassador, share, with foundation and corporate partnerships alongside. Sponsor a Child was the main goal, with mobile first design for younger supporters and room for church growth.</p>
+      <div class="cards"><article class="card">
+  <a class="card-img" href="r1/mockups/mockup-a.html" aria-label="Open A. The Journey, round 1"><img src="r1/screenshots/thumbs/mockups-a-desktop-fold.jpg" alt="A. The Journey at 1440px, first screen" loading="lazy" width="1440" height="900"></a>
+  <div class="card-body">
+    <div class="card-top"><h3><span class="let">A</span>The Journey</h3><span class="score" aria-label="Final score 31 of 35">31<small>/35</small></span></div>
+    <p class="bet">Sponsorship is the first step in a relationship that can take you to meet your child, and home again as an Ambassador.</p>
+    <dl><div><dt>For</dt><dd>First-time and younger supporters on phones</dd></div><div><dt>Menu</dt><dd>Familiar: Sponsor, Programs, Trips, Give, About</dd></div></dl>
+    <div class="links"><a class="btn btn--s" href="r1/mockups/mockup-a.html">Open mockup<span class="sr-only">: The Journey</span></a>
+      <a class="lnk" href="r1/screenshots/full/a-desktop-full.jpg">Desktop full page<span class="sr-only">: The Journey</span></a><a class="lnk" href="r1/screenshots/full/a-mobile-full.jpg">Mobile full page<span class="sr-only">: The Journey</span></a></div>
+  </div>
+</article><article class="card">
+  <a class="card-img" href="r1/mockups/mockup-b.html" aria-label="Open B. Find Your Match, round 1"><img src="r1/screenshots/thumbs/mockups-b-desktop-fold.jpg" alt="B. Find Your Match at 1440px, first screen" loading="lazy" width="1440" height="900"></a>
+  <div class="card-body">
+    <div class="card-top"><h3><span class="let">B</span>Find Your Match</h3><span class="score" aria-label="Final score 31 of 35">31<small>/35</small></span></div>
+    <p class="bet">Make sponsoring a child as clear and quick as the best apps people already use, and still personal.</p>
+    <dl><div><dt>For</dt><dd>Ready-to-act visitors on phones (church talk, event, QR code)</dd></div><div><dt>Menu</dt><dd>Tasks: &quot;I want to...&quot; Sponsor, Give, Go on a trip, Get involved, About us</dd></div></dl>
+    <div class="links"><a class="btn btn--s" href="r1/mockups/mockup-b.html">Open mockup<span class="sr-only">: Find Your Match</span></a>
+      <a class="lnk" href="r1/screenshots/full/b-desktop-full.jpg">Desktop full page<span class="sr-only">: Find Your Match</span></a><a class="lnk" href="r1/screenshots/full/b-mobile-full.jpg">Mobile full page<span class="sr-only">: Find Your Match</span></a></div>
+  </div>
+</article><article class="card">
+  <a class="card-img" href="r1/mockups/mockup-c.html" aria-label="Open C. Partners in Hope, round 1"><img src="r1/screenshots/thumbs/mockups-c-desktop-fold.jpg" alt="C. Partners in Hope at 1440px, first screen" loading="lazy" width="1440" height="900"></a>
+  <div class="card-body">
+    <div class="card-top"><h3><span class="let">C</span>Partners in Hope</h3><span class="score" aria-label="Final score 29 of 35">29<small>/35</small></span></div>
+    <p class="bet">A clear way for individuals, churches and foundations to partner, built around all four pillars.</p>
+    <dl><div><dt>For</dt><dd>Church leaders, foundation and corporate giving officers (desktop)</dd></div><div><dt>Menu</dt><dd>Audiences: Our work, Sponsor, Churches, Foundations and companies, About</dd></div></dl>
+    <div class="links"><a class="btn btn--s" href="r1/mockups/mockup-c.html">Open mockup<span class="sr-only">: Partners in Hope</span></a>
+      <a class="lnk" href="r1/screenshots/full/c-desktop-full.jpg">Desktop full page<span class="sr-only">: Partners in Hope</span></a><a class="lnk" href="r1/screenshots/full/c-mobile-full.jpg">Mobile full page<span class="sr-only">: Partners in Hope</span></a></div>
+  </div>
+</article></div>
+      <p class="extra"><b>Working documents</b><a class="lnk" href="r1/brand-tokens.html">Brand tokens and decisions</a><a class="lnk" href="r1/audit.html">Homepage audit</a><a class="lnk" href="r1/concepts.html">Concept briefs</a><a class="lnk" href="r1/review.html">Review and changes</a><a class="lnk" href="r1/screenshots/full/live-desktop-1440-full.jpg">Live homepage, Sep 25</a></p>
+    </section>
+
+    <section id="scores" aria-labelledby="sc-h">
+      <p class="eyebrow">Independent review</p>
+      <div class="sec-head"><h2 id="sc-h">How the scores moved</h2></div>
+      <p class="note">A separate reviewer with no access to the build conversation scored each direction, the team made changes, and the reviewer scored again. Round 1 used 7 criteria (total of 35); round 2 used 8 criteria tied to the board brief (total of 40), so totals do not compare across rounds. 5 means excellent, 3 workable with changes, 1 does not meet the need.</p>
+      <div class="charts"><figure class="chart">
+  <figcaption><h3>Round 1</h3><span>Total of 35, from the first review to the last</span></figcaption>
+  <div class="db" role="group" aria-label="Round 1 review scores">
+    <div class="db-row db-axis" aria-hidden="true"><span class="db-label"></span><div class="db-track"><span class="tick" style="left:0.00%"><i>20</i></span><span class="tick" style="left:33.33%"><i>25</i></span><span class="tick" style="left:66.67%"><i>30</i></span><span class="tick" style="left:100.00%"><i>35</i></span></div></div>
+    <div class="db-row"><span class="db-label">A. The Journey</span>
+  <div class="db-track"><span class="tick" style="left:0.00%"></span><span class="tick" style="left:33.33%"></span><span class="tick" style="left:66.67%"></span><span class="tick" style="left:100.00%"></span><span class="db-line" style="left:53.33%;width:20.00%"></span><span class="dot first" style="left:53.33%" tabindex="0" role="img" aria-label="A. The Journey, First review: 28 of 35" data-tip="A. The Journey, First review: 28 of 35"></span><span class="dot final" style="left:73.33%" tabindex="0" role="img" aria-label="A. The Journey, After changes: 31 of 35" data-tip="A. The Journey, After changes: 31 of 35"></span><span class="db-val" style="left:73.33%">31</span></div></div><div class="db-row"><span class="db-label">B. Find Your Match</span>
+  <div class="db-track"><span class="tick" style="left:0.00%"></span><span class="tick" style="left:33.33%"></span><span class="tick" style="left:66.67%"></span><span class="tick" style="left:100.00%"></span><span class="db-line" style="left:20.00%;width:53.33%"></span><span class="dot first" style="left:20.00%" tabindex="0" role="img" aria-label="B. Find Your Match, First review: 23 of 35" data-tip="B. Find Your Match, First review: 23 of 35"></span><span class="dot final" style="left:73.33%" tabindex="0" role="img" aria-label="B. Find Your Match, After changes: 31 of 35" data-tip="B. Find Your Match, After changes: 31 of 35"></span><span class="db-val" style="left:73.33%">31</span></div></div><div class="db-row"><span class="db-label">C. Partners in Hope</span>
+  <div class="db-track"><span class="tick" style="left:0.00%"></span><span class="tick" style="left:33.33%"></span><span class="tick" style="left:66.67%"></span><span class="tick" style="left:100.00%"></span><span class="db-line" style="left:40.00%;width:20.00%"></span><span class="dot first" style="left:40.00%" tabindex="0" role="img" aria-label="C. Partners in Hope, First review: 26 of 35" data-tip="C. Partners in Hope, First review: 26 of 35"></span><span class="dot final" style="left:60.00%" tabindex="0" role="img" aria-label="C. Partners in Hope, After changes: 29 of 35" data-tip="C. Partners in Hope, After changes: 29 of 35"></span><span class="db-val" style="left:60.00%">29</span></div></div>
+  </div>
+  <details><summary>Show as a table</summary><div class="tablewrap"><table><thead><tr><th scope="col">Direction</th><th scope="col">First review</th><th scope="col">After changes</th></tr></thead><tbody><tr><th scope="row">A. The Journey</th><td>28</td><td>31</td></tr><tr><th scope="row">B. Find Your Match</th><td>23</td><td>31</td></tr><tr><th scope="row">C. Partners in Hope</th><td>26</td><td>29</td></tr></tbody></table></div></details>
+</figure><figure class="chart">
+  <figcaption><h3>Round 2</h3><span>Total of 40, from the first review to the last</span></figcaption>
+  <div class="db" role="group" aria-label="Round 2 review scores">
+    <div class="db-row db-axis" aria-hidden="true"><span class="db-label"></span><div class="db-track"><span class="tick" style="left:0.00%"><i>20</i></span><span class="tick" style="left:25.00%"><i>25</i></span><span class="tick" style="left:50.00%"><i>30</i></span><span class="tick" style="left:75.00%"><i>35</i></span><span class="tick" style="left:100.00%"><i>40</i></span></div></div>
+    <div class="db-row"><span class="db-label">A. Pocket Stories</span>
+  <div class="db-track"><span class="tick" style="left:0.00%"></span><span class="tick" style="left:25.00%"></span><span class="tick" style="left:50.00%"></span><span class="tick" style="left:75.00%"></span><span class="tick" style="left:100.00%"></span><span class="db-line" style="left:50.00%;width:30.00%"></span><span class="dot first" style="left:50.00%" tabindex="0" role="img" aria-label="A. Pocket Stories, Sep 30: 30 of 40" data-tip="A. Pocket Stories, Sep 30: 30 of 40"></span><span class="dot mid" style="left:70.00%" tabindex="0" role="img" aria-label="A. Pocket Stories, Sep 30, after changes: 34 of 40" data-tip="A. Pocket Stories, Sep 30, after changes: 34 of 40"></span><span class="dot final" style="left:80.00%" tabindex="0" role="img" aria-label="A. Pocket Stories, Oct 1, after answers: 36 of 40" data-tip="A. Pocket Stories, Oct 1, after answers: 36 of 40"></span><span class="db-val" style="left:80.00%">36</span></div></div><div class="db-row"><span class="db-label">B. Open Book</span>
+  <div class="db-track"><span class="tick" style="left:0.00%"></span><span class="tick" style="left:25.00%"></span><span class="tick" style="left:50.00%"></span><span class="tick" style="left:75.00%"></span><span class="tick" style="left:100.00%"></span><span class="db-line" style="left:45.00%;width:20.00%"></span><span class="dot first" style="left:45.00%" tabindex="0" role="img" aria-label="B. Open Book, Sep 30: 29 of 40" data-tip="B. Open Book, Sep 30: 29 of 40"></span><span class="dot mid" style="left:65.00%" tabindex="0" role="img" aria-label="B. Open Book, Sep 30, after changes: 33 of 40" data-tip="B. Open Book, Sep 30, after changes: 33 of 40"></span><span class="dot final" style="left:65.00%" tabindex="0" role="img" aria-label="B. Open Book, Oct 1, after answers: 33 of 40" data-tip="B. Open Book, Oct 1, after answers: 33 of 40"></span><span class="db-val" style="left:65.00%">33</span></div></div><div class="db-row"><span class="db-label">C. Many Paths</span>
+  <div class="db-track"><span class="tick" style="left:0.00%"></span><span class="tick" style="left:25.00%"></span><span class="tick" style="left:50.00%"></span><span class="tick" style="left:75.00%"></span><span class="tick" style="left:100.00%"></span><span class="db-line" style="left:50.00%;width:25.00%"></span><span class="dot first" style="left:50.00%" tabindex="0" role="img" aria-label="C. Many Paths, Sep 30: 30 of 40" data-tip="C. Many Paths, Sep 30: 30 of 40"></span><span class="dot mid" style="left:60.00%" tabindex="0" role="img" aria-label="C. Many Paths, Sep 30, after changes: 32 of 40" data-tip="C. Many Paths, Sep 30, after changes: 32 of 40"></span><span class="dot final" style="left:75.00%" tabindex="0" role="img" aria-label="C. Many Paths, Oct 1, after answers: 35 of 40" data-tip="C. Many Paths, Oct 1, after answers: 35 of 40"></span><span class="db-val" style="left:75.00%">35</span></div></div>
+  </div>
+  <details><summary>Show as a table</summary><div class="tablewrap"><table><thead><tr><th scope="col">Direction</th><th scope="col">Sep 30</th><th scope="col">Sep 30, after changes</th><th scope="col">Oct 1, after answers</th></tr></thead><tbody><tr><th scope="row">A. Pocket Stories</th><td>30</td><td>34</td><td>36</td></tr><tr><th scope="row">B. Open Book</th><td>29</td><td>33</td><td>33</td></tr><tr><th scope="row">C. Many Paths</th><td>30</td><td>32</td><td>35</td></tr></tbody></table></div></details>
+</figure></div>
+      <p class="legend" aria-hidden="true"><span><i class="l-first"></i>First review</span><span><i class="l-mid"></i>Middle review (round 2)</span><span><i class="l-final"></i>Final review</span></p>
+    </section>
+
+    <section aria-labelledby="ch-h">
+      <p class="eyebrow">Round 1 to round 2</p>
+      <div class="sec-head"><h2 id="ch-h">What carried forward, what changed</h2></div>
+      <div class="two">
+        <article><h3>Carried forward</h3><ul><li>One button system: pill buttons with the offset 1/2/2/1 border, Oswald 700, three sizes (56, 48 and 44px).</li><li>WCAG AA contrast with kit colors only, 44px tap targets, and menus that work by keyboard.</li><li>Sponsor a Child stays the main goal, designed mobile first.</li><li>Every round tests three ways to organize the menu, so the navigation choice comes with evidence.</li></ul></article>
+        <article><h3>Changed in round 2</h3><ul><li>The brief now follows the 2026 board reports: partnerships, the next generation of supporters, and ongoing relationships.</li><li>Pathways to Purpose leads the hero in a seasonal slot that can change with each campaign.</li><li>A full navigation overhaul with a mega menu, as directors have requested.</li><li>Dignity, Health, Joy and Love appear together. Round 1&#x27;s pillar to program mapping was retired.</li><li>Confirmed facts: 8 countries, 1,397 wells, a ministry that began in 1973, and the Eggum Family Medical Center.</li></ul></article>
+      </div>
+    </section>
+
+    <section id="open" aria-labelledby="oq-h">
+      <p class="eyebrow">Before any build</p>
+      <div class="sec-head"><h2 id="oq-h">Open items</h2></div>
+      <ul class="oq"><li><b>Sponsorship price.</b> The mockups show Fairmont boarding at $93 a month, the price on October 1. The Pathways to Purpose price moved to $132 a month on October 21, so the hero, price cards and sticky bar need the new amount at build.</li><li><b>Brian photos.</b> Approved and now on hand. They replace the photo placeholders in all three round 2 directions.</li><li><b>Water 4 Kids.</b> The Water 4 Kids International Director to confirm what $10,500 covers, and whether to mention well inspections.</li><li><b>Where Most Needed.</b> A one-line description of the fund for direction C.</li><li><b>Graduate story.</b> Pick one Brandom Vocational testimony video for direction B.</li><li><b>Partner logos.</b> Space is held until logos and permissions arrive.</li><li><b>Nepal flood relief.</b> Temporary slot; remove when the appeal ends.</li><li><b>Kids in program.</b> Count on hold for review.</li><li><b>TikTok.</b> @hope4kidsint exists but is not linked from the current site. Link it in the new footer?</li><li><b>Tax line.</b> &quot;Gifts are tax-deductible&quot; sits under the hero buttons. Tax language for supporters goes to H4KI leadership review before launch.</li></ul>
+    </section>
+  </div>
+</main>
+<footer><div class="wrap">
+  <p>This content is for informational purposes only and does not constitute legal or financial advice. Consult a qualified professional. Tax language for supporters is flagged for review by H4KI leadership before use.</p>
+  <p>Updated October 29, 2026. Restoring hope to kids and families around the world since 1973. Dignity. Health. Joy. Love.</p>
+</div></footer>
+</body>
+</html>

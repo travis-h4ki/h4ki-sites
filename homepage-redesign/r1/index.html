@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head><meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Homepage Directions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#1D4695;--primary:#4179B5;--orange:#FFA225;--ink:#000;--ink2:#353535;--bg:#F6F6F6;--card:#fff;--line:#E3E3E3;--green:#92CAB4;--red:#F24444}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#F3F3F3;--ink2:#C8C8C8;--bg:#121418;--card:#1C1F25;--line:#2E323A}}
+:root[data-theme="dark"]{--ink:#F3F3F3;--ink2:#C8C8C8;--bg:#121418;--card:#1C1F25;--line:#2E323A}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Helvetica,Arial,sans-serif}
+h1,h2,h3{font-family:Oswald,Helvetica,sans-serif;font-weight:700;text-transform:uppercase;line-height:1.02;margin:0;letter-spacing:-.3px}
+a{color:inherit}
+.wrap{max-width:1240px;margin:0 auto;padding:0 20px}
+header.top{padding:56px 0 32px;border-bottom:1px solid var(--line)}
+.kick{font:700 13px/1 Oswald,sans-serif;letter-spacing:2.5px;text-transform:uppercase;color:var(--ink2)}
+header.top h1{font-size:clamp(38px,5vw,64px);margin-top:12px}
+header.top p{max-width:70ch;color:var(--ink2);margin-top:14px}
+.docs{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.docs a{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid var(--line);border-radius:999px;text-decoration:none;font-size:14px;background:var(--card)}
+.docs a:hover{border-color:var(--ink)}
+nav.jump{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+nav.jump .wrap{display:flex;gap:6px;overflow-x:auto}
+nav.jump a{flex:none;display:inline-flex;align-items:center;min-height:48px;padding:0 14px;text-decoration:none;font:700 14px/1 Oswald,sans-serif;letter-spacing:1px;text-transform:uppercase}
+nav.jump a:hover{text-decoration:underline}
+section{padding:56px 0;border-bottom:1px solid var(--line)}
+.sec-h{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:24px}
+.sec-h h2{font-size:clamp(28px,3vw,40px)}
+.tag{display:inline-flex;align-items:center;gap:8px;font:700 12px/1 Oswald,sans-serif;letter-spacing:1.5px;text-transform:uppercase;padding:7px 12px;border-radius:999px;border:1px solid var(--ink);background:var(--card)}
+.tag i{width:9px;height:9px;border-radius:50%;background:var(--c)}
+.brief{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;margin-bottom:28px}
+.brief .thesis{font:500 22px/1.3 Oswald,sans-serif;margin-top:10px}
+.brief dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:8px 16px;font-size:15px}
+.brief dt{font:700 12px/1.6 Oswald,sans-serif;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink2)}
+.brief dd{margin:0}
+.shots{display:grid;grid-template-columns:minmax(0,3.3fr) minmax(0,1fr);gap:16px;align-items:start}
+.shot{margin:0;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.shot img{display:block;width:100%;height:auto}
+.shot figcaption{font-size:13px;color:var(--ink2);padding:10px 14px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.shot.tall{max-height:760px;overflow:auto}
+.row2{display:grid;grid-template-columns:minmax(0,3.3fr) minmax(0,1fr);gap:16px;margin-top:16px}
+.open{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 24px;border-radius:9999px;background:#FFA225;color:#000;border:solid #000;border-width:1px 2px 2px 1px;font:700 16px/1 Oswald,sans-serif;letter-spacing:.5px;text-transform:uppercase;text-decoration:none;transition:transform .15s cubic-bezier(.2,0,0,1),box-shadow .15s cubic-bezier(.2,0,0,1)}
+.open:hover{transform:translateY(-2px);box-shadow:3px 3px 0 #000}
+.open:focus-visible,a:focus-visible{outline:3px solid var(--primary);outline-offset:3px}
+table{width:100%;border-collapse:collapse;background:var(--card);border-radius:16px;overflow:hidden;font-size:15px}
+th,td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line)}
+th{font:700 13px/1.2 Oswald,sans-serif;letter-spacing:1px;text-transform:uppercase}
+td.n{font:700 18px/1 Oswald,sans-serif;text-align:center;width:13%}
+td.n small{display:block;font:400 11px/1.2 Helvetica,sans-serif;color:var(--ink2);margin-top:4px}
+tr.total td{font-weight:700;background:rgba(255,162,37,.14)}
+.table-scroll{overflow-x:auto;border-radius:16px;border:1px solid var(--line)}
+.note{font-size:14px;color:var(--ink2);margin-top:12px}
+.rec{background:var(--card);border:solid var(--ink);border-width:1px 2px 2px 1px;border-radius:24px;padding:32px}
+.rec h3{font-size:30px}
+.rec p{max-width:72ch;margin-top:12px}
+.trade{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:24px}
+.trade article{background:var(--card);border:1px solid var(--line);border-top:6px solid var(--c);border-radius:16px;padding:20px}
+.trade h3{font-size:22px;margin-bottom:10px}
+.trade h4{font:700 12px/1 Oswald,sans-serif;letter-spacing:1.5px;text-transform:uppercase;margin:14px 0 6px;color:var(--ink2)}
+.trade ul{margin:0;padding-left:18px;font-size:15px}
+.flags{columns:2;column-gap:32px;font-size:15px;padding-left:18px}
+.flags li{break-inside:avoid;margin-bottom:8px}
+footer{padding:32px 0 56px;font-size:13px;color:var(--ink2)}
+@media (max-width:860px){.brief,.shots,.row2,.trade{grid-template-columns:1fr}.shots .shot:last-child{max-width:340px}.flags{columns:1}.rec{padding:22px}}
+</style>
+</head>
+<body><div style="background:#FFA225;color:#000;font:400 14px/1.4 Helvetica,Arial,sans-serif;padding:0 16px;text-align:center">Round 1 snapshot, September 25, 2026. Internal review draft. <a href="../index.html" style="color:#000;font-weight:700;display:inline-flex;align-items:center;min-height:44px;padding:0 6px">All rounds</a></div>
+<header class="top">
+  <div class="wrap">
+    <span class="kick">Hope 4 Kids International · Homepage redesign exploration · Sep 25 2026</span>
+    <h1>Three directions for h4ki.org</h1>
+    <p>Three distinct homepage concepts built on the unified H4KI button system and WCAG AA color pairings, all aimed at the primary goal: Sponsor a Child conversions. Each one also proposes a different mega menu structure. The mockups use real site photos and only facts confirmed from the live site. Anything unknown appears in brackets, like [STAT] or [AMOUNT].</p>
+    <div class="docs">
+      <a href="brand-tokens.html">Brand tokens + decisions</a>
+      <a href="audit.html">HIG / Material audit</a>
+      <a href="concepts.html">Concept briefs</a>
+      <a href="review.html">Review + changes</a>
+    </div>
+  </div>
+</header>
+<nav class="jump" aria-label="Jump to"><div class="wrap"><a href="#live">Live today</a><a href="#a">A. The Journey</a><a href="#b">B. Find Your Match</a><a href="#c">C. Partners in Hope</a><a href="#scores">Scores</a><a href="#rec">Recommendation</a><a href="#flags">Open items</a></div></nav>
+
+<main>
+<section id="live">
+  <div class="wrap">
+    <div class="sec-h"><h2>Baseline: the live homepage</h2><span class="tag" style="--c:var(--red)"><i></i>Audit: 5 strengths, 5 problems</span></div>
+    <div class="shots">
+      <figure class="shot"><img src="screenshots/thumbs/live-desktop-1440-fold.jpg" alt="Live homepage at 1440px with the Founder's Day hero" loading="lazy"><figcaption><span>Desktop 1440</span><a href="screenshots/full/live-desktop-1440-full.jpg">Full page</a></figcaption></figure>
+      <figure class="shot"><img src="screenshots/thumbs/live-mobile-390-fold.jpg" alt="Live homepage at 390px" loading="lazy"><figcaption><span>Mobile 390</span><a href="screenshots/full/live-mobile-390-full.jpg">Full page</a></figcaption></figure>
+    </div>
+    <p class="note">Top problems: program pill contrast fails AA (1.8 to 3.7:1), the hero sells a campaign instead of sponsorship, there are more than 20 equal-weight buttons, the menu follows the org chart, the heading scale is inconsistent with two H1s, and mobile is a shrunk desktop layout.</p>
+  </div>
+</section>
+
+<section id="a">
+  <div class="wrap">
+    <div class="sec-h"><h2>A. The Journey</h2><a class="open" href="mockups/mockup-a.html">Open full mockup</a></div>
+    <div class="brief">
+      <div><span class="tag" style="--c:var(--orange)"><i></i>Leads with Love, then Joy</span><p class="thesis">Sponsorship is the first step in a relationship that can take you to meet your child, and home again as an ambassador.</p></div>
+      <dl><dt>For</dt><dd>First-time and younger supporters on phones</dd><dt>Drives</dt><dd>Sponsor a child, then trips, projects, ambassadors, partnerships</dd><dt>Solves</dt><dd>Audit #2 single primary action, #5 mobile flow, journey gap</dd><dt>Leans on</dt><dd>HIG Depth and Deference; M3 Expressive display type, emphasized motion</dd><dt>Menu</dt><dd>Familiar: Sponsor · Programs · Trips · Give · About, with photo cards</dd></dl>
+    </div>
+    <div class="shots">
+      <figure class="shot"><img src="screenshots/thumbs/mockups-a-desktop-fold.jpg" alt="A. The Journey at 1440px, first screen" loading="lazy"><figcaption><span>Desktop 1440, first screen</span><a href="screenshots/full/a-desktop-full.jpg">Full page</a></figcaption></figure>
+      <figure class="shot"><img src="screenshots/thumbs/mockups-a-mobile-fold.jpg" alt="A. The Journey at 390px, first screen" loading="lazy"><figcaption><span>Mobile 390</span><a href="screenshots/full/a-mobile-full.jpg">Full page</a></figcaption></figure>
+    </div>
+    <div class="row2">
+      <figure class="shot tall"><img src="screenshots/thumbs/mockups-a-desktop-full.jpg" alt="A. The Journey full desktop page" loading="lazy"><figcaption><span>Desktop full page (scroll)</span></figcaption></figure>
+      <div style="display:grid;gap:16px;align-content:start">
+        <figure class="shot"><img src="screenshots/thumbs/mockups-a-desktop-menu.jpg" alt="A. The Journey mega menu open" loading="lazy"><figcaption><span>Mega menu</span></figcaption></figure>
+        <figure class="shot tall" style="max-height:520px"><img src="screenshots/thumbs/mockups-a-mobile-full.jpg" alt="A. The Journey full mobile page" loading="lazy"><figcaption><span>Mobile full page (scroll)</span></figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="b">
+  <div class="wrap">
+    <div class="sec-h"><h2>B. Find Your Match</h2><a class="open" href="mockups/mockup-b.html">Open full mockup</a></div>
+    <div class="brief">
+      <div><span class="tag" style="--c:var(--primary)"><i></i>Leads with Dignity, then Health</span><p class="thesis">Make sponsoring a child as clear and quick as the best apps people already use, and still personal.</p></div>
+      <dl><dt>For</dt><dd>Ready-to-act visitors on phones (church talk, event, QR code)</dd><dt>Drives</dt><dd>Sponsor a child in the fewest steps; seasonal highlights; crisis</dd><dt>Solves</dt><dd>Audit #2 tool as hero, #5 mobile components, #1 AA program colors, #3 task menu</dd><dt>Leans on</dt><dd>HIG Direct manipulation and Feedback; M3 chips, segmented buttons, tonal cards, bottom bar</dd><dt>Menu</dt><dd>Tasks: "I want to…" Sponsor · Give · Go on a trip · Get involved · About us</dd></dl>
+    </div>
+    <div class="shots">
+      <figure class="shot"><img src="screenshots/thumbs/mockups-b-desktop-fold.jpg" alt="B. Find Your Match at 1440px, first screen" loading="lazy"><figcaption><span>Desktop 1440, first screen</span><a href="screenshots/full/b-desktop-full.jpg">Full page</a></figcaption></figure>
+      <figure class="shot"><img src="screenshots/thumbs/mockups-b-mobile-fold.jpg" alt="B. Find Your Match at 390px, first screen" loading="lazy"><figcaption><span>Mobile 390</span><a href="screenshots/full/b-mobile-full.jpg">Full page</a></figcaption></figure>
+    </div>
+    <div class="row2">
+      <figure class="shot tall"><img src="screenshots/thumbs/mockups-b-desktop-full.jpg" alt="B. Find Your Match full desktop page" loading="lazy"><figcaption><span>Desktop full page (scroll)</span></figcaption></figure>
+      <div style="display:grid;gap:16px;align-content:start">
+        <figure class="shot"><img src="screenshots/thumbs/mockups-b-desktop-menu.jpg" alt="B. Find Your Match mega menu open" loading="lazy"><figcaption><span>Mega menu</span></figcaption></figure>
+        <figure class="shot tall" style="max-height:520px"><img src="screenshots/thumbs/mockups-b-mobile-full.jpg" alt="B. Find Your Match full mobile page" loading="lazy"><figcaption><span>Mobile full page (scroll)</span></figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="c">
+  <div class="wrap">
+    <div class="sec-h"><h2>C. Partners in Hope</h2><a class="open" href="mockups/mockup-c.html">Open full mockup</a></div>
+    <div class="brief">
+      <div><span class="tag" style="--c:var(--green)"><i></i>Leads with All four pillars as a framework</span><p class="thesis">H4KI restores hope through four pillars, with a clear way for individuals, churches and foundations to partner.</p></div>
+      <dl><dt>For</dt><dd>Church leaders, foundation and corporate giving officers, major gift prospects (desktop)</dd><dt>Drives</dt><dd>Sponsor a child, start a church partnership, discuss a project partnership</dd><dt>Solves</dt><dd>Audit #3 audience menu, #4 strict type scale, #2 three clear lanes, trust moved up</dd><dt>Leans on</dt><dd>HIG Clarity and Consistency; M3 type roles, tonal surfaces, adaptive columns</dd><dt>Menu</dt><dd>Audiences: Our work · Sponsor · Churches · Foundations &amp; companies · About</dd></dl>
+    </div>
+    <div class="shots">
+      <figure class="shot"><img src="screenshots/thumbs/mockups-c-desktop-fold.jpg" alt="C. Partners in Hope at 1440px, first screen" loading="lazy"><figcaption><span>Desktop 1440, first screen</span><a href="screenshots/full/c-desktop-full.jpg">Full page</a></figcaption></figure>
+      <figure class="shot"><img src="screenshots/thumbs/mockups-c-mobile-fold.jpg" alt="C. Partners in Hope at 390px, first screen" loading="lazy"><figcaption><span>Mobile 390</span><a href="screenshots/full/c-mobile-full.jpg">Full page</a></figcaption></figure>
+    </div>
+    <div class="row2">
+      <figure class="shot tall"><img src="screenshots/thumbs/mockups-c-desktop-full.jpg" alt="C. Partners in Hope full desktop page" loading="lazy"><figcaption><span>Desktop full page (scroll)</span></figcaption></figure>
+      <div style="display:grid;gap:16px;align-content:start">
+        <figure class="shot"><img src="screenshots/thumbs/mockups-c-desktop-menu.jpg" alt="C. Partners in Hope mega menu open" loading="lazy"><figcaption><span>Mega menu</span></figcaption></figure>
+        <figure class="shot tall" style="max-height:520px"><img src="screenshots/thumbs/mockups-c-mobile-full.jpg" alt="C. Partners in Hope full mobile page" loading="lazy"><figcaption><span>Mobile full page (scroll)</span></figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="scores">
+  <div class="wrap">
+    <div class="sec-h"><h2>Independent review scores</h2><span class="tag" style="--c:var(--primary)"><i></i>Fresh-context reviewer, 1 to 5</span></div>
+    <div class="table-scroll"><table>
+      <thead><tr><th>Criterion</th><th>A. Journey</th><th>B. Find Your Match</th><th>C. Partners in Hope</th></tr></thead>
+      <tbody><tr><td>HIG + Material adherence</td><td class="n">4<small>was 4</small></td><td class="n">4<small>was 3</small></td><td class="n">4<small>was 4</small></td></tr><tr><td>Brand constraints (buttons, fonts, colors)</td><td class="n">5<small>was 4</small></td><td class="n">4<small>was 3</small></td><td class="n">5<small>was 4</small></td></tr><tr><td>Brand voice and language</td><td class="n">5<small>was 4</small></td><td class="n">5<small>was 4</small></td><td class="n">5<small>was 4</small></td></tr><tr><td>Accessibility</td><td class="n">4<small>was 3</small></td><td class="n">4<small>was 2</small></td><td class="n">4<small>was 3</small></td></tr><tr><td>Primary CTA clarity</td><td class="n">5<small>was 5</small></td><td class="n">5<small>was 4</small></td><td class="n">4<small>was 4</small></td></tr><tr><td>Mobile experience</td><td class="n">4<small>was 4</small></td><td class="n">4<small>was 2</small></td><td class="n">3<small>was 3</small></td></tr><tr><td>Distinctness</td><td class="n">4<small>was 4</small></td><td class="n">5<small>was 5</small></td><td class="n">4<small>was 4</small></td></tr><tr class="total"><td>Total / 35</td><td class="n">31<small>was 28</small></td><td class="n">31<small>was 23</small></td><td class="n">29<small>was 26</small></td></tr></tbody>
+    </table></div>
+    <p class="note">Each cell shows round 2 (after fixes) in large type, with round 1 below. After round 2 I also fixed the reviewer's new required items N-1 (B card buttons) and N-2 (small footer and legal links), plus B-7 padding and the optional N-3, N-4 and N-6. Those fixes were verified by script but not re-scored.</p>
+  </div>
+</section>
+
+<section id="rec">
+  <div class="wrap">
+    <div class="rec">
+      <span class="kick">Recommendation</span>
+      <h3 style="margin-top:10px">Build on A. The Journey. Put B's finder into its first chapter and use C's partner paths in the menu.</h3>
+      <p><strong>Why A:</strong> it's the only direction whose structure <em>is</em> the strategy you described: sponsor, visit, serve, share, partner. It keeps one filled "Sponsor a child" action in the hero, the header and a sticky mobile bar, then shows every other goal (trips, Walk 4 Water, ambassadors, foundation partnerships) as the <em>next step</em> rather than a competing button. That directly fixes the biggest audit problem. It works best on phones and for the younger supporters you want to reach, and it scored highest on primary CTA clarity.</p>
+      <p><strong>What to borrow:</strong> B's filterable child finder is the strongest conversion mechanism of the three. It belongs in Chapter 01 as soon as a live child feed is confirmed (see Open items). C's audience lanes and "Churches" and "Foundations &amp; companies" menu entries give church and major gift prospects a clear "place for me" that A's familiar menu doesn't. Add them as a Partner panel in A's mega menu.</p>
+      <p><strong>Elementor fit:</strong> A and C can be built with native Elementor containers, the Menu widget's mega menu, sticky and anchor settings, and Loop Carousel. B's finder needs a data source (a sponsorship feed from the new CRM stack or a Givecloud embed), so it's the only piece that needs custom work.</p>
+    </div>
+    <div class="trade">
+      <article style="--c:var(--orange)"><h3>A. The Journey</h3>
+        <h4>Strengths</h4><ul><li>Shows the whole supporter lifecycle, not just one gift</li><li>Strongest emotional tone; the portrait hero keeps the current photo DNA</li><li>Most mobile ready: full-bleed hero and a sticky sponsor bar</li></ul>
+        <h4>Trade-offs</h4><ul><li>Long page; each chapter needs fresh content (trips, events) kept up to date</li><li>Foundations only see their path in Chapter 05, far down the page</li><li>Journey claims (visiting your child) need program confirmation</li></ul></article>
+      <article style="--c:var(--primary)"><h3>B. Find Your Match</h3>
+        <h4>Strengths</h4><ul><li>Fewest steps to sponsor; the tool is the hero</li><li>Most app-like and mobile-native (chips, bottom bar)</li><li>Clear seasonal highlights slot (Pathways to Purpose, crisis)</li></ul>
+        <h4>Trade-offs</h4><ul><li>Needs live child data, and child photos on the homepage need a privacy and consent policy</li><li>Feels transactional if the stories behind the cards are thin</li><li>Weakest for churches and major gifts</li></ul></article>
+      <article style="--c:var(--green)"><h3>C. Partners in Hope</h3>
+        <h4>Strengths</h4><ul><li>Best for church and foundation growth, with trust signals moved up the page</li><li>Pillars become a visible framework (pillar to programs to proof)</li><li>Easiest to build natively in Elementor</li></ul>
+        <h4>Trade-offs</h4><ul><li>Sponsorship shares attention with two other lanes</li><li>Editorial and desktop-leaning; less urgency on phones</li><li>Pillar to program mapping needs sign-off from the program team</li></ul></article>
+    </div>
+  </div>
+</section>
+
+<section id="flags">
+  <div class="wrap">
+    <div class="sec-h"><h2>Open items before any build</h2></div>
+    <ul class="flags">
+      <li><strong>Country count:</strong> the brief says eight, the site menu lists seven. Shown as [COUNT] until confirmed.</li>
+      <li><strong>Monthly sponsorship amount</strong> is shown as [AMOUNT]. Only Pathways to Purpose ($93) is confirmed.</li>
+      <li><strong>Impact numbers</strong> (children sponsored, wells drilled and so on) are shown as [STAT]. The live counters didn't render.</li>
+      <li><strong>Nepal crisis copy</strong> is shown as [CRISIS DETAIL]. Needs approved language.</li>
+      <li><strong>Mexico trip:</strong> the live site lists Jan 14 to 16, 2026, which is past. The mockups show [DATES].</li>
+      <li><strong>Walk 4 Water:</strong> McFarland (Sep 19) and Irvine (Sep 20) are past and were removed. Orange County date is unknown.</li>
+      <li><strong>"Faith-based 501(c)(3)"</strong> in footers comes from the live mission copy. Tax-status language should be reviewed by H4KI leadership before use.</li>
+      <li><strong>Pillar to program mapping</strong> (B, C) is a proposal. Confirm with the program team.</li>
+      <li><strong>"Visit your sponsored child" on trips</strong> (A, C) comes from your strategy notes. Confirm how the program actually works.</li>
+      <li><strong>Child finder data (B):</strong> which system feeds waiting children after the DonorPerfect and Givecloud go-live, plus consent rules for showing child photos and first names.</li>
+      <li><strong>Testimonials</strong> are placeholders only, pending approved quotes.</li>
+      <li><strong>Live site fixes you can ship now:</strong> the "Cicle the Thirsty" menu typo, the kit's 6px hover-radius rule, and the anniversary copy in the Founder's Day hero.</li>
+    </ul>
+  </div>
+</section>
+</main>
+<footer><div class="wrap">Mockups link to images hosted on hope4kidsinternational.org. Screenshots were captured with headless Chrome at 1440×900 and 390×844.</div></footer>
+</body>
+</html>
