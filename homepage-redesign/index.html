@@ -47,6 +47,7 @@ main section{padding:52px 0;border-bottom:1px solid var(--soft)}
 .btn--s{min-height:44px;padding:10px 20px;font-size:15px}
 .btn--o{background:var(--card);color:var(--text);border-color:var(--line)}
 .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.cards--2{grid-template-columns:repeat(2,minmax(0,1fr))}
 @media (max-width:1000px){.cards{grid-template-columns:1fr;max-width:620px}}
 .card{background:var(--card);border:solid var(--line);border-width:1px 2px 2px 1px;border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
 .card-img{display:block;aspect-ratio:16/10;overflow:hidden;background:var(--soft);border-bottom:1px solid var(--line)}
@@ -57,6 +58,7 @@ main section{padding:52px 0;border-bottom:1px solid var(--soft)}
 .let{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#1D4695;color:#fff;font-size:18px;flex:none}
 .score{font:700 30px/1 var(--font-d);white-space:nowrap}
 .score small{font-size:16px;color:var(--muted)}
+.pill-new{font:700 13px/1 var(--font-d);letter-spacing:1px;text-transform:uppercase;background:#FFA225;color:#000;border:1px solid #000;border-radius:999px;padding:7px 12px;white-space:nowrap}
 .bet{margin:0;font-size:16px}
 .card dl{margin:0;display:grid;gap:8px;font-size:15px;line-height:1.4}
 .card dt{font:700 13px/1.2 var(--font-d);letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
@@ -125,30 +127,55 @@ footer p{margin:0 0 8px;max-width:920px}</style>
   <div class="wrap">
     <p class="kick">Hope 4 Kids International · h4ki.org homepage redesign</p>
     <h1>Homepage brainstorming rounds</h1>
-    <p class="sum">Two rounds of homepage directions for Hope 4 Kids International, six in all, each built as a working mockup and scored by an independent reviewer. Start with round 2, the latest thinking, or open any mockup on its own. Every direction keeps Dignity, Health, Joy and Love at the heart of the page.</p>
-    <nav class="jump" aria-label="Jump to"><a href="#status">Where it stands</a><a href="#round-2">Round 2</a><a href="#round-1">Round 1</a><a href="#scores">Scores</a><a href="#open">Open items</a></nav>
+    <p class="sum">Three rounds of homepage directions for Hope 4 Kids International, eight working mockups in all. Rounds 1 and 2 were scored by an independent reviewer; round 3 merges the favorites and is in review now. Start with round 3, or open any mockup on its own. Every direction keeps Dignity, Health, Joy and Love at the heart of the page.</p>
+    <nav class="jump" aria-label="Jump to"><a href="#status">Where it stands</a><a href="#round-3">Round 3</a><a href="#round-2">Round 2</a><a href="#round-1">Round 1</a><a href="#scores">Scores</a><a href="#open">Open items</a></nav>
   </div>
 </header>
 <main id="main">
   <div class="wrap">
     <div class="kpis">
-      <div class="kpi"><b>2</b><span>rounds, Sep 25 and Sep 29 to Oct 1, 2026</span></div>
-      <div class="kpi"><b>6</b><span>directions, each a full working mockup</span></div>
+      <div class="kpi"><b>3</b><span>rounds, Sep 25 to Oct 29, 2026</span></div>
+      <div class="kpi"><b>8</b><span>mockups, each a full working page</span></div>
       <div class="kpi"><b>5</b><span>independent review passes</span></div>
       <div class="kpi"><b>36<small style="font-size:20px">/40</small></b><span>top score: round 2, A. Pocket Stories</span></div>
     </div>
 
     <section id="status" aria-labelledby="st-h">
       <p class="eyebrow">Where it stands</p>
-      <div class="sec-head"><h2 id="st-h">Recommended: build on round 2, A</h2></div>
+      <div class="sec-head"><h2 id="st-h">Round 3 merges the favorites</h2></div>
       <div class="recbox">
-        <p class="status">Decision open as of October 1, 2026</p>
-        <p><b>Base: A. Pocket Stories.</b> It keeps the sponsor ask within thumb reach on every phone size, leads with real faces and a share action, and its intent menu (Sponsor, Give, Go, Partner, About) is the clearest answer to the directors' request for a full navigation overhaul. Borrow from the other two:</p>
+        <p class="status">Decision open as of October 29, 2026</p>
+        <p>Round 2 recommended building on <b>A. Pocket Stories</b>, which leads with real faces and a share action and keeps the sponsor ask within thumb reach, and borrowing from the other two:</p>
         <ul><li>A: hero, story rail, price cards, sticky mobile bar and intent-based mega menu (the base)</li><li>B: &quot;Who we are, in 20 seconds&quot; with Since 1973, 8 countries and 1,397 wells, right after the program pills, for first-time visitors and search</li><li>C: &quot;After you say yes&quot; journey, now sourced from the live sponsorship pages, so it can ship at launch</li><li>C: tiered partner wall, once at least 3 partners approve their logos</li></ul>
+        <p style="margin:14px 0 0">Round 3 builds that in two mockups. Both use C's "I want to..." menu, B's photo hero at full width, A's explore bar and footer, and a new traveling dot on C's dotted path. <b>A. Stories First</b> leads with the stories rail; <b>B. Clear Path</b> leads with who we are and the journey. Pick one, or mix sections between them.</p>
       </div>
     </section>
 
-    <section id="round-2" aria-labelledby="round-2-h">
+    <section id="round-3" aria-labelledby="round-3-h">
+      <p class="eyebrow">Round 3 · October 29, 2026</p>
+      <div class="sec-head"><h2 id="round-3-h">The merge</h2><a class="btn btn--o" href="r3/index.html">Open the round 3 review page</a></div>
+      <p class="lede">Round 3 follows the round 2 recommendation: A as the base, with B&#x27;s photo hero now full width, B&#x27;s who we are facts, and C&#x27;s &quot;I want to...&quot; menu, journey and dotted path. One dot now rides that path, follows the reader down the page like a progress bar and takes each section&#x27;s color. Two mockups share the header, hero style, explore bar and footer, and differ in what comes after the hero.</p>
+      <div class="cards cards--2"><article class="card">
+  <a class="card-img" href="r3/mockup-3a-stories-first.html" aria-label="Open A. Stories First, round 3"><img src="r3/screenshots/thumbs/3a-desktop-fold.jpg" alt="A. Stories First at 1440px, first screen" loading="lazy" width="1440" height="900"></a>
+  <div class="card-body">
+    <div class="card-top"><h3><span class="let">A</span>Stories First</h3><span class="pill-new">In review</span></div>
+    <p class="bet">Faces and short proof first, then the 20 second explainer, then how sponsorship feels, then every way to go, host or partner.</p>
+    <dl><div><dt>For</dt><dd>Next Gen first, with first-time visitors close behind</dd></div><div><dt>Menu</dt><dd>C&#x27;s &quot;I want to...&quot; menu, intents as tabs with A&#x27;s panels and B&#x27;s country tiles</dd></div></dl>
+    <div class="links"><a class="btn btn--s" href="r3/mockup-3a-stories-first.html">Open mockup<span class="sr-only">: Stories First</span></a>
+      <a class="lnk" href="r3/screenshots/3a-desktop-full.jpg">Desktop full page<span class="sr-only">: Stories First</span></a><a class="lnk" href="r3/screenshots/3a-mobile-full.jpg">Mobile full page<span class="sr-only">: Stories First</span></a></div>
+  </div>
+</article><article class="card">
+  <a class="card-img" href="r3/mockup-3b-clear-path.html" aria-label="Open B. Clear Path, round 3"><img src="r3/screenshots/thumbs/3b-desktop-fold.jpg" alt="B. Clear Path at 1440px, first screen" loading="lazy" width="1440" height="900"></a>
+  <div class="card-body">
+    <div class="card-top"><h3><span class="let">B</span>Clear Path</h3><span class="pill-new">In review</span></div>
+    <p class="bet">Who we are and what sponsorship feels like come first. Stories move to a black closing band with Follow along.</p>
+    <dl><div><dt>For</dt><dd>First-time visitors first, with Next Gen at the close</dd></div><div><dt>Menu</dt><dd>Same as A</dd></div></dl>
+    <div class="links"><a class="btn btn--s" href="r3/mockup-3b-clear-path.html">Open mockup<span class="sr-only">: Clear Path</span></a>
+      <a class="lnk" href="r3/screenshots/3b-desktop-full.jpg">Desktop full page<span class="sr-only">: Clear Path</span></a><a class="lnk" href="r3/screenshots/3b-mobile-full.jpg">Mobile full page<span class="sr-only">: Clear Path</span></a></div>
+  </div>
+</article></div>
+      
+    </section><section id="round-2" aria-labelledby="round-2-h">
       <p class="eyebrow">Round 2 · September 29 to October 1, 2026</p>
       <div class="sec-head"><h2 id="round-2-h">Shaped by the board</h2><a class="btn btn--o" href="r2/index.html">Open the round 2 review page</a></div>
       <p class="lede">Round 2 rebuilt the brief around the 2026 board reports: long-term sustainability through partnerships, reaching the next generation of supporters, and turning first gifts into ongoing relationships. Each direction leads with the Pathways to Purpose campaign in a seasonal slot, adds a general Donate button, and replaces today&#x27;s menus with a mega menu. Each one makes a different bet about who the homepage should serve first.</p>
@@ -256,7 +283,7 @@ footer p{margin:0 0 8px;max-width:920px}</style>
     <section id="open" aria-labelledby="oq-h">
       <p class="eyebrow">Before any build</p>
       <div class="sec-head"><h2 id="oq-h">Open items</h2></div>
-      <ul class="oq"><li><b>Sponsorship price.</b> The mockups show Fairmont boarding at $93 a month, the price on October 1. The Pathways to Purpose price moved to $132 a month on October 21, so the hero, price cards and sticky bar need the new amount at build.</li><li><b>Brian photos.</b> Approved and now on hand. They replace the photo placeholders in all three round 2 directions.</li><li><b>Water 4 Kids.</b> The Water 4 Kids International Director to confirm what $10,500 covers, and whether to mention well inspections.</li><li><b>Where Most Needed.</b> A one-line description of the fund for direction C.</li><li><b>Graduate story.</b> Pick one Brandom Vocational testimony video for direction B.</li><li><b>Partner logos.</b> Space is held until logos and permissions arrive.</li><li><b>Nepal flood relief.</b> Temporary slot; remove when the appeal ends.</li><li><b>Kids in program.</b> Count on hold for review.</li><li><b>TikTok.</b> @hope4kidsint exists but is not linked from the current site. Link it in the new footer?</li><li><b>Tax line.</b> &quot;Gifts are tax-deductible&quot; sits under the hero buttons. Tax language for supporters goes to H4KI leadership review before launch.</li></ul>
+      <ul class="oq"><li><b>Sponsorship price.</b> Round 3 uses the Pathways to Purpose price of $132 a month, about $5 a day (October 21). Rounds 1 and 2 show $93. The live sponsorship page still showed $93 on October 29 and should match before launch.</li><li><b>Brian photos.</b> Approved and now in the round 3 stories rail. Rounds 1 and 2 still show placeholders.</li><li><b>Next Walk 4 Water.</b> The October 25 Orange County walk has passed and the live homepage lists no upcoming walk. Round 3 holds a slot for the next date from the Events list.</li><li><b>Water 4 Kids.</b> The Water 4 Kids International Director to confirm what $10,500 covers, and whether to mention well inspections.</li><li><b>Where Most Needed.</b> A one-line description of the fund for direction C.</li><li><b>Graduate story.</b> Pick one Brandom Vocational testimony video for direction B.</li><li><b>Partner logos.</b> Space is held until logos and permissions arrive.</li><li><b>Nepal flood relief.</b> Temporary slot; remove when the appeal ends.</li><li><b>Kids in program.</b> Count on hold for review.</li><li><b>TikTok.</b> @hope4kidsint exists but is not linked from the current site. Link it in the new footer?</li><li><b>Tax line.</b> &quot;Gifts are tax-deductible&quot; sits under the hero buttons. Tax language for supporters goes to H4KI leadership review before launch.</li></ul>
     </section>
   </div>
 </main>
