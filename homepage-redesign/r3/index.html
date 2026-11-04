@@ -73,19 +73,26 @@ thead th{font:700 14px/1.2 var(--font-d);letter-spacing:1.2px;text-transform:upp
 .menu-shots{display:grid;grid-template-columns:1fr 1fr 260px;gap:14px;margin-top:20px}
 .menu-shots figure{margin:0}.menu-shots img{width:100%;height:auto;display:block;border-radius:10px;border:1px solid var(--line)}
 @media (max-width:900px){.menu-shots{grid-template-columns:1fr}.menu-shots figure:last-child{max-width:300px}}
+.phones{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:8px 0 24px}
+.phones figure,.wide2 figure{margin:0}.phones img,.wide2 img{width:100%;height:auto;display:block;border-radius:10px;border:1px solid var(--line);background:#fff}
+@media (max-width:900px){.phones{grid-template-columns:repeat(2,1fr)}}
+.wide2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 28px}
+@media (max-width:760px){.wide2{grid-template-columns:1fr}}
+.new{display:inline-block;background:#FFA225;color:#000;border:1px solid #000;border-radius:999px;padding:2px 10px;font:700 13px/1.4 var(--font-d);letter-spacing:1px;text-transform:uppercase;margin-left:8px;vertical-align:middle}
+.h3s{font-size:22px;margin:6px 0 12px}
 .note{background:var(--surface);border:2px solid var(--line);border-radius:20px;padding:22px 24px}
 .note p{margin:0 0 10px;max-width:900px}.note p:last-child{margin:0}
 footer{padding:40px 0 60px;color:var(--muted);font-size:15px}
 </style>
 </head>
-<body><div style="background:#FFA225;color:#000;font:400 14px/1.4 Helvetica,Arial,sans-serif;padding:0 16px;text-align:center">Round 3 snapshot, October 29, 2026. Internal review draft. <a href="../index.html" style="color:#000;font-weight:700;display:inline-flex;align-items:center;min-height:44px;padding:0 6px">All rounds</a></div>
+<body><div style="background:#FFA225;color:#000;font:400 14px/1.4 Helvetica,Arial,sans-serif;padding:0 16px;text-align:center">Round 3 snapshot, October 29, 2026, with A2 added November 4. Internal review draft. <a href="../index.html" style="color:#000;font-weight:700;display:inline-flex;align-items:center;min-height:44px;padding:0 6px">All rounds</a></div>
 <header class="top">
   <div class="wrap">
     <p class="kick">Homepage redesign, round 3</p>
     <h1>Two pages, one trail</h1>
-    <p class="date">October 29, 2026. Internal review draft.</p>
+    <p class="date">October 29, 2026. Updated November 4 with A2, mobile first. Internal review draft.</p>
     <p class="sum">Round 3 builds on round 2 A, with B's photo hero now full width and C's "I want to..." menu, journey and dotted path. Both mockups share the header, hero style, explore bar, footer and a new traveling dot. They differ in what comes right after the hero, and in how the page ends.</p>
-    <nav class="jump" aria-label="On this page"><a href="#trail">The trail</a><a href="#a">Mockup A</a><a href="#b">Mockup B</a><a href="#menu">The menu</a><a href="#sources">Where each piece came from</a><a href="#open">Open items</a></nav>
+    <nav class="jump" aria-label="On this page"><a href="#trail">The trail</a><a href="#a">Mockup A</a><a href="#a2">A2, mobile first</a><a href="#b">Mockup B</a><a href="#menu">The menu</a><a href="#sources">Where each piece came from</a><a href="#open">Open items</a></nav>
   </div>
 </header>
 
@@ -137,6 +144,35 @@ footer{padding:40px 0 60px;color:var(--muted);font-size:15px}
       <div class="shots">
         <figure><div class="frame" tabindex="0" aria-label="Mockup A desktop, full page, scrollable"><img src="screenshots/thumbs/3a-desktop-full.jpg" alt="Mockup A full page at desktop width" width="720" loading="lazy"></div><figcaption>Desktop, full page (scroll inside the frame). <a href="screenshots/3a-desktop-full.jpg">Full size</a></figcaption></figure>
         <figure class="m"><div class="frame" tabindex="0" aria-label="Mockup A phone, full page, scrollable"><img src="screenshots/3a-mobile-full.jpg" alt="Mockup A full page at phone width" width="390" loading="lazy"></div><figcaption>Phone, 390 wide. <a href="screenshots/3a-mobile-full.jpg">Full size</a></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="a2">
+    <div class="wrap">
+      <div class="mock-head"><p class="tag">Mockup A2, November 4 <span class="new">New</span></p><h2>Stories First, Mobile First</h2><a class="btn" href="mockup-3a2-mobile-first.html">Open mockup A2</a></div>
+      <p class="lede">Mockup A revised from Travis's notes. Same sections, order, copy and trail. The phone layout is now the starting point for every section, and the menu changes below apply at every screen size.</p>
+      <div class="brief"><dl>
+        <div><dt>About</dt><dd>No longer a lone link beside the menu. It is the seventh "I want to..." intent, Learn about H4KI: our story, our faith, programs, team and board, financials, FAQ, the podcast and contact.</dd></div>
+        <div><dt>Sign in</dt><dd>A Sign in control in the header at every size (an icon on phones) opens two choices: the Giving account (the Givecloud donor portal, give.h4ki.org/account/login) and the Sponsor portal for letters (letter.h4ki.org). It also sits in the phone menu, the Sponsor panel and the footer.</dd></div>
+        <div><dt>Phone menu</dt><dd>See where we serve is a plain list of the 8 countries instead of a photo grid. All seven intents start closed so the whole menu fits one screen, and opening one closes the others.</dd></div>
+        <div><dt>Mobile first</dt><dd>The stylesheet starts from the phone and adds tablet and desktop layouts on top. On phones: Sponsor and Donate move to a bottom bar that appears after the hero; the headline sits over the photo so both hero buttons land in the first screen; the six program pills show as a grid; each trip date is one tappable row; Follow along shows the video before the links; footer link groups fold up. The phone page is about 14% shorter.</dd></div>
+      </dl></div>
+      <h3 class="h3s">On a phone</h3>
+      <div class="phones">
+        <figure><img src="screenshots/thumbs/3a-mobile-fold.jpg" alt="Mockup A on a phone, first screen, before the changes" width="390" height="844" loading="lazy"><figcaption>Before (A): first screen</figcaption></figure>
+        <figure><img src="screenshots/thumbs/3a2-mobile-fold.jpg" alt="Mockup A2 on a phone, first screen, with both hero buttons visible" width="390" height="844" loading="lazy"><figcaption>After (A2): first screen</figcaption></figure>
+        <figure><img src="screenshots/thumbs/3a2-mobile-menu-places.jpg" alt="The A2 phone menu with See where we serve open as a list of countries" width="390" height="844" loading="lazy"><figcaption>Menu: countries as a list</figcaption></figure>
+        <figure><img src="screenshots/thumbs/3a2-mobile-signin.jpg" alt="The A2 Sign in panel on a phone with Giving account and Sponsor portal" width="390" height="844" loading="lazy"><figcaption>Sign in from the header icon</figcaption></figure>
+      </div>
+      <h3 class="h3s">On a desktop</h3>
+      <div class="wide2">
+        <figure><img src="screenshots/thumbs/3a2-desktop-menu-about.jpg" alt="The I want to panel open on Learn about H4KI" width="960" height="600" loading="lazy"><figcaption>About now lives in the menu as Learn about H4KI</figcaption></figure>
+        <figure><img src="screenshots/thumbs/3a2-desktop-signin.jpg" alt="The Sign in panel open under the header with two account choices" width="960" height="600" loading="lazy"><figcaption>Sign in, beside Donate and Sponsor a Child</figcaption></figure>
+      </div>
+      <div class="shots">
+        <figure><div class="frame" tabindex="0" aria-label="Mockup A2 desktop, full page, scrollable"><img src="screenshots/thumbs/3a2-desktop-full.jpg" alt="Mockup A2 full page at desktop width" width="720" loading="lazy"></div><figcaption>Desktop, full page (scroll inside the frame). <a href="screenshots/3a2-desktop-full.jpg">Full size</a></figcaption></figure>
+        <figure class="m"><div class="frame" tabindex="0" aria-label="Mockup A2 phone, full page, scrollable"><img src="screenshots/3a2-mobile-full.jpg" alt="Mockup A2 full page at phone width" width="390" loading="lazy"></div><figcaption>Phone, 390 wide. <a href="screenshots/3a2-mobile-full.jpg">Full size</a></figcaption></figure>
       </div>
     </div>
   </section>
@@ -212,6 +248,7 @@ footer{padding:40px 0 60px;color:var(--muted);font-size:15px}
             <li>Button wording follows that email: "Cover boarding" for the $132 ask, since some students need both a sponsor and boarding support.</li>
             <li>Brian's photo is in the stories rail, with the line from the email: Fairmont's very first graduating class, now training to run heavy machinery.</li>
             <li>The past Oct 25 walk is gone. The live homepage listed no upcoming walk on Oct 29.</li>
+            <li>Nov 4: A2 adds Sign in, moves About into the menu, lists countries in the phone menu and rebuilds the layout phone first.</li>
           </ul>
         </div>
         <div>
@@ -221,6 +258,7 @@ footer{padding:40px 0 60px;color:var(--muted);font-size:15px}
             <li>The live sponsorship page still showed $93 on Oct 29; it should match $132 before the homepage points to it.</li>
             <li>University and partner logos (space held), plus video poster files for the walk promo and the Namibia video.</li>
             <li>"Gifts are tax-deductible" in the hero needs a check from H4KI leadership before launch.</li>
+            <li>Sign in: whether the Giving account and the Sponsor portal will ever share one sign in, and a check that the Giving account line matches what the Givecloud portal shows.</li>
             <li>Elementor build: everything is native except the trail, which needs one small Custom Code snippet. The fallback is C's fixed dotted line with a node per section.</li>
           </ul>
         </div>
