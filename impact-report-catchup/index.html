@@ -7,384 +7,172 @@
 <title>H4KI 2026 Impact Report, The Story So Far</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 <style>
-:root{
-  --blue:#4179B5; --navy:#1D4695; --ink:#14213d; --orange:#FFA225; --water:#2196F3;
-  --green:#92CAB4; --red:#F24444; --paper:#fbfaf7; --card:#fff; --line:#dfe3ea; --mute:#566178;
-  --r:16px;
-}
+:root{--navy:#1D4695;--blue:#4179B5;--ink:#172033;--orange:#FFA225;--paper:#fbf8f2;--mute:#6a7286;--line:#e4dfd3}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:64px}
-body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.6 "Helvetica Neue",Helvetica,Arial,sans-serif;-webkit-text-size-adjust:100%}
-img{max-width:100%;height:auto;display:block}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 20px/1.6 Lora,Georgia,serif;-webkit-text-size-adjust:100%}
+img{display:block;max-width:100%;height:auto}
 a{color:var(--navy);text-underline-offset:3px}
-a:focus-visible,summary:focus-visible{outline:3px solid var(--orange);outline-offset:3px;border-radius:6px}
-h1,h2,h3{font-family:Oswald,"Arial Narrow",sans-serif;font-weight:600;line-height:1.12;margin:0;letter-spacing:.01em}
-.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
-.draft{background:var(--ink);color:#fff;font-size:13px;text-align:center;padding:8px 16px;letter-spacing:.04em}
-nav.top{position:sticky;top:0;z-index:5;background:rgba(251,250,247,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-nav.top .wrap{display:flex;gap:6px;overflow-x:auto;padding-top:10px;padding-bottom:10px;scrollbar-width:none}
-nav.top a{flex:none;font-size:14px;text-decoration:none;color:var(--ink);padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:#fff}
-nav.top a:hover{border-color:var(--blue);color:var(--navy)}
-header.hero{padding:56px 0 36px}
-.kicker{display:flex;align-items:center;gap:10px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-bottom:14px}
-.dots{display:inline-flex;gap:5px}
-.dots i{width:9px;height:9px;border-radius:50%;display:block}
-.dots i:nth-child(1){background:var(--water)}.dots i:nth-child(2){background:var(--orange)}
-.dots i:nth-child(3){background:var(--green)}.dots i:nth-child(4){background:var(--red)}
-h1{font-size:clamp(38px,7vw,68px);text-transform:uppercase}
-h1 span{color:var(--blue)}
-.lede{font-size:clamp(18px,2.3vw,21px);max-width:720px;margin:18px 0 0;color:#2a3550}
-section{padding:44px 0;border-top:1px solid var(--line)}
-h2{font-size:clamp(28px,4.4vw,40px);text-transform:uppercase;margin-bottom:6px}
-.when{font-size:14px;color:var(--mute);margin:0 0 18px}
-h3{font-size:21px;margin:0 0 6px}
-p{margin:0 0 14px}
-.cols{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
-.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px}
-.card p:last-child,.card ul:last-child{margin-bottom:0}
-ul{margin:0 0 14px;padding-left:20px}
-li{margin-bottom:6px}
-.now{background:var(--navy);color:#fff;border-radius:var(--r);padding:26px;margin-top:30px}
-.now h2{font-size:26px;margin-bottom:12px}
-.now a{color:#fff}
-.now ol{margin:0;padding-left:22px}
-.now li{margin-bottom:9px}
-.now strong{color:var(--orange)}
-.why{border-left:4px solid var(--orange);background:#fff7e9;border-radius:0 var(--r) var(--r) 0;padding:14px 18px;margin:16px 0}
-.why b{font-family:Oswald,sans-serif;font-weight:500;letter-spacing:.08em;text-transform:uppercase;font-size:13px;color:#8a5200;display:block;margin-bottom:2px}
-.why p:last-child{margin-bottom:0}
-.facts{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin:18px 0}
-.fact{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:14px 16px}
-.fact b{font-family:Oswald,sans-serif;font-size:32px;font-weight:600;color:var(--navy);display:block;line-height:1.1}
-.fact span{font-size:14px;color:var(--mute)}
-table{width:100%;border-collapse:collapse;font-size:15px;background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
-th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
-th{font-family:Oswald,sans-serif;font-weight:500;letter-spacing:.06em;text-transform:uppercase;font-size:13px;background:#f1f4f9}
-tr:last-child td{border-bottom:0}
-.scroll{overflow-x:auto}
-.rounds{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
-.round{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
-.round .pic{background:#e9edf3;aspect-ratio:16/10;overflow:hidden}
-.round .pic img{width:100%;height:100%;object-fit:cover;object-position:top}
-.round .body{padding:16px 18px 18px}
-.tag{display:inline-block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin-bottom:4px}
-.round p{font-size:15.5px;margin-bottom:8px}
-.round .moved{color:#2a3550;border-top:1px dashed var(--line);padding-top:8px;margin-bottom:8px}
-.round a{font-size:14px}
-figure{margin:18px 0}
-figure img{border:1px solid var(--line);border-radius:var(--r);width:100%}
-figcaption{font-size:14px;color:var(--mute);margin-top:8px}
-.two{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));align-items:start}
-.pill{display:inline-block;font-size:12px;border-radius:999px;padding:2px 10px;border:1px solid var(--line);background:#fff;margin-left:6px;vertical-align:middle;letter-spacing:.04em}
-.pill.done{border-color:#7fb89f;background:#eaf6f0;color:#1d5c41}
-.pill.open{border-color:#f0b660;background:#fff3de;color:#7a4a00}
-.q{counter-reset:q;list-style:none;padding:0;margin:0;display:grid;gap:12px}
-.q li{counter-increment:q;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:16px 18px 16px 58px;position:relative;margin:0}
-.q li::before{content:counter(q);position:absolute;left:16px;top:14px;width:30px;height:30px;border-radius:50%;background:var(--orange);color:var(--ink);font-family:Oswald,sans-serif;font-weight:600;display:grid;place-items:center}
-.q b{display:block}
-details{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:14px 18px}
-summary{cursor:pointer;font-family:Oswald,sans-serif;font-size:18px}
-details ul{margin-top:12px;font-size:15px}
-footer{padding:30px 0 60px;font-size:14px;color:var(--mute);border-top:1px solid var(--line)}
-@media (max-width:600px){body{font-size:16px}header.hero{padding:36px 0 24px}section{padding:34px 0}}
+a:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+.draft{background:var(--ink);color:#fff;font:13px/1.4 "Helvetica Neue",Helvetica,Arial,sans-serif;text-align:center;padding:8px 16px;letter-spacing:.04em}
+.col{max-width:720px;margin:0 auto;padding:0 22px}
+.wide{max-width:1120px;margin:0 auto;padding:0 22px}
+h1,h2{font-family:Oswald,"Arial Narrow",sans-serif;font-weight:600;line-height:1.08;margin:0;text-wrap:balance}
+h1{font-size:clamp(46px,9vw,96px);text-transform:uppercase}
+h1 em{font-style:normal;color:var(--blue)}
+h2{font-size:clamp(32px,5.4vw,54px)}
+p{margin:0 0 18px}
+.date{font:500 14px/1 Oswald,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin:0 0 14px;display:flex;align-items:center;gap:10px}
+.date::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--orange)}
+header{padding:12vh 0 9vh}
+header p{font-size:clamp(20px,2.6vw,25px);margin-top:26px;max-width:640px}
+.beat{padding:9vh 0}
+.beat h2{margin-bottom:22px}
+.shot{margin:38px auto 0}
+.shot img{width:100%;border-radius:16px;box-shadow:0 18px 50px -24px rgba(23,32,51,.45)}
+.shot.tall{max-width:560px}
+figcaption{font:14px/1.5 "Helvetica Neue",Helvetica,Arial,sans-serif;color:var(--mute);margin-top:12px;text-align:center}
+.strip{display:flex;gap:22px;overflow-x:auto;padding:8px 22px 26px;margin-top:38px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+.strip figure{flex:0 0 min(300px,70vw);margin:0;scroll-snap-align:center}
+.strip img{width:100%;aspect-ratio:720/932;object-fit:cover;border-radius:16px;box-shadow:0 14px 36px -20px rgba(23,32,51,.5)}
+.strip b{display:block;font:600 20px/1.2 Oswald,sans-serif;margin:14px 0 4px;color:var(--ink)}
+.strip figcaption{text-align:left;font:16px/1.45 Lora,Georgia,serif;color:#3b4459;margin:0}
+.strip a{font:13px "Helvetica Neue",Helvetica,Arial,sans-serif}
+@media (min-width:1200px){.strip{justify-content:center}}
+blockquote{margin:0;padding:10vh 22px;background:var(--navy);color:#fff;text-align:center}
+blockquote p{font:italic 500 clamp(26px,4.2vw,44px)/1.3 Lora,Georgia,serif;max-width:900px;margin:0 auto 22px;text-wrap:balance}
+blockquote cite{font:500 14px/1 Oswald,sans-serif;letter-spacing:.16em;text-transform:uppercase;font-style:normal;color:var(--orange)}
+.dark{background:var(--ink);color:#fff}
+.dark .date{color:#aab3c7}
+.dark a{color:#fff}
+.plain{list-style:none;padding:0;margin:26px 0 0}
+.plain li{padding:16px 0;border-top:1px solid rgba(255,255,255,.18);font-size:21px}
+.plain li b{font-family:Oswald,sans-serif;font-weight:500;color:var(--orange);margin-right:8px}
+.learn p{font-size:clamp(22px,3vw,28px);line-height:1.45;padding:22px 0;margin:0;border-top:1px solid var(--line)}
+.learn p:first-of-type{border-top:0}
+footer{padding:36px 0 70px;font:14px/1.6 "Helvetica Neue",Helvetica,Arial,sans-serif;color:var(--mute);text-align:center}
+@media (max-width:600px){body{font-size:18px}.beat{padding:7vh 0}.plain li{font-size:19px}}
 </style>
 </head>
 <body>
 <div class="draft">INTERNAL DRAFT FOR STAFF REVIEW · Figures and copy are not final · Please do not forward</div>
 
-<nav class="top" aria-label="Sections"><div class="wrap">
-  <a href="#today">Today</a><a href="#request">The request</a><a href="#plan">Mark's plan</a><a href="#data">The data</a>
-  <a href="#research">Research</a><a href="#design">Design rounds</a><a href="#angie">Angie's direction</a>
-  <a href="#learned">What we learned</a><a href="#next">Decisions for Jenny</a>
-</div></nav>
-
-<header class="hero"><div class="wrap">
-  <div class="kicker"><span class="dots" aria-hidden="true"><i></i><i></i><i></i><i></i></span>2026 Impact Report · Catch up for Jenny · Nov 13, 2026</div>
-  <h1>The story <span>so far</span></h1>
-  <p class="lede">How the Hope 4 Kids International 2026 Impact Report got from a Basecamp outline in August to where it stands today, why each turn was made, and what still needs a decision. Built from the project files, email, Zoom meeting notes and Basecamp notifications.</p>
-
-  <div class="now" id="today">
-    <h2>Where we are today</h2>
-    <ol>
-      <li><strong>The direction is set by Angie.</strong> Title is "Hope in Action." The report leads with transformed lives, uses large photos, and paints the year in broad strokes instead of listing everything.</li>
-      <li><strong>Two sets of pages exist.</strong> Our designed 18 spread draft (round 7), and the title page and At a Glance page Angie made in ChatGPT and posted to Basecamp on Nov 11. Her pages are now the style base.</li>
-      <li><strong>The working plan from Nov 11:</strong> Angie posts pages to Basecamp, staff comment section by section, and Travis and Florencey rebuild the pages as editable Canva files, fixing fonts, spacing and facts.</li>
-      <li><strong>The clock:</strong> about 25 printed copies for the board meeting in the first week of December (Mark's plan had Dec 4), so files need to be print ready around Nov 20. A quick local print run is the plan.</li>
-      <li><strong>Still missing:</strong> final numbers, most section content from directors, the leadership letters, and a few fact checks. <a href="#next">See the list for Jenny.</a></li>
-    </ol>
-  </div>
+<header><div class="col">
+  <p class="date">2026 Impact Report · For Jenny · Nov 13, 2026</p>
+  <h1>The story <em>so far</em></h1>
+  <p>How the Hope 4 Kids International 2026 Impact Report grew from an outline in August into "Hope in Action," and where it stands today.</p>
 </div></header>
 
-<section id="request"><div class="wrap">
-  <div class="kicker"><span class="dots" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Chapter 1</div>
-  <h2>The first request</h2>
-  <p class="when">Aug 31 to Sep 14, 2026</p>
-  <div class="cols">
-    <div class="card">
-      <h3>Angie opens the project</h3>
-      <p>On Aug 31 Angie created the Basecamp project "2026 End of Year Impact Report" and invited ten staff, you included. The to do list was the outline: one item per section, from Cover through Because of You.</p>
-      <p>A few early notes sat in it: "The work continues" for Looking Ahead, and "Every well. Every classroom. Every meal. Every life touched. You helped make it possible" for the thank you page.</p>
-    </div>
-    <div class="card">
-      <h3>The brief, as the Dev Team heard it</h3>
-      <ul>
-        <li>A report for the Board of Directors first.</li>
-        <li>A small print run, about 20 copies, handed out at the board meeting.</li>
-        <li>A digital version later, once year end actuals are in.</li>
-        <li>Use AI to turn what directors already report into a professional document.</li>
-      </ul>
-      <p>Source: Dev Team meeting notes, Sep 14.</p>
-    </div>
-  </div>
-  <div class="why"><b>Why it matters</b><p>Angie framed this partly as a test. In Travis's words to her on Oct 19, it is "a first look at your question of how much AI can carry, and where people still make the difference." That question shaped how the work was done and is worth keeping in view.</p></div>
-  <p>As a warm up on Sep 14 and 15, Mark sent the 2025 board packet report draft and Travis used it to trial nine visual directions as web pages. The useful takeaway came a few weeks later: stakeholders wanted something printable, so the work moved from web pages to a PDF book.</p>
+<section class="beat"><div class="col">
+  <p class="date">August 31</p>
+  <h2>It started with an outline.</h2>
+  <p>Angie opened a Basecamp project and listed the sections she wanted, from the cover to a closing thank you. The audience was the Board of Directors, with a handful of printed copies for the December meeting.</p>
+  <p>She also had a question behind it: how much of this can AI carry, and where do people still make the difference?</p>
 </div></section>
 
-<section id="plan"><div class="wrap">
-  <div class="kicker"><span class="dots" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Chapter 2</div>
-  <h2>Mark's plan</h2>
-  <p class="when">Sep 15 to Sep 28, 2026</p>
-  <p>Mark turned the outline into a schedule with an owner for every section, sent it to Angie on Sep 15, and shared it with the directors on Sep 22. He also supplied the source documents and settled how content would flow.</p>
-  <div class="two">
-    <div>
-      <div class="scroll"><table>
-        <tr><th>Section</th><th>Owner</th></tr>
-        <tr><td>Cover, At a Glance, Milestones, Where We Serve, Transformational Story, Because of You, infographics</td><td>Marketing</td></tr>
-        <tr><td>Message from Leadership, Looking Ahead into 2027</td><td>Angie Simon, Tom Eggum</td></tr>
-        <tr><td>Mission Teams, Child Sponsorship, Education</td><td>Amy Bista</td></tr>
-        <tr><td>Financial Stewardship</td><td>Teresa Griffin</td></tr>
-        <tr><td>Health Services</td><td>Josh Pfeiffer</td></tr>
-        <tr><td>Water 4 Kids</td><td>Laura Mills</td></tr>
-        <tr><td><strong>Global Engagement</strong></td><td><strong>Jenny Herzog</strong></td></tr>
-        <tr><td>Projects</td><td>Kelley Pierce</td></tr>
-        <tr><td>Marketing and Development</td><td>Mark Sorensen</td></tr>
-      </table></div>
-    </div>
-    <div>
-      <div class="scroll"><table>
-        <tr><th>Mark's timeline</th><th>Window</th></tr>
-        <tr><td>Collect leadership and Amy's material before travel</td><td>Sep 15 to 29</td></tr>
-        <tr><td>Draft around Cambodia and Philippines travel</td><td>Sep 30 to Oct 18</td></tr>
-        <tr><td>Report complete</td><td>Oct 19 to 30</td></tr>
-        <tr><td>Uganda team travel, no active work planned</td><td>Nov 3 to 16</td></tr>
-        <tr><td>Finalize and send to print</td><td>Nov 17 to 20</td></tr>
-        <tr><td>Printing and delivery</td><td>Nov 20 to Dec 3</td></tr>
-        <tr><td>Board meeting</td><td>Dec 4</td></tr>
-        <tr><td>Refresh with final numbers</td><td>After year end close</td></tr>
-      </table></div>
-    </div>
-  </div>
-  <div class="cols" style="margin-top:18px">
-    <div class="card"><h3>The workflow Mark set (Sep 28)</h3><p>Directors write their board reports as usual and send them in. Marketing turns those into the report pages. No one has to write a second document.</p></div>
-    <div class="card"><h3>The sources Mark gathered</h3><p>The May 2026 board packet, the Q3 board update and the September ministry update (sent Sep 28), plus the first quarter board update on Oct 22.</p></div>
-    <div class="card"><h3>His ground rule</h3><p>Statistics come from the departments. Nothing is made up, and placeholders stay marked as placeholders until real data arrives. Every draft since has followed it.</p></div>
-  </div>
-  <div class="why"><b>Reasoning and what changed</b><p>The schedule was built around travel so the report would be done before five section owners left for Uganda. The November Uganda trip did not happen, and in October Mark suggested each director send an updated board report so their page could be built from it. Only one of those has arrived so far (Kelley's fact sheet for Education, Projects and Food, Nov 10). The original content due dates of Sep 29 and Oct 19 have passed for the rest.</p></div>
+<section class="beat"><div class="col">
+  <p class="date">September</p>
+  <h2>Mark gave it owners and a calendar.</h2>
+  <p>Every section got a name beside it, yours included for Global Engagement. He worked the dates backward from the board meeting on December 4 and planned around everyone's travel.</p>
+  <p>He also kept it simple for directors: write your board report as usual, and our team turns it into a page. Then he sent over the board packets to work from.</p>
 </div></section>
 
-<section id="data"><div class="wrap">
-  <div class="kicker"><span class="dots" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Chapter 3</div>
-  <h2>The data</h2>
-  <p class="when">Sep 28 to Oct 28, 2026</p>
-  <p>Before any page was trusted, every fact from the board documents was pulled into one master file. Each figure carries its source and an "as of" date, and every mockup reads from that one file, so a number corrected once is corrected everywhere.</p>
-  <div class="facts">
-    <div class="fact"><b>1</b><span>shared data file for all 17 sections</span></div>
-    <div class="fact"><b>5</b><span>sources, S1 to S5</span></div>
-    <div class="fact"><b>610</b><span>facts checked against the board PDFs</span></div>
-    <div class="fact"><b>127</b><span>metrics tracked</span></div>
-  </div>
-  <div class="scroll"><table>
-    <tr><th>Source</th><th>What it is</th></tr>
-    <tr><td>S1</td><td>May 28, 2026 board packet</td></tr>
-    <tr><td>S2</td><td>Q3 and August ministry update</td></tr>
-    <tr><td>S3</td><td>Angie's Sep 14 update to the board (newest figures at the time)</td></tr>
-    <tr><td>S4</td><td>2025 board report summary, used only as last year's context</td></tr>
-    <tr><td>S5</td><td>Staff review in Basecamp, Oct 28. Staff decisions override earlier calls.</td></tr>
-  </table></div>
-  <div class="cols" style="margin-top:18px">
-    <div class="card"><h3>Rules we set</h3><ul>
-      <li>When sources disagree, the most precise and most current figure wins.</li>
-      <li>Giving figures are labeled interim and unaudited until Finance signs off.</li>
-      <li>Organizations, foundations and churches may be named. Individuals are never tied to gift amounts.</li>
-      <li>Children are not named, and no child's face sits on a page that names a school or sponsorship.</li>
-    </ul></div>
-    <div class="card"><h3>What staff review changed</h3><ul>
-      <li>Countries: 10 became 8 (Kenya and India removed).</li>
-      <li>Milestones: rebuilt as 17 items, January to October.</li>
-      <li>The school is Brandom Vocational Technical Institute everywhere.</li>
-      <li>Wells: Laura confirmed 117 for the year and 1,426 in total (Nov 12).</li>
-    </ul></div>
-  </div>
-  <div class="why"><b>Why it matters</b><p>The data file is the part of this work that outlasts any design. Whichever layout wins, the checked facts, the milestone timeline and the open questions come with it. It also exposed the real gap: the board documents cover roughly January through September, so the report cannot be final until directors send current numbers.</p></div>
+<section class="beat"><div class="col">
+  <p class="date">Late September</p>
+  <h2>Before designing anything, we got the facts in one place.</h2>
+  <p>Every number and milestone from the board documents went into a single file, each one tagged with where it came from. Every draft since has pulled from that same file, so a correction made once shows up everywhere.</p>
+  <p>We also read 52 impact reports from ministries like ours. The best ones choose a few numbers and give each one a face.</p>
 </div></section>
 
-<section id="research"><div class="wrap">
-  <div class="kicker"><span class="dots" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Chapter 4</div>
-  <h2>What peers do</h2>
-  <p class="when">Sep 29 to 30, 2026</p>
-  <p>We surveyed 52 recent annual and impact reports from faith based sponsorship ministries, water organizations, Uganda focused peers and the best digital reports.</p>
-  <div class="cols">
-    <div class="card"><h3>Closest matches</h3><p>Hope for Haiti (stories tied to core values), Fields of Life (a simple pillar spine), Medical Teams (best microsite) and World Relief (web report plus a short PDF with QR links).</p></div>
-    <div class="card"><h3>What stood out</h3><p>No peer at our budget size has a scroll based web report. The strongest reports pick a few numbers, give each a face and a story, and keep the finance page plain and honest.</p></div>
-    <div class="card"><h3>How we used it</h3><p>As a checklist for every round, and as the case for a short printed book now with a digital refresh after year end.</p></div>
+<section class="beat">
+  <div class="col">
+    <p class="date">September 30 to October 5</p>
+    <h2>Then we designed. Six times.</h2>
+    <p>Each round kept what worked and fixed what bothered us about the one before.</p>
   </div>
-  <p style="margin-top:14px"><a href="https://claude.ai/artifact/AwoEdAknXZnCpLzjnGz7Qq">Open the peer benchmark page</a> (H4KI sign in needed).</p>
+  <div class="strip" tabindex="0" aria-label="Covers from rounds one to six, scroll sideways">
+    <figure><img src="img/r1.jpg" alt="Round 1 cover" loading="lazy"><b>1. Open Doors</b><figcaption>A bold first look. The theme was ours, not the ministry's. <a href="https://travis-h4ki.github.io/h4ki-sites/impact-report-gallery/#r1/1">Pages</a></figcaption></figure>
+    <figure><img src="img/r2.jpg" alt="Round 2 cover" loading="lazy"><b>2. Alongside</b><figcaption>Quieter, like a magazine. The first with every number checked. <a href="https://travis-h4ki.github.io/h4ki-sites/impact-report-gallery/#r2/1">Pages</a></figcaption></figure>
+    <figure><img src="img/r3.jpg" alt="Round 3 cover" loading="lazy"><b>3. New Ground</b><figcaption>The look of round 1 with the care of round 2, on Angie's outline. <a href="https://travis-h4ki.github.io/h4ki-sites/impact-report-gallery/#r3/1">Pages</a></figcaption></figure>
+    <figure><img src="img/r4.jpg" alt="Round 4 cover" loading="lazy"><b>4. Number Posters</b><figcaption>One big number per page. Clear, but people came second. <a href="https://travis-h4ki.github.io/h4ki-sites/impact-report-gallery/#r4/1">Pages</a></figcaption></figure>
+    <figure><img src="img/r5.jpg" alt="Round 5 cover" loading="lazy"><b>5. Faces</b><figcaption>The children we serve moved to the front. <a href="https://travis-h4ki.github.io/h4ki-sites/impact-report-gallery/#r5/1">Pages</a></figcaption></figure>
+    <figure><img src="img/r6c.jpg" alt="Round 6 cover" loading="lazy"><b>6. Two Speeds</b><figcaption>Not a new look. A new way to read it. <a href="https://travis-h4ki.github.io/h4ki-sites/impact-report-gallery/#r6c/1">Pages</a></figcaption></figure>
+  </div>
+</section>
+
+<section class="beat">
+  <div class="col">
+    <p class="date">October 2</p>
+    <h2>Halfway through, we stopped and compared twelve looks side by side.</h2>
+    <p>Same cover, same words, twelve different styles. It let us choose a direction on purpose instead of drifting into one.</p>
+  </div>
+  <figure class="shot wide"><img src="img/art-covers.jpg" alt="Twelve cover studies in different visual styles, side by side" loading="lazy"></figure>
+</section>
+
+<section class="beat">
+  <div class="col">
+    <p class="date">October 5</p>
+    <h2>Round six was built for a busy board member.</h2>
+    <p>The colored band across the top of each page is the three minute read: one number, one quote, one face. Everything below it is there for the person who wants the full half hour. Each program shows its goal, what happened, and what comes next, and each author signs their page.</p>
+    <p>Mark saw it first. Florencey brought the designer's eye, so it would never feel machine made. On October 19 it went to Angie.</p>
+  </div>
+  <figure class="shot wide"><img src="img/r6-teams.jpg" alt="Round 6 Mission Teams spread with a green band across the top holding a large number, a quote and a portrait" loading="lazy"><figcaption>Round 6, Mission Teams. Copy and numbers were placeholders from the May board packet.</figcaption></figure>
+</section>
+
+<blockquote>
+  <p>"Behind every number is a story of hope: a child with a brighter future, a family whose burdens are lighter and a community touched by God's love."</p>
+  <cite>The line Angie wrote in place of our giving comparison</cite>
+</blockquote>
+
+<section class="beat">
+  <div class="col">
+    <p class="date">October 27 to 29</p>
+    <h2>Then Angie saw it, and the report found its heart.</h2>
+    <p>She renamed it "Hope in Action." She put scripture where we had summary lines. She asked us to lead with transformed lives and let the money come second, and to let photos fill the page.</p>
+    <p>Staff weighed in too. Eight countries instead of ten, a fuller list of milestones, and a new cover photo. You cleaned up one of the cover options yourself.</p>
+  </div>
+  <figure class="shot tall"><img src="img/r7-01-cover.jpg" alt="Round 7 cover: Hope in Action, 2026 Impact Report, with a smiling girl in Cambodia" loading="lazy"><figcaption>Round 7, built the next day with every staff change applied.</figcaption></figure>
+</section>
+
+<section class="beat">
+  <div class="col">
+    <h2>The year, in order.</h2>
+    <p>Angie rewrote the milestones herself. This is the page she said "looks so good," and it carries forward whatever else changes.</p>
+  </div>
+  <figure class="shot wide"><img src="img/r7-04-milestones.jpg" alt="Round 7 Milestones spread, a timeline from January to October 2026" loading="lazy"></figure>
+  <figure class="shot wide"><img src="img/r7-story.jpg" alt="Round 7 Transformational Story spread about a sponsored boy in the Philippines" loading="lazy"><figcaption>The transformational story, waiting on the family's words and consent before it prints.</figcaption></figure>
+</section>
+
+<section class="beat"><div class="col">
+  <p class="date">November 11</p>
+  <h2>"Broad brush strokes."</h2>
+  <p>Angie drafted a title page and an At a Glance page herself in ChatGPT and posted them to Basecamp. They are simpler and more photo led than ours, and they are now the look we follow.</p>
+  <p>Her guidance to the directors: highlights and milestones from the whole year, not every single thing we did.</p>
+  <p>So the plan is this. Angie posts pages. Staff comment by section in Basecamp. Florencey and I rebuild each page in Canva so anyone can edit it, in our fonts, with facts checked against the file we built in September.</p>
 </div></section>
 
-<section id="design"><div class="wrap">
-  <div class="kicker"><span class="dots" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Chapter 5</div>
-  <h2>Seven design rounds</h2>
-  <p class="when">Sep 30 to Oct 29, 2026</p>
-  <p>Each round kept what worked and answered a specific problem with the one before. Rounds 1 to 6 are in the <a href="https://travis-h4ki.github.io/h4ki-sites/impact-report-gallery/">flipbook gallery</a>, page by page.</p>
-
-  <div class="rounds">
-    <article class="round"><div class="pic"><img src="img/r1.jpg" alt="Round 1 cover" loading="lazy"></div><div class="body">
-      <span class="tag">Round 1 · Sep 30 to Oct 1</span><h3>Open Doors</h3>
-      <p>Arch shapes as doors, duotone photo plates, giant numerals. A 14 page book and a 4 page snapshot.</p>
-      <p class="moved"><b>Why we moved on:</b> a strong look, but the theme was ours, not the ministry's, and the numbers were not yet locked down.</p>
-      <a href="https://travis-h4ki.github.io/h4ki-sites/impact-report-gallery/#r1/1">View pages</a></div></article>
-
-    <article class="round"><div class="pic"><img src="img/r2.jpg" alt="Round 2 cover" loading="lazy"></div><div class="body">
-      <span class="tag">Round 2 · Oct 1 to 2</span><h3>Alongside</h3>
-      <p>An editorial magazine in the live site's fonts with the dot logo as its only device. First round where every figure came from one checked file.</p>
-      <p class="moved"><b>Why we moved on:</b> the data handling was right, the look was quieter than round 1.</p>
-      <a href="https://travis-h4ki.github.io/h4ki-sites/impact-report-gallery/#r2/1">View pages</a></div></article>
-
-    <article class="round"><div class="pic"><img src="img/r3.jpg" alt="Round 3 cover" loading="lazy"></div><div class="body">
-      <span class="tag">Round 3 · Oct 2</span><h3>New Ground</h3>
-      <p>Round 1's art with round 2's data, rebuilt on the 17 section outline from Basecamp. Board first, each section drafted in its leader's voice from their board report and flagged for their rewrite.</p>
-      <p class="moved"><b>Why we moved on:</b> the structure held. The visual direction still did not feel settled.</p>
-      <a href="https://travis-h4ki.github.io/h4ki-sites/impact-report-gallery/#r3/1">View pages</a></div></article>
-
-    <article class="round"><div class="pic"><img src="img/r4.jpg" alt="Round 4 cover" loading="lazy"></div><div class="body">
-      <span class="tag">Round 4 · Oct 2 to 3</span><h3>Number Posters</h3>
-      <p>After comparing 12 art directions side by side, the poster direction won: one bold numeral per spread, true color photos, strong contrast for print.</p>
-      <p class="moved"><b>Why we moved on:</b> numbers led and people followed. It needed more faces.</p>
-      <a href="https://travis-h4ki.github.io/h4ki-sites/impact-report-gallery/#r4/1">View pages</a></div></article>
-
-    <article class="round"><div class="pic"><img src="img/r5.jpg" alt="Round 5 cover" loading="lazy"></div><div class="body">
-      <span class="tag">Round 5 · Oct 3</span><h3>Faces</h3>
-      <p>Round 4 with a photo layer led by the children we serve, plus color sets that can be swapped in one step.</p>
-      <p class="moved"><b>Why we moved on:</b> rounds 1 to 5 were all new skins on the same book. The board needed a better way to read it, not another look.</p>
-      <a href="https://travis-h4ki.github.io/h4ki-sites/impact-report-gallery/#r5/1">View pages</a></div></article>
-
-    <article class="round"><div class="pic"><img src="img/r6c.jpg" alt="Round 6 cover" loading="lazy"></div><div class="body">
-      <span class="tag">Round 6 · Oct 5</span><h3>Two Speeds</h3>
-      <p>A structural change. A 3 minute band across the top of every spread for the fast reader and a 30 minute body below. Each program shows Goal, Actual, Next. Authors sign their pages. One orange thread runs through the book. Built three ways (A, B, C).</p>
-      <p class="moved"><b>What happened:</b> round 6 went to Mark (Oct 5), Florencey (Oct 13) and Angie (Oct 19). Version C is the one staff reviewed in Basecamp.</p>
-      <a href="https://travis-h4ki.github.io/h4ki-sites/impact-report-gallery/#r6c/1">View pages</a></div></article>
-  </div>
-
-  <figure><img src="img/art-covers.jpg" alt="Twelve cover studies, one per art direction, shown side by side" loading="lazy"><figcaption>The Oct 2 art direction board: the same cover, story and At a Glance content in 12 different looks, so the choice was about style alone.</figcaption></figure>
-
-  <h3 style="margin-top:28px">Round 7: Hope in Action (Oct 28)</h3>
-  <p>Round 6C with every staff change from Basecamp applied. 18 spreads, plus a 34 page letter size print edition.</p>
-  <div class="two">
-    <figure style="margin:0"><img src="img/r7-01-cover.jpg" alt="Round 7 cover titled Hope in Action, 2026 Impact Report" loading="lazy"><figcaption>Cover with the new title and Angie's Cambodia photo.</figcaption></figure>
-    <div>
-      <figure style="margin:0 0 18px"><img src="img/r7-03-glance.jpg" alt="Round 7 At a Glance spread" loading="lazy"><figcaption>2026 At a Glance.</figcaption></figure>
-      <figure style="margin:0"><img src="img/r7-04-milestones.jpg" alt="Round 7 Milestones timeline spread" loading="lazy"><figcaption>Milestones, the timeline Angie said "looks so good" and plans to reuse as a baseline.</figcaption></figure>
-    </div>
-  </div>
-  <p style="margin-top:16px"><a href="https://claude.ai/artifact/KpyMiZ1kdNTFejFWAoucq8">Open the round 7 review board</a> to see all 18 spreads and leave comments or suggested edits (H4KI sign in needed).</p>
-
-  <div class="why"><b>Team input along the way</b><p><strong>Mark:</strong> "Looks great, great start." He pushed for emailing Angie the draft so she could digest it before a meeting. <strong>Florencey:</strong> liked the grainy dissolve edges, flagged that several fonts are off brand, and agreed the department and director name at the top of each page should go since authors sign at the bottom. Her role is the designer's eye, so the result never reads as machine made. <strong>Jenny:</strong> you cleaned up the background of the alternate cover photo on Oct 28.</p></div>
+<section class="beat"><div class="col learn">
+  <p class="date">What we learned</p>
+  <p>Show Angie sooner. Ten days of her feedback moved this further than three weeks of our rounds.</p>
+  <p>AI is a strong first draft. It researched, organized and laid out pages quickly. Voice, judgment and knowing what is true this week still came from people.</p>
+  <p>Design was never the holdup. Current numbers and stories from each department are.</p>
 </div></section>
 
-<section id="angie"><div class="wrap">
-  <div class="kicker"><span class="dots" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Chapter 6</div>
-  <h2>Angie's direction</h2>
-  <p class="when">Oct 19 to Nov 12, 2026</p>
-  <p>Angie first saw a full draft on Oct 19. Her feedback came in three steps and it changed the brief more than any design round did.</p>
-
-  <div class="cols">
-    <div class="card">
-      <h3>1. Basecamp comments, Oct 27 to 28</h3>
-      <ul>
-        <li>Title "New Ground" becomes "Hope in Action." Make "Impact Report" larger. <span class="pill done">done</span></li>
-        <li>New cover photo. Remove the "Presented to the Board" line and signature blocks. <span class="pill done">done</span></li>
-        <li>At a Glance: replace the giving comparison line with "Behind every number is a story of hope: a child with a brighter future, a family whose burdens are lighter and a community touched by God's love." <span class="pill done">done</span></li>
-        <li>Scripture for the section bands: Psalm 126:3 on Milestones, 1 Chronicles 16:24 on Where We Serve. <span class="pill done">done</span></li>
-        <li>8 countries, a new milestone list, updates for Mexico, Uganda and Cambodia. <span class="pill done">done</span></li>
-        <li>Giving shown "through October." <span class="pill open">needs the figure</span></li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>2. Design meeting, Oct 29</h3>
-      <ul>
-        <li>Lead At a Glance with transformed lives. Money comes second.</li>
-        <li>Larger, full page photos instead of many small modules. <span class="pill open">open</span></li>
-        <li>Show the full cover photo, with title and graphics along the bottom. <span class="pill open">open</span></li>
-        <li>Fix photos that look stretched inside circles. <span class="pill open">open</span></li>
-        <li>Move June on the timeline away from the center fold. <span class="pill done">done</span></li>
-        <li>Placeholder stats, such as the graduate count, need real numbers that include other schools like Fairmont. <span class="pill open">open</span></li>
-        <li>When shared, every staff member sees the whole report, not only their section.</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>3. Sync, Nov 11</h3>
-      <ul>
-        <li>Angie drafted pages herself in ChatGPT and posted a title page and an At a Glance page to Basecamp. Those are the style base going forward.</li>
-        <li>"Broad brush strokes": highlights and milestones across 12 months, not every activity. She has told the directors.</li>
-        <li>Basecamp over a Zoom channel for feedback, so comments stay sorted by section.</li>
-        <li>Travis and Florencey bring pages into Canva and clean them up.</li>
-        <li>About 25 copies, quick local print, needed for the first week of December.</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="why"><b>Reading Angie's feedback</b>
-    <p>Taken together, her notes say one thing: this is a testimony before it is a report. She replaced a dollar comparison with a sentence about a child, a family and a community. She put scripture where we had summary lines. She asked for faces at full size. Our drafts were built to prove accuracy to a board. She wants the board to feel the year first and check the numbers second.</p>
-    <p>That fits who we are. Dignity, Health, Joy and Love are easier to see in one full page photo than in six small charts.</p>
-  </div>
+<section class="beat dark"><div class="col">
+  <p class="date">Where you come in</p>
+  <h2>About 25 copies, in the board's hands the first week of December.</h2>
+  <ul class="plain">
+    <li><b>1</b> Confirm the path: Angie's look, rebuilt in Canva, with our checked facts.</li>
+    <li><b>2</b> Set the dates. Print ready around November 20, with Thanksgiving in between.</li>
+    <li><b>3</b> Ask each director for a few highlights, current numbers and photos. Kelley's are in.</li>
+    <li><b>4</b> Get the final figures from Finance, and the letters from Angie and Tom.</li>
+    <li><b>5</b> Decide on a version for supporters once the year closes.</li>
+  </ul>
+  <p style="margin-top:34px;font-size:17px">Want the pages themselves? <a href="https://travis-h4ki.github.io/h4ki-sites/impact-report-gallery/">Flip through rounds 1 to 6</a> or <a href="https://claude.ai/artifact/KpyMiZ1kdNTFejFWAoucq8">open round 7 for comments</a>.</p>
 </div></section>
 
-<section id="learned"><div class="wrap">
-  <div class="kicker"><span class="dots" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Chapter 7</div>
-  <h2>What we learned</h2>
-  <p class="when">Insights and reasoning</p>
-  <div class="cols">
-    <div class="card"><h3>Show the decision maker sooner</h3><p>We ran six rounds in three weeks before Angie saw a page. Her first ten days of feedback redirected the theme, the lead metric and the photo scale. Next time a rough round goes to her in week one. The rounds were not wasted, since they produced the structure, the data and the timeline, but fewer would have done.</p></div>
-    <div class="card"><h3>Where AI carried the load</h3><p>Research across 52 reports, pulling and cross checking facts from board documents, first drafts in each leader's voice, and fast layout variations. Angie found the same with ChatGPT: "an awesome first stab."</p></div>
-    <div class="card"><h3>Where people made the difference</h3><p>Voice, brand polish, what to leave out, and knowing what is true this week. Small edits are still faster by hand, which is why editable Canva files are the right final home.</p></div>
-    <div class="card"><h3>The bottleneck is content, not design</h3><p>We have had a layout since early October. What we have not had is current numbers and stories from each department. Broad strokes helps here, because each director now owes a few highlights instead of a full page.</p></div>
-    <div class="card"><h3>One source of truth pays off</h3><p>When staff changed the country count from 10 to 8, one edit updated every page. Whatever tool makes the final pages, the facts should still be checked against that file before print.</p></div>
-    <div class="card"><h3>Two things to watch in the new approach</h3><p>AI generated pages can drift: Angie noticed layouts changing between chats, and AI can restate numbers loosely. And AI photo edits are approved for small fixes, but for photos of real children and partners it is worth agreeing where the line is, so every image stays a true picture of the people we serve.</p></div>
-  </div>
-</div></section>
-
-<section id="next"><div class="wrap">
-  <div class="kicker"><span class="dots" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Chapter 8</div>
-  <h2>Decisions for Jenny</h2>
-  <p class="when">What would help most, in order</p>
-  <ol class="q">
-    <li><b>Confirm the path to print.</b> Recommended: Angie's pages set the look, Travis and Florencey rebuild them in Canva with brand fonts, and round 7 supplies the checked facts, the milestone timeline and the section order. Agree how many pages make the December book. A shorter book that is right beats 18 spreads that are not.</li>
-    <li><b>Set the dates.</b> Working back from a Dec 4 board meeting: content in by about Nov 17, print ready about Nov 20, with Thanksgiving in between. Mark's schedule needs a new owner and a refresh, since most content dates have passed.</li>
-    <li><b>Ask directors for their highlights.</b> Three to five highlights, current numbers and two or three photos each. Kelley's Education, Projects and Food fact sheet and 12 photos are in. Your own Global Engagement section is one of the open ones.</li>
-    <li><b>Get the numbers that only Finance and leadership have.</b> The giving total through October (or the decision to leave dollars off At a Glance), and Teresa's sign off on anything financial before it prints.</li>
-    <li><b>Leadership words.</b> Angie's letter, Tom's sidebar, and the revised cover description Angie mentioned on Oct 27.</li>
-    <li><b>Three fact checks.</b> Graduate counts across all schools. Whether the Ministry Training Center "opens" in 2026 or is still under construction (the sources disagree). The exact months for the August and September milestones.</li>
-    <li><b>Cover photo sign off.</b> A team member's name badge is readable in the cover photo. Retouch it or confirm they are comfortable.</li>
-    <li><b>Printing.</b> Florencey to price about 25 copies locally and confirm binding. Saddle stitch works for a short book; a longer one may need another method.</li>
-    <li><b>After the board meeting.</b> Decide whether supporters get a version, and plan the digital refresh once year end numbers close.</li>
-  </ol>
-</div></section>
-
-<section><div class="wrap">
-  <details>
-    <summary>Sources behind this page</summary>
-    <ul>
-      <li>Basecamp: "2026 End of Year Impact Report" project invite (Aug 31) and notification digests (Oct 28, Nov 11, Nov 12), plus the change list pulled Oct 28.</li>
-      <li>Email: Mark's timeline (Sep 15 and Sep 22), "Impact Report Documents" (Sep 28), "2026 Impact Report [Internal Testing]" (Oct 5), "2026 Impact Report [Internal Review]" to Angie (Oct 19).</li>
-      <li>Zoom notes: Dev Team (Sep 14, Sep 28, Oct 6), staff meeting (Oct 8), Travis and Florencey (Oct 13, Oct 16), "Impact Report Design and Content Strategy" with Angie (Oct 29), "Impact Guide and Printing Issues Sync" with Angie (Nov 11).</li>
-      <li>Project files: shared data file and sources, round notes for rounds 1 to 7, the peer benchmark and the art direction board.</li>
-      <li>Not seen: the attachments inside Basecamp (Angie's two pages, Kelley's fact sheet) and any Basecamp comments that did not trigger a notification. Zoom notes are AI summaries and may contain small errors.</li>
-    </ul>
-  </details>
-</div></section>
-
-<footer><div class="wrap">Hope 4 Kids International · Development and Marketing · Internal working page, prepared Nov 13, 2026.</div></footer>
+<footer><div class="col">Hope 4 Kids International · Internal working page · Drawn from project files, email, Zoom meeting notes and Basecamp notifications.</div></footer>
 </body>
 </html>
